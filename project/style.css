@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* 	ShoreDog Stylesheet
+ *	Version 0.1
+ *	All Rights Reserved.
+ */
+
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#333;
+	background:#000 url(achter.jpg) repeat;
+}
+
+div.container{
+	width:50%;
+	height:auto;
+	margin-bottom:0px;
+	min-width:600px;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+div.banner{
+	height:150px;
+	width:100%;
+	background:#666666;
+	vertical-align:middle;
+	text-align:center;
+	border-top-left-radius:15px;
+	border-top-right-radius:15px;
+}
+
+div.menu{
+	height:25px;
+	width:100%;
+	background:#333333;
+}
+
+div.menuitem{
+	height:auto;
+	margin-top:5px;
+	width:25%;
+	text-align:center;
+	float:left;
+	color:#CCCCCC;
+}
+
+div.content{
+	height:auto;
+	padding:20px;
+	border-bottom-left-radius:15px;
+	border-bottom-right-radius:15px;
+	background:#666666;
+}
+
+div.footer{
+	width: 100%;
+	text-align:center;
+	position:fixed;
+	bottom:0px; 
+	height:22px;
+	padding-top:6px;
+	left:0px;
+	right:0px;
+	background:url(balk.jpg) repeat-x;
+}
