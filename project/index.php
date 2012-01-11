@@ -12,30 +12,37 @@
     	<img src="logo.png" align="middle" />
     </div>
     <div class="menu">
-    	<div class="menuitem">
+    	<div class="menuitem" onMouseOver="this.style.backgroundColor='#000000';" 
+onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href='yourlinklocationhere'">
     		<b>Forum</b>
     	</div>
-        <div class="menuitem">
+        <div class="menuitem" onMouseOver="this.style.backgroundColor='#000000';" 
+onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href='yourlinklocationhere'">
     		<b>Gebruikers</b>
     	</div>
-        <div class="menuitem">
+        <div class="menuitem" onMouseOver="this.style.backgroundColor='#000000';" 
+onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href='yourlinklocationhere'">
     		<b>Registratie</b>
     	</div>
-        <div class="menuitem">
+        <div class="menuitem" onMouseOver="this.style.backgroundColor='#000000';" 
+onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href='yourlinklocationhere'">
     		<b>Log in</b>
     	</div>
     </div>
+    <div class="navigation">
+    	U bent hier: <b>Index</b>
+    </div>
   <div class="content"><h1>Index</h1>
-  <h2>Algemeen</h2>
-  <b>Mededelingen</b><br />
-  <i>Hier worden alle mededelingen van het forum geplaatst</i><br /><br />
-  <b>Tijmens moeder</b><br />
-  <i>Bespreek hier waarom Tijmens moeder zo dik is.</i><br /><br />
+  <div class="catbalk">Algemeen</div>
+  <div class="forumhok"><b>Mededelingen</b><br />
+  <i>Hier worden alle mededelingen van het forum geplaatst</i></div>
+  <div class="forumhok"><b>Tijmens moeder</b><br />
+  <i>Bespreek hier waarom Tijmens moeder zo dik is. </i></div>
   </div>
     
 </div>
 <div class="footer">
-	&copy; 2012 - ShoreDog Forums Entertainment Incorporated Forum Systems Engine&trade;.
+	&copy; 2012 - ShoreDog Power Services, Inc.&trade; (Powered by ShoreDog Forum Engine).
 </div>
 </body>
 </html>
