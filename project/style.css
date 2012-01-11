@@ -81,6 +81,8 @@ div.forumhok{
 	padding-top:10px;
 	padding-bottom:10px;
 	padding-left:15px;
+	padding-right:15px;
+	margin-bottom:20px;
 }
 
 div.footer{
@@ -93,4 +95,15 @@ div.footer{
 	left:0px;
 	right:0px;
 	background:url(balk.jpg) repeat-x;
+}
+
+
+/* ---------------------------------------------------------*/
+
+input.invoer{
+	background-color:#CCCCCC;
+}
+
+table.invoertabel td{
+	padding:2px;
 }
