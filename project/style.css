@@ -61,6 +61,7 @@ div.content{
 	border-bottom-left-radius:15px;
 	border-bottom-right-radius:15px;
 	background:#666666;
+	margin-bottom:50px;
 }
 
 div.catbalk{
@@ -71,6 +72,7 @@ div.catbalk{
 	padding-top:10px;
 	padding-left:15px;
 	font-weight:bold;
+	margin-top:20px;
 }
 
 div.forumhok{
@@ -82,7 +84,6 @@ div.forumhok{
 	padding-bottom:10px;
 	padding-left:15px;
 	padding-right:15px;
-	margin-bottom:20px;
 }
 
 div.footer{
