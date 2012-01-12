@@ -107,6 +107,7 @@ div.footer{
 
 .paneelinvoer{
 	background-color:#CCCCCC;
+	width:200px;
 }
 
 table.paneelinvoertabel td{
@@ -144,6 +145,6 @@ div.paneelfooter{
 }
 
 textarea.paneeltext{
-	width:100%;
+	width:98%;
 	background-color:#CCCCCC;
 }

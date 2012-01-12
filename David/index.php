@@ -59,7 +59,7 @@
             </div>
           	<div class="paneelbox">
       			<form action="#" method="post" name="kladblok">
-                	<textarea name="kladbl" cols="65" rows="5" class="paneeltext">Hier kunt u informatie opslaan welke u later nog kunt gebruiken.</textarea>
+                	<textarea name="kladbl" cols="10" rows="5" class="paneeltext">Hier kunt u informatie opslaan welke u later nog kunt gebruiken.</textarea>
                     <div align="right">
                     	<input name="submitkladblok" type="submit" value="Opslaan" />
                     </div>
@@ -71,7 +71,7 @@
 	</div>
 </div>
 <div class="footer">
-	&copy; 2012 - ShoreDog Power Services, Inc.&trade; (Powered by ShoreDog Forum Engine).
+	&copy; 2012 - ShoreDog Power Services, Inc.&trade; (Powered by ShoreDog Forum Engine&reg;).
 </div>
 </body>
 </html>
