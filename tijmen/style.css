@@ -78,6 +78,11 @@ div.profilecomments{
 	float:left;
 }
 
+div.comment{
+	height:auto;
+	background-color:#6f6f6f;
+}
+
 div.profilefooter{
 	height:0px;
 	width:100%;
@@ -89,6 +94,18 @@ div.catbalk{
 	color:#FFFFFF;
 	background:url(catbalk.jpg) repeat-x;
 	height:25px;
+	border:1px #333 solid;
+	padding-top:10px;
+	padding-left:15px;
+	font-weight:bold;
+	margin-top:20px;
+}
+
+div.userinfoheader{
+	color:#FFFFFF;
+	background-image:url(catbalk.jpg);
+	background-size:70px;
+	height:70px;
 	border:1px #333 solid;
 	padding-top:10px;
 	padding-left:15px;
@@ -128,4 +145,13 @@ input.invoer{
 
 table.invoertabel td{
 	padding:2px;
+}
+
+table.userinfotable{
+	width:100%;
+}
+
+img.avatar{
+	float:left;
+	margin:5px;
 }
