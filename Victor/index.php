@@ -38,8 +38,6 @@ onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href
   <i>Hier worden alle mededelingen van het forum geplaatst</i></div>
   <div class="forumhok"><b>Tijmens moeder</b><br />
   <i>Bespreek hier waarom Tijmens moeder zo dik is. </i></div>
-  <div class="forumhok"><b>Hmm</b><br />
-  <i>Blabla </i></div>
   </div>
     
 </div>
