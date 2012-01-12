@@ -1,0 +1,192 @@
+@charset "utf-8";
+/* 	ShoreDog Stylesheet
+ *	Version 0.1
+ *	All Rights Reserved.
+ */
+
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#333;
+	background:#000 url(wood.jpg) repeat;
+}
+
+div.container{
+	width:50%;
+	height:auto;
+	margin-bottom:0px;
+	min-width:600px;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+div.banner{
+	height:150px;
+	width:100%;
+	background:#666666;
+	vertical-align:middle;
+	text-align:center;
+	border-top-left-radius:15px;
+	border-top-right-radius:15px;
+}
+
+div.menu{
+	height:25px;
+	width:100%;
+	background:#333333;
+}
+
+div.menuitem{
+	padding-top:5px;
+	padding-bottom:5px;
+	width:25%;
+	text-align:center;
+	float:left;
+	color:#CCCCCC;
+}
+
+div.navigation{
+	height:auto;
+	min-width:585px;
+	background:#666666;
+	padding-left:15px;
+	padding-top:5px;
+}
+
+div.content{
+	height:auto;
+	padding:20px;
+	border-bottom-left-radius:15px;
+	border-bottom-right-radius:15px;
+	background:#666666;
+	margin-bottom:50px;
+	padding:30px 5%;
+}
+
+div.profileinfo{
+	height:auto;
+	width:35%;
+	float:left;
+	margin-right:5%;
+}
+
+div.profilecomments{
+	height:auto;
+	width:60%;
+	float:left;
+}
+
+div.comment{
+	padding-left:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-right:10px;	
+	height:auto;
+	background-color:#6f6f6f;
+	border:1px #333 solid;
+	
+}
+
+div.profilefooter{
+	height:1px;
+	width:100%;
+	clear:both;
+	position:relative;
+}
+
+
+div.catbalk{
+	color:#FFFFFF;
+	background:url(catbalk.jpg) repeat-x;
+	height:25px;
+	border:1px #333 solid;
+	padding-top:10px;
+	padding-left:15px;
+	font-weight:bold;
+	margin-top:20px;
+}
+
+div.catbalk2{
+	color:#FFFFFF;
+	background:url(catbalk.jpg);
+	background-size:135px;
+	width:22%;
+	height:135px;
+	border-right:1px #333 solid;
+	border-bottom:1px #333 solid;
+	border-left:1px #333 solid;
+	border-top:1px #333 solid;
+	padding-top:10px;
+	padding-left:15px;
+	font-weight:bold;
+	float:left;
+	word-wrap: break-word;
+}
+
+div.userinfoheader{
+	color:#FFFFFF;
+	background-image:url(catbalk.jpg);
+	background-size:70px;
+	height:70px;
+	border:1px #333 solid;
+	padding-top:10px;
+	padding-left:15px;
+	font-weight:bold;
+	margin-top:20px;
+}
+
+div.forumhok{
+	height:auto;
+	border-left:1px solid #333333;
+	border-right:1px #333 solid;
+	border-bottom:1px #333 solid;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:15px;
+	padding-right:15px;
+}
+
+div.forumhok2{
+	width:69%;
+	height:100%
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:15px;
+	padding-right:15px;
+	float:right;
+	word-wrap: break-word;
+}
+
+div.footer{
+	width: 100%;
+	text-align:center;
+	position:fixed;
+	bottom:0px; 
+	height:22px;
+	padding-top:6px;
+	left:0px;
+	right:0px;
+	background:url(balk.jpg) repeat-x;
+}
+
+
+/* ---------------------------------------------------------*/
+
+input.invoer{
+	background-color:#CCCCCC;
+}
+
+table.invoertabel td{
+	padding:2px;
+}
+
+table.userinfotable{
+	width:100%;
+}
+
+img.avatar{
+	float:left;
+	margin:5px;
+}
