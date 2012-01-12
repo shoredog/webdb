@@ -110,6 +110,10 @@ div.footer{
 	width:200px;
 }
 
+.paneelinvoer2{
+	background-color:#CCCCCC;
+}
+
 table.paneelinvoertabel td{
 	padding:2px;
 	vertical-align:top;
@@ -147,4 +151,5 @@ div.paneelfooter{
 textarea.paneeltext{
 	width:98%;
 	background-color:#CCCCCC;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
 }

@@ -43,8 +43,7 @@
                 - Foruminstellingen<br />
                 - Avatar wijzigen<br />
                 - Signature wijzigen<br />
-                - Profielinstellingen<br />
-                - Overige instelligen
+                - Wachtwoord wijzigen
            	</div>
         </div>
         <div class="paneelcontent">
@@ -115,7 +114,7 @@
                     <tr>
                     	<td width="40%"><b>Geboortedatum</b></td>
                         <td>
-                        	<select name="gebdag">
+                        	<select name="gebdag" class="paneelinvoer2">
                             	<?php
 									for($i=1;$i<32;$i++)
 									{
@@ -123,7 +122,7 @@
 									}
 								?>
                       		</select>
-                            <select name="gebmaand">
+                            <select name="gebmaand" class="paneelinvoer2">
                             	<option value="januari">Januari</option>
                                 <option value="februai">Februari</option>
                                 <option value="maart">Maart</option>
@@ -137,7 +136,7 @@
                                 <option value="november">November</option>
                                 <option value="december">December</option>
                             </select>
-                            <select name="gebjaar">
+                            <select name="gebjaar" class="paneelinvoer2">
                             	<?php
 									for($i=2012;$i>1900;$i--)
 									{
@@ -146,6 +145,35 @@
 								?>
                       		</select>
                     	</td>
+                    </tr>
+                    <tr>
+                    	<td width="40%"><b>Zichtbaarheid</b></td>
+                        <td>
+                        	<select class="paneelinvoer" name="leeftijdzichtbaar">
+                      			<option value="ja">Leeftijd en geboortedatum weergeven</option>
+                      			<option value="nee">Leeftijd en geboortedatum verbergen</option>
+                     		</select>
+                    	</td>
+                    </tr>
+                    <tr>
+                    	<td colspan="2">
+                        	<b>Interesses</b>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td colspan="2">
+                        	<textarea name="interesse" cols="10" rows="8" class="paneeltext"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td colspan="2">
+                        	<b>Biografie</b>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td colspan="2">
+                        	<textarea name="biografie" cols="10" rows="8" class="paneeltext"></textarea>
+                        </td>
                     </tr>
                 </table>
 			</div>
