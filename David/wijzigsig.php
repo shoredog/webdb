@@ -48,22 +48,19 @@
         </div>
         <div class="paneelcontent">
             <div class="catbalk">
-                Gebruikerspaneel
-            </div>
-            <div class="paneelbox">
-                Welkom in het gebruikerspaneel! Hier kan u uw profiel naar behoefte aanpassen.
-            </div>
-            <div class="catbalk">
-                Persoonlijk kladblok
+               	Uw huidige signature
             </div>
           	<div class="paneelbox">
-      			<form action="#" method="post" name="kladblok">
-                	<textarea name="kladbl" cols="10" rows="5" class="paneeltext">Hier kunt u informatie opslaan welke u later nog kunt gebruiken.</textarea>
-                    <div align="right">
-                    	<input name="submitkladblok" type="submit" value="Opslaan" />
-                    </div>
-                </form>
-           	</div>
+      			<center>
+                	<img src="http://1.bp.blogspot.com/_bBlNFyLU7Ik/TSzrlWs8kNI/AAAAAAAABgc/Gm91ApIeJPA/s1600/Woodrow_wilson_signature.png" width="300" />
+                </center>
+			</div>
+            <div class="catbalk">
+               	 Uw signature bewerken
+            </div>
+          	<div class="paneelbox">
+      			<textarea name="signature" cols="10" rows="8" class="paneeltext">Haha tijmen is gay</textarea>
+			</div>
       	</div>
       	<div class="paneelfooter"></div>
    		</div>

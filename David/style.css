@@ -105,11 +105,51 @@ div.footer{
 
 /* ---------------------------------------------------------*/
 
-.invoer{
+.paneelinvoer{
+	background-color:#CCCCCC;
+	width:200px;
+}
+
+.paneelinvoer2{
 	background-color:#CCCCCC;
 }
 
-table.invoertabel td{
+table.paneelinvoertabel td{
 	padding:2px;
 	vertical-align:top;
+}
+
+div.paneelbox{
+	height:auto;
+	border-left:1px solid #333333;
+	border-right:1px #333 solid;
+	border-bottom:1px #333 solid;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:15px;
+	padding-right:15px;
+	background-color:#666;
+}
+
+div.paneelmenu{
+	width:30%;
+	height:auto;
+	float:left;
+}
+
+div.paneelcontent{
+	width:65%;
+	height:auto;
+	float:right;
+}
+
+div.paneelfooter{
+	width:100%;
+	clear:both;
+}
+
+textarea.paneeltext{
+	width:98%;
+	background-color:#CCCCCC;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
 }

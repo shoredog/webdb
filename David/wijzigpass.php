@@ -48,22 +48,30 @@
         </div>
         <div class="paneelcontent">
             <div class="catbalk">
-                Gebruikerspaneel
-            </div>
-            <div class="paneelbox">
-                Welkom in het gebruikerspaneel! Hier kan u uw profiel naar behoefte aanpassen.
-            </div>
-            <div class="catbalk">
-                Persoonlijk kladblok
+               	Wachtwoord wijzigen
             </div>
           	<div class="paneelbox">
-      			<form action="#" method="post" name="kladblok">
-                	<textarea name="kladbl" cols="10" rows="5" class="paneeltext">Hier kunt u informatie opslaan welke u later nog kunt gebruiken.</textarea>
-                    <div align="right">
-                    	<input name="submitkladblok" type="submit" value="Opslaan" />
-                    </div>
-                </form>
-           	</div>
+      			<table width="100%"  class="invoertabel">
+                	<tr>
+                    	<td width="50%"><b>Uw oude wachtwoord</b></td>
+                        <td>
+                        	<input name="ondertitel" type="text" maxlength="250" class="paneelinvoer" />
+                    	</td>
+                    </tr>
+                    <tr>
+                    	<td width="50%"><b>Uw nieuwe wachtwoord</b></td>
+                        <td>
+                        	<input name="site" type="text" maxlength="250" class="paneelinvoer" />
+                    	</td>
+                    </tr>
+                    <tr>
+                    	<td width="50%"><b>Nogmaals uw nieuwe wachtwoord</b></td>
+                        <td>
+                        	<input name="ondertitel" type="text" maxlength="250" class="paneelinvoer" />
+                    	</td>
+                    </tr>
+           		</table>
+			</div>
       	</div>
       	<div class="paneelfooter"></div>
    		</div>
