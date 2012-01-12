@@ -141,7 +141,7 @@ div.forumhok{
 	height:auto;
 	border-left:1px solid #333333;
 	border-right:1px #333 solid;
-	border-bottom:1px #333 solid;
+	border-bottom:hide;
 	padding-top:10px;
 	padding-bottom:10px;
 	padding-left:15px;
