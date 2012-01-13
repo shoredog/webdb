@@ -23,17 +23,13 @@ div.container{
 
 
 div.banner{
+	height:150px;
 	width:100%;
 	background:#666666;
 	vertical-align:middle;
-	text-align:right;
+	text-align:center;
 	border-top-left-radius:15px;
 	border-top-right-radius:15px;
-}
-
-div.bannerquotes{
-	padding:5px;
-	height:auto;
 }
 
 div.menu{
@@ -95,76 +91,48 @@ div.footer{
 	text-align:center;
 	position:fixed;
 	bottom:0px; 
-	height:28px;
+	height:22px;
+	padding-top:6px;
 	left:0px;
 	right:0px;
 	background:url(balk.jpg) repeat-x;
 }
 
-div.footerdivider1{
-	width:21%;
-	height:100%;
-	padding-top:7px;
-	float:left;
-	padding-left:2%;
-	padding-right:2%;
+div.loginbox{
+	width: 350px;
+	margin-left: auto;
+    margin-right: auto;
+	text-align: center;
 }
 
-div.footerdivider2{
-	width:50%;
-	height:100%;
-	padding-top:7px;
-	float:left;
+div.loginform{
+	position: relative;
+	width: 140px;
+	margin: 0px auto;
+	text-align: left;
 }
 
+div.registeragree{
+height:400px;
+padding: 0px;
+border: 1px solid;
+overflow:-moz-scrollbars-vertical;
+overflow-y:auto;
+}
+
+div.registerform{
+}
+
+div.registeraccept{
+
+}
 
 /* ---------------------------------------------------------*/
 
-.paneelinvoer{
-	background-color:#CCCCCC;
-	width:200px;
-}
-
-.paneelinvoer2{
+input.invoer{
 	background-color:#CCCCCC;
 }
 
-table.paneelinvoertabel td{
+table.invoertabel td{
 	padding:2px;
-	vertical-align:top;
-}
-
-div.paneelbox{
-	height:auto;
-	border-left:1px solid #333333;
-	border-right:1px #333 solid;
-	border-bottom:1px #333 solid;
-	padding-top:10px;
-	padding-bottom:10px;
-	padding-left:15px;
-	padding-right:15px;
-	background-color:#666;
-}
-
-div.paneelmenu{
-	width:30%;
-	height:auto;
-	float:left;
-}
-
-div.paneelcontent{
-	width:65%;
-	height:auto;
-	float:right;
-}
-
-div.paneelfooter{
-	width:100%;
-	clear:both;
-}
-
-textarea.paneeltext{
-	width:98%;
-	background-color:#CCCCCC;
-	font-family:Geneva, Arial, Helvetica, sans-serif;
 }
