@@ -137,6 +137,7 @@ div.footer{
 }
 
 
+
 /* ---------------------------------------------------------*/
 
 input.invoer{
@@ -154,4 +155,37 @@ table.userinfotable{
 img.avatar{
 	float:left;
 	margin:5px;
+}
+
+.paneelinvoer{
+	background-color:#CCCCCC;
+	width:200px;
+}
+
+div.formulier{
+	
+}
+
+div.formulier span{
+	width:40%;
+	display:block;
+	float:left;
+	vertical-align:middle;
+	margin-top:3px;
+	margin-bottom:6px;
+	font-weight:bold;
+}
+
+div.formulier select{
+	width:50%;
+	display:block;
+	float:left;
+	height:20px;
+	margin-bottom:6px;
+}
+
+textarea.paneeltext{
+	width:98%;
+	background-color:#CCCCCC;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
 }
