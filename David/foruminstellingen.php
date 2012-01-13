@@ -47,6 +47,19 @@
            	</div>
         </div>
         <div class="paneelcontent">
+        	<div class="catbalk">
+                Foruminstellingen
+            </div>
+            <div class="paneelbox">
+            	<div class="formulier">
+                    <span><b>Discussieweergave</b></span>
+                    <select class="paneelinvoer" name="weergave">
+                                    <option value="genest">Geneste weergave</option>
+                                    <option value="lineair">Lineaire weergave</option>
+                    </select>
+                    <div class="paneelfooter"></div>
+               	</div>
+            </div>
             <div class="catbalk">
                 Foruminstellingen
             </div>

@@ -168,3 +168,22 @@ textarea.paneeltext{
 	background-color:#CCCCCC;
 	font-family:Geneva, Arial, Helvetica, sans-serif;
 }
+
+div.formulier{
+	
+}
+
+div.formulier span{
+	width:40%;
+	display:block;
+	float:left;
+	vertical-align:middle;
+	margin-top:3px;
+}
+
+div.formulier select{
+	width:50%;
+	display:block;
+	float:left;
+	height:20px;
+}
