@@ -30,19 +30,18 @@ onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href
     	</div>
     </div>
     <div class="navigation">
-    	U bent hier: <b>Categorie&euml;n</b>
+    	U bent hier: <b>Forum 1</b>
     </div>
 <div class="categoriecontent">
 	<div class="categoriecontainer">
-		<div class="categoriecatbalk">Categorie 1</div>
+		<div class="categoriecatbalk">Forum 1</div>
 		<div class="categorieinfoforumhok" >
 			<b>Forum</b>
 		</div>
-		<div class="categorieinfoposthok">
-			<b>Discussies</b>
-		</div>
-		<div class="categorieinfoposthok">
+		<div class="foruminfoposthok">
+		<center>
 			<b>Berichten</b>
+		</center>
 		</div>
 		<div class="categorieinfolastpost">
 			<center>
@@ -51,19 +50,13 @@ onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href
 		</div>
 		<div class="categorieforumcontainer">
 			<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='/forum.php'">
-				<b>Forum 1</b><br />
-				<i>Beschrijving Forum 1</i>
+onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+				<b>Topic 1</b><br />
+				<i>Poster Topic 1</i>
 			</div>
-			<div class="categorieposthok">
+			<div class="forumposthok">
 				<center>
-					<b>100</b>
-					<b>discussies</b>
-				</center>
-			</div>
-			<div class="categorieposthok">
-				<center>
-					<b>100</b>
+					<b>100</b></br>
 					<b>berichten</b>
 				</center>
 			</div>
@@ -76,18 +69,12 @@ onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href
 		<div class="categorieforumcontainer">
 			<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
 onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
-				<b>Forum 2</b><br />
-				<i>Beschrijving Forum 2</i>
+				<b>Topic 2</b><br />
+				<i>Poster Topic 2</i>
 			</div>
-			<div class="categorieposthok">
+			<div class="forumposthok">
 				<center>
-					<b>100</b>
-					<b>discussies</b>
-				</center>
-			</div>
-			<div class="categorieposthok">
-				<center>
-					<b>100</b>
+					<b>100</b></br>
 					<b>berichten</b>
 				</center>
 			</div>
@@ -97,39 +84,15 @@ onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href
 				<i>Op datum door poster</i>
 			</div>
 		</div>
-		<div class="categoriefooter"></div>
-	</div>
-	<div class="categoriecontainer">
-		<div class="categoriecatbalk">Categorie 2</div>
-		<div class="categorieinfoforumhok" >
-			<b>Forum</b>
-		</div>
-		<div class="categorieinfoposthok">
-			<b>Discussies</b>
-		</div>
-		<div class="categorieinfoposthok">
-			<b>Berichten</b>
-		</div>
-		<div class="categorieinfolastpost">
-			<center>
-				<b>Laatste bericht</b>
-			</center>
-		</div>
 		<div class="categorieforumcontainer">
 			<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
 onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
-				<b>Forum 3</b><br />
-				<i>Beschrijving Forum 3</i>
+				<b>Topic 3</b><br />
+				<i>Poster Topic 3</i>
 			</div>
-			<div class="categorieposthok">
+			<div class="forumposthok">
 				<center>
-					<b>100</b>
-					<b>discussies</b>
-				</center>
-			</div>
-			<div class="categorieposthok">
-				<center>
-					<b>100</b>
+					<b>100</b></br>
 					<b>berichten</b>
 				</center>
 			</div>
@@ -139,39 +102,15 @@ onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href
 				<i>Op datum door poster</i>
 			</div>
 		</div>
-		<div class="categoriefooter"></div>
-	</div>
-	<div class="categoriecontainer">
-		<div class="categoriecatbalk">Categorie 3</div>
-		<div class="categorieinfoforumhok" >
-			<b>Forum</b>
-		</div>
-		<div class="categorieinfoposthok">
-			<b>Discussies</b>
-		</div>
-		<div class="categorieinfoposthok">
-			<b>Berichten</b>
-		</div>
-		<div class="categorieinfolastpost">
-			<center>
-				<b>Laatste bericht</b>
-			</center>
-		</div>
 		<div class="categorieforumcontainer">
 			<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
 onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
-				<b>Forum 4</b><br />
-				<i>Beschrijving Forum 4</i>
+				<b>Topic 4</b><br />
+				<i>Poster Topic 4</i>
 			</div>
-			<div class="categorieposthok">
+			<div class="forumposthok">
 				<center>
-					<b>100</b>
-					<b>discussies</b>
-				</center>
-			</div>
-			<div class="categorieposthok">
-				<center>
-					<b>100</b>
+					<b>100</b></br>
 					<b>berichten</b>
 				</center>
 			</div>

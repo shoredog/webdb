@@ -64,6 +64,33 @@ div.content{
 	margin-bottom:50px;
 }
 
+div.categoriecontainer{
+	margin-bottom:30px;
+	height:auto;
+	width:100%;
+}
+
+div.categorieforumcontainer{
+	margin-bottom:30px;
+	height:auto;
+	width:100%;
+}
+
+div.categoriefooter{
+	width:100%;
+	clear:both;
+}
+
+div.categoriecontent{
+	height:auto;
+	padding:20px;
+	border-bottom-left-radius:15px;
+	border-bottom-right-radius:15px;
+	background:#666666;
+	margin-bottom:50px;
+	clear:left;
+}
+
 div.catbalk{
 	color:#FFFFFF;
 	background:url(catbalk.jpg) repeat-x;
@@ -73,6 +100,71 @@ div.catbalk{
 	padding-left:15px;
 	font-weight:bold;
 	margin-top:20px;
+}
+
+div.categoriecatbalk{
+	color:#FFFFFF;
+	background:url(catbalk.jpg) repeat-x;
+	height:25px;
+	border:1px #333 solid;
+	padding-top:10px;
+	padding-left:15px;
+	font-weight:bold;
+	margin-top:20px;
+	clear:left;
+}
+
+div.categorieinfoforumhok{
+	height:auto;
+	background:#555555;
+	border-left:1px solid #000000;
+	border-right:1px #000 solid;
+	border-bottom:1px #000 solid;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-left:2.5%;
+	padding-right:2.5%;
+	width:40%;
+	float:left;
+}
+
+div.categorieinfoposthok{
+	height:auto;
+	background:#555555;
+	border-right:1px #000 solid;
+	border-bottom:1px #000 solid;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-left:2.5%;
+	padding-right:2.5%;
+	width:10%;
+	float:left;
+}
+
+div.foruminfoposthok{
+	height:auto;
+	background:#555555;
+	border-right:1px #000 solid;
+	border-bottom:1px #000 solid;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-left:2.5%;
+	padding-right:2.5%;
+	width:25%;
+	float:left;
+}
+
+div.categorieinfolastpost{
+	height:auto;
+	background:#555555;
+	border-right:1px #000 solid;
+	border-bottom:1px #000 solid;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-left:2.5%;
+	padding-right:2.5%;
+	width:20%;
+	float:left;
 }
 
 div.forumhok{
@@ -86,6 +178,56 @@ div.forumhok{
 	padding-right:15px;
 }
 
+div.categorieforumhok{
+	height:auto;
+	border-left:1px solid #333333;
+	border-right:1px #333 solid;
+	border-bottom:1px #333 solid;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:2.5%;
+	padding-right:2.5%;
+	width:40%;
+	clear:both;
+	float:left;
+}
+
+div.categorieposthok{
+	height:auto;
+	border-right:1px #333 solid;
+	border-bottom:1px #333 solid;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:2.5%;
+	padding-right:2.5%;
+	width:10%;
+	float:left;
+}
+
+div.forumposthok{
+	height:auto;
+	border-right:1px #333 solid;
+	border-bottom:1px #333 solid;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:2.5%;
+	padding-right:2.5%;
+	width:25%;
+	float:left;
+}
+
+div.categorielastpost{
+	border-right:1px #333 solid;
+	border-bottom:1px #333 solid;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:2.5%;
+	padding-right:2.5%;
+	width:20%;
+	float:left;
+	text-align:right;
+}
+	
 div.footer{
 	width: 100%;
 	text-align:center;

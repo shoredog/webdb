@@ -13,7 +13,7 @@
     </div>
     <div class="menu">
     	<div class="menuitem" onMouseOver="this.style.backgroundColor='#000000';" 
-onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href='yourlinklocationhere'">
+onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href='/categorie.php'">
     		<b>Forum</b>
     	</div>
         <div class="menuitem" onMouseOver="this.style.backgroundColor='#000000';" 
