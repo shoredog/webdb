@@ -54,142 +54,85 @@
             	<div class="formulier">
                     <span><b>Discussieweergave</b></span>
                     <select class="paneelinvoer" name="weergave">
-                                    <option value="genest">Geneste weergave</option>
-                                    <option value="lineair">Lineaire weergave</option>
+                        <option value="genest">Geneste weergave</option>
+                        <option value="lineair">Lineaire weergave</option>
                     </select>
-                    <div class="paneelfooter"></div>
+                    <span><b>Taal</b></span>
+                    <select class="paneelinvoer" name="taal">
+                        <option value="genest">Nederlands</option>
+                        <option value="lineair">English</option>
+                     </select>
+          			<br />
                	</div>
             </div>
-            <div class="catbalk">
-                Foruminstellingen
-            </div>
-          	<div class="paneelbox">
-      			<table width="100%"  class="invoertabel">
-                	<tr>
-                    	<td width="40%"><b>Discussieweergave</b></td>
-                        <td>
-                        	<select class="paneelinvoer" name="weergave">
-                      			<option value="genest">Geneste weergave</option>
-                      			<option value="lineair">Lineaire weergave</option>
-                     		</select>
-                    	</td>
-                    </tr>
-                    <tr>
-                    	<td width="40%"><b>Taal</b></td>
-                        <td>
-                        	<select class="paneelinvoer" name="taal">
-                      			<option value="genest">Nederlands</option>
-                      			<option value="lineair">English</option>
-                     		</select>
-                    	</td>
-                    </tr>
-                </table>
-			</div>
             <div class="catbalk">
                 Profielinstellingen
             </div>
           	<div class="paneelbox">
-      			<table width="100%"  class="invoertabel">
-                	<tr>
-                    	<td width="40%"><b>Geslacht</b></td>
-                        <td>
-                        	<select class="paneelinvoer" name="geslacht">
-                      			<option value="man">Man</option>
-                      			<option value="vrouw">Vrouw</option>
-                                <option value="x">Zeg ik liever niet</option>
-                     		</select>
-                    	</td>
-                    </tr>
-                    <tr>
-                    	<td width="40%"><b>Website</b></td>
-                        <td>
-                        	<input name="site" type="text" maxlength="250" class="paneelinvoer" />
-                    	</td>
-                    </tr>
-                    <tr>
-                    	<td width="40%"><b>Ondertitel</b></td>
-                        <td>
-                        	<input name="ondertitel" type="text" maxlength="250" class="paneelinvoer" />
-                    	</td>
-                    </tr>
-                    <tr>
-                    	<td width="40%"><b>Woonplaats</b></td>
-                        <td>
-                        	<input name="locatie" type="text" maxlength="250" class="paneelinvoer" />
-                    	</td>
-                    </tr>
-                    <tr>
-                    	<td width="40%"><b>E-mail</b></td>
-                        <td>
-                        	<input name="email" type="text" maxlength="250" class="paneelinvoer" />
-                    	</td>
-                    </tr>
-                    <tr>
-                    	<td width="40%"><b>Geboortedatum</b></td>
-                        <td>
-                        	<select name="gebdag" class="paneelinvoer2">
-                            	<?php
-									for($i=1;$i<32;$i++)
-									{
-										echo('<option value="'.$i.'">'.$i.'</option>');	
-									}
-								?>
-                      		</select>
-                            <select name="gebmaand" class="paneelinvoer2">
-                            	<option value="januari">Januari</option>
-                                <option value="februai">Februari</option>
-                                <option value="maart">Maart</option>
-                                <option value="april">April</option>
-                                <option value="mei">Mei</option>
-                                <option value="juni">Juni</option>
-                                <option value="juli">Juli</option>
-                                <option value="augustus">Augustus</option>
-                                <option value="september">September</option>
-                                <option value="oktober">Oktober</option>
-                                <option value="november">November</option>
-                                <option value="december">December</option>
-                            </select>
-                            <select name="gebjaar" class="paneelinvoer2">
-                            	<?php
-									for($i=2012;$i>1900;$i--)
-									{
-										echo('<option value="'.$i.'">'.$i.'</option>');	
-									}
-								?>
-                      		</select>
-                    	</td>
-                    </tr>
-                    <tr>
-                    	<td width="40%"><b>Zichtbaarheid</b></td>
-                        <td>
-                        	<select class="paneelinvoer" name="leeftijdzichtbaar">
-                      			<option value="ja">Leeftijd en geboortedatum weergeven</option>
-                      			<option value="nee">Leeftijd en geboortedatum verbergen</option>
-                     		</select>
-                    	</td>
-                    </tr>
-                    <tr>
-                    	<td colspan="2">
-                        	<b>Interesses</b>
-                        </td>
-                    </tr>
-                    <tr>
-                    	<td colspan="2">
-                        	<textarea name="interesse" cols="10" rows="8" class="paneeltext"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                    	<td colspan="2">
-                        	<b>Biografie</b>
-                        </td>
-                    </tr>
-                    <tr>
-                    	<td colspan="2">
-                        	<textarea name="biografie" cols="10" rows="8" class="paneeltext"></textarea>
-                        </td>
-                    </tr>
-                </table>
-			</div>
+                <div class="formulier">
+                    <span>Geslacht</span>
+                    <select class="paneelinvoer" name="geslacht">
+                    	<option value="man">Man</option>
+                    	<option value="vrouw">Vrouw</option>
+                    	<option value="x">Zeg ik liever niet</option>
+                	</select>
+                    <br />
+                    <span>Website</span>
+                    <input name="site" type="text" maxlength="250" class="paneelinvoer" />
+                    <br />
+                    <span>Ondertitel</span>
+                    <input name="ondertitel" type="text" maxlength="250" class="paneelinvoer" />
+                    <br />
+                    <span>Woonplaats</span>
+                    <input name="locatie" type="text" maxlength="250" class="paneelinvoer" />
+                    <br />
+                    <span>E-mail</span>
+                    <input name="email" type="text" maxlength="250" class="paneelinvoer" />
+                    <br />
+                    <span>Geboortedatum</span>
+                    <select name="gebdag" class="paneelinvoer2" style="width:40px;">
+						<?php
+                            for($i=1;$i<32;$i++)
+                            {
+                                echo('<option value="'.$i.'">'.$i.'</option>');	
+                            }
+                        ?>
+                    </select>
+                    <select name="gebmaand" class="paneelinvoer2" style="width:90px;">
+                        <option value="januari">Januari</option>
+                        <option value="februai">Februari</option>
+                        <option value="maart">Maart</option>
+                        <option value="april">April</option>
+                        <option value="mei">Mei</option>
+                        <option value="juni">Juni</option>
+                        <option value="juli">Juli</option>
+                        <option value="augustus">Augustus</option>
+                        <option value="september">September</option>
+                        <option value="oktober">Oktober</option>
+                        <option value="november">November</option>
+                        <option value="december">December</option>
+                    </select>
+                    <select name="gebjaar" class="paneelinvoer2" style="width:60px;">
+						<?php
+                            for($i=2012;$i>1900;$i--)
+                            {
+                                echo('<option value="'.$i.'">'.$i.'</option>');	
+                            }
+                        ?>
+                    </select>
+                    <br />
+                    <span>Zichtbaarheid</span>
+                    <select class="paneelinvoer" name="leeftijdzichtbaar">
+                        <option value="ja">Leeftijd en geboortedatum weergeven</option>
+                        <option value="nee">Leeftijd en geboortedatum verbergen</option>
+                    </select>
+                    <br />
+                </div>
+            	<b>Interesses</b>
+                <textarea name="interesse" cols="10" rows="8" class="paneeltext"></textarea>
+                <b>Biografie</b>
+                <textarea name="biografie" cols="10" rows="8" class="paneeltext"></textarea>
+            </div>
       	</div>
       	<div class="paneelfooter"></div>
    		</div>

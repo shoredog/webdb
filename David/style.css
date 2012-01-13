@@ -173,12 +173,18 @@ div.formulier{
 	
 }
 
+div.formulier br{
+	clear:both;
+}
+
 div.formulier span{
 	width:40%;
 	display:block;
 	float:left;
 	vertical-align:middle;
 	margin-top:3px;
+	margin-bottom:6px;
+	font-weight:bold;
 }
 
 div.formulier select{
@@ -186,4 +192,5 @@ div.formulier select{
 	display:block;
 	float:left;
 	height:20px;
+	margin-bottom:6px;
 }
