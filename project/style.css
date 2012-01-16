@@ -75,6 +75,29 @@ div.catbalk{
 	margin-top:20px;
 }
 
+div.categorieinfohok{
+	height:auto;
+	background:#EAEBEC;
+	border-left:1px solid #000000;
+	border-right:1px #000 solid;
+	border-bottom:1px #000 solid;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:15px;
+	padding-right:15px;
+}
+
+div.categorieforumhok{
+	height:auto;
+	border-left:1px solid #333333;
+	border-right:1px #333 solid;
+	border-bottom:1px #333 solid;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:15px;
+	padding-right:15px;
+}
+
 div.forumhok{
 	height:auto;
 	border-left:1px solid #333333;
