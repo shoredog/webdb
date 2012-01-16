@@ -189,6 +189,7 @@ div.categorieinfolastpost{
 div.categorieforumcontainer{
 	height:50px;
 	background:#666666;
+	border-top:1px #000 solid;
 	width:100%;
 	float:left;
 	clear:both;
