@@ -121,10 +121,35 @@ overflow-y:auto;
 }
 
 div.registerform{
+	
 }
 
-div.registeraccept{
+div.formulier span{
+	width:30%;
+	display:block;
+	float:left;
+	vertical-align:middle;
+	margin-top:3px;
+}
 
+div.formulier select{
+	width:50%;
+	display:block;
+	float:left;
+	height:20px;
+	margin-bottom:6px;
+}
+
+div.formulier input{
+	width:48%;
+	display:block;
+	float:left;
+	height:15px;
+	margin-bottom:6px;
+}
+
+div.formulier br{
+	clear:both;
 }
 
 /* ---------------------------------------------------------*/
@@ -136,3 +161,7 @@ input.invoer{
 table.invoertabel td{
 	padding:2px;
 }
+
+select, input{
+	background-color:#CCCCCC;
+	}

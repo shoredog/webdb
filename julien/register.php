@@ -36,80 +36,60 @@ onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href
   <div class="catbalk">Registratieformulier</div>
   <div class="forumhok"><b>Vul hier uw gegeven in:</b><br />
   <form>
-  <div class="registerform">
-  <table width="100%"  class="invoertabel">
-                	<tr>
-                    	<td width="30%"><b>Gebruikersnaam</b></td>
-                        <td>
-                        	<input name="username" size="35" />
-                    	</td>
-                    </tr>
-                    <tr>
-                    	<td width="25%"><b>E-mail</b></td>
-                        <td>
-                        	<input name="email" size="35" />
-                    	</td>
-                    </tr>
-					<tr>
-                    	<td width="25%"><b>Herhaal E-mail</b></td>
-                        <td>
-                        	<input name="emailcheck" size="35" />
-                    	</td>
-                    </tr>
-					<tr>
-                    	<td width="25%"><b>Geslacht</b></td>
-                        <td>
-                        	<select class="paneelinvoer" name="geslacht">
-                      			<option value="man">Man</option>
-                      			<option value="vrouw">Vrouw</option>
-                                <option value="x">Zeg ik liever niet</option>
-                     		</select>
-                    	</td>
-                    </tr>
-					<tr>
-                    	<td width="25%"><b>Geboorte Datum</b></td>
-                        <td>
-                        	<select name="gebdag" class="paneelinvoer2">
-                            	<?php
-									for($i=1;$i<32;$i++)
-									{
-										echo('<option value="'.$i.'">'.$i.'</option>');	
-									}
-								?>
-                      		</select>
-                            <select name="gebmaand" class="paneelinvoer2">
-                            	<option value="januari">Januari</option>
-                                <option value="februai">Februari</option>
-                                <option value="maart">Maart</option>
-                                <option value="april">April</option>
-                                <option value="mei">Mei</option>
-                                <option value="juni">Juni</option>
-                                <option value="juli">Juli</option>
-                                <option value="augustus">Augustus</option>
-                                <option value="september">September</option>
-                                <option value="oktober">Oktober</option>
-                                <option value="november">November</option>
-                                <option value="december">December</option>
-                            </select>
-                            <select name="gebjaar" class="paneelinvoer2">
-                            	<?php
-									for($i=2012;$i>1900;$i--)
-									{
-										echo('<option value="'.$i.'">'.$i.'</option>');	
-									}
-								?>
-                      		</select>
-                    	</td>
-                    </tr>                    
-					<tr>
-                    	<td width="25%"><b>Locatie</b></td>
-                        <td>
-                        	<input name="location" size="35" />
-                    	</td>
-                    </tr>  
-</table>					
-</div>
-<div class="registeragree">
+              	<div class="formulier">
+                    <span><b>Naam</b></span>
+						<input name="username" size="35" />	
+					<br />
+                    <span><b>Email</b></span>
+						<input name="email" size="35" />
+					<br />
+                    <span><b>Herhaal email</b></span>
+						<input name="emailcheck" size="35" />
+					<br />
+                    <span><b>Geslacht</b></span>
+						<select class="paneelinvoer" name="weergave" >
+                                    <option value="Man">Man</option>
+                                    <option value="Vrouw">Vrouw</option>
+									<option value="Onbekend">Zeg ik liever niet</option>
+						</select>	
+					<br />
+                    <span><b>Geboortedatum</b></span>
+						<select name="gebdag" class="paneelinvoer2" style="width:10%;">
+							<?php
+								for($i=1;$i<32;$i++)
+								{
+									echo('<option value="'.$i.'">'.$i.'</option>');	
+								}
+							?>
+						</select>
+						<select name="gebmaand" class="paneelinvoer2" style="width:25%;">
+							<option value="januari">Januari</option>
+							<option value="februai">Februari</option>
+							<option value="maart">Maart</option>
+							<option value="april">April</option>
+							<option value="mei">Mei</option>
+							<option value="juni">Juni</option>
+							<option value="juli">Juli</option>
+							<option value="augustus">Augustus</option>
+							<option value="september">September</option>
+							<option value="oktober">Oktober</option>
+							<option value="november">November</option>
+							<option value="december">December</option>
+						</select>
+						<select name="gebjaar" class="paneelinvoer2" style="width:15%;">
+							<?php
+								for($i=2012;$i>1900;$i--)
+								{
+									echo('<option value="'.$i.'">'.$i.'</option>');	
+								}
+							?>
+						</select>
+					<br/>
+                    <span><b>Locatie</b></span>
+						<input name="location" size="35" />
+                        <br />
+               	</div>
+		<div class="registeragree">
 Do your layouts deserve better than Lorem Ipsum? Apply as an art director and team up with the best copywriters at Jung von Matt: www.jvm.com/jobs/lipsum
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque enim massa, ultricies in molestie nec, egestas eget nisi. Fusce convallis laoreet turpis quis pretium. Donec at est vel purus eleifend ultrices. In vestibulum, ante a congue accumsan, libero sapien convallis orci, in pulvinar neque nunc id lorem. In lacus nisl, eleifend eleifend dignissim eu, rutrum a sem. Fusce dictum luctus metus, ac tempor purus sodales at. Duis mattis ullamcorper sapien a laoreet. Fusce a purus ut nisi feugiat venenatis sed ac lacus. Aenean pretium tellus sit amet mauris tempor tempor. Proin sed erat dui, eu elementum diam. Donec vel arcu eget ligula convallis fermentum at accumsan massa. Quisque feugiat rhoncus laoreet. Morbi non sodales orci. Cras odio sem, sagittis dapibus vehicula id, mollis eu lectus.
@@ -127,13 +107,12 @@ Nullam nec ipsum a enim euismod pulvinar. Nullam vestibulum volutpat enim, ut mo
 Integer vitae mi quis est consectetur pulvinar. Nunc fermentum auctor nisi vel consequat. Aenean facilisis commodo urna convallis auctor. Etiam euismod nunc id risus imperdiet vestibulum. Nam vel nibh at massa fermentum vestibulum. Pellentesque justo neque, hendrerit eu commodo a, tincidunt in sem. Proin ante leo, faucibus nec semper at, blandit eget purus. Pellentesque mattis nisl et leo accumsan non suscipit erat eleifend. Aliquam a eros nulla. Praesent tincidunt tincidunt aliquet. Etiam quis adipiscing purus.
 
 Sed scelerisque nisl in neque rhoncus consectetur. Suspendisse potenti. Nam sapien nibh, eleifend in scelerisque sed, tincidunt quis urna. Nunc a ipsum id eros semper egestas sit amet a erat. Duis id mi libero, et accumsan enim. Sed magna odio, fermentum mollis rutrum in, adipiscing id neque. Pellentesque rutrum aliquam rhoncus. Praesent non ante orci, ut aliquam justo. In enim lectus, malesuada ac fermentum at, convallis viverra libero. Donec commodo odio eu quam interdum eu consectetur nisl pellentesque. Aliquam eget odio in libero pulvinar semper nec varius massa. Donec molestie magna ac odio imperdiet nec viverra justo tempus. Pellentesque venenatis, ipsum quis vehicula adipiscing, dolor nisl malesuada lectus, congue faucibus nulla odio ut tellus. 
-</div>
-<input type="checkbox" name="accept" value="true" />Ik heb de gebruikersvoorwaarde gelezen en ga akkoord<br />
-<input type="submit" value="Verstuur" />
-</form>
- </div>
-  </div>
-    
+		</div>
+		<input type="checkbox" name="accept" value="true" />Ik heb de gebruikersvoorwaarde gelezen en ga akkoord<br />
+		<input type="submit" value="Verstuur" />
+	</form>
+	</div>
+	</div>   
 </div>
 <div class="footer">
 	&copy; 2012 - ShoreDog Power Services, Inc.&trade; (Powered by ShoreDog Forum Engine).

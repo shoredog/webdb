@@ -202,3 +202,14 @@ div.formulier select{
 	height:20px;
 	margin-bottom:6px;
 }
+<<<<<<< HEAD
+=======
+
+div.formulier input{
+	width:48%;
+	display:block;
+	float:left;
+	height:15px;
+	margin-bottom:6px;
+}
+>>>>>>> ab7143556253fa68ee04701e60467522feb6b767
