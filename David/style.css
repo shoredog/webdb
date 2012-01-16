@@ -194,3 +194,11 @@ div.formulier select{
 	height:20px;
 	margin-bottom:6px;
 }
+
+div.formulier input{
+	width:48%;
+	display:block;
+	float:left;
+	height:15px;
+	margin-bottom:6px;
+}

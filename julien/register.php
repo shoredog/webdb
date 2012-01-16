@@ -47,14 +47,14 @@ onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href
 						<input name="emailcheck" size="35" />
 					<br />
                     <span><b>Geslacht</b></span>
-						<select class="paneelinvoer" name="weergave" style="width:130px;" >
+						<select class="paneelinvoer" name="weergave" >
                                     <option value="Man">Man</option>
                                     <option value="Vrouw">Vrouw</option>
 									<option value="Onbekend">Zeg ik liever niet</option>
 						</select>	
 					<br />
                     <span><b>Geboortedatum</b></span>
-						<select name="gebdag" class="paneelinvoer2" style="width:40px;">
+						<select name="gebdag" class="paneelinvoer2" style="width:10%;">
 							<?php
 								for($i=1;$i<32;$i++)
 								{
@@ -62,7 +62,7 @@ onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href
 								}
 							?>
 						</select>
-						<select name="gebmaand" class="paneelinvoer2" style="width:90px;">
+						<select name="gebmaand" class="paneelinvoer2" style="width:25%;">
 							<option value="januari">Januari</option>
 							<option value="februai">Februari</option>
 							<option value="maart">Maart</option>
@@ -76,7 +76,7 @@ onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href
 							<option value="november">November</option>
 							<option value="december">December</option>
 						</select>
-						<select name="gebjaar" class="paneelinvoer2" style="width:60px;">
+						<select name="gebjaar" class="paneelinvoer2" style="width:15%;">
 							<?php
 								for($i=2012;$i>1900;$i--)
 								{
@@ -87,6 +87,7 @@ onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href
 					<br/>
                     <span><b>Locatie</b></span>
 						<input name="location" size="35" />
+                        <br />
                	</div>
 		<div class="registeragree">
 Do your layouts deserve better than Lorem Ipsum? Apply as an art director and team up with the best copywriters at Jung von Matt: www.jvm.com/jobs/lipsum

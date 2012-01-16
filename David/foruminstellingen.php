@@ -90,7 +90,7 @@
                     <input name="email" type="text" maxlength="250" class="paneelinvoer" />
                     <br />
                     <span>Geboortedatum</span>
-                    <select name="gebdag" class="paneelinvoer2" style="width:40px;">
+                    <select name="gebdag" class="paneelinvoer2" style="width:10%;">
 						<?php
                             for($i=1;$i<32;$i++)
                             {
@@ -98,7 +98,7 @@
                             }
                         ?>
                     </select>
-                    <select name="gebmaand" class="paneelinvoer2" style="width:90px;">
+                    <select name="gebmaand" class="paneelinvoer2" style="width:25%;">
                         <option value="januari">Januari</option>
                         <option value="februai">Februari</option>
                         <option value="maart">Maart</option>
@@ -112,7 +112,7 @@
                         <option value="november">November</option>
                         <option value="december">December</option>
                     </select>
-                    <select name="gebjaar" class="paneelinvoer2" style="width:60px;">
+                    <select name="gebjaar" class="paneelinvoer2" style="width:15%;">
 						<?php
                             for($i=2012;$i>1900;$i--)
                             {

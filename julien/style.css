@@ -133,12 +133,24 @@ div.formulier span{
 }
 
 div.formulier select{
-	width:60%;
+	width:50%;
 	display:block;
 	float:left;
 	height:20px;
+	margin-bottom:6px;
 }
 
+div.formulier input{
+	width:48%;
+	display:block;
+	float:left;
+	height:15px;
+	margin-bottom:6px;
+}
+
+div.formulier br{
+	clear:both;
+}
 
 /* ---------------------------------------------------------*/
 
@@ -149,3 +161,7 @@ input.invoer{
 table.invoertabel td{
 	padding:2px;
 }
+
+select, input{
+	background-color:#CCCCCC;
+	}

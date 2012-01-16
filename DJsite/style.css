@@ -1,0 +1,122 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#333;
+	background:#d3d1d1;
+	
+}
+
+div.container{
+	width:900px;
+	height:auto;
+}
+
+div.banner
+{
+	text-align:right;
+	background:url(afbeeldingen/banner.png);
+	height:50px;
+	width:880px;
+	padding:10px;
+}
+
+div.links
+{
+	text-align:left;
+	height:35px;
+	width:900px;
+	margin:15px;
+	margin-left:0px;
+}
+
+div.fotos
+{
+	background:#bdbaba;
+	padding:10px;
+	height:180px;
+	width:880px;
+}	
+
+div.content
+{
+	height:auto;
+	width:280px;
+	text-align:left;
+	float:left;
+	margin:20px;
+	margin-left:0px;
+	padding:10px;
+	background:#bdbaba;
+}
+
+img.bnnr
+{
+	margin:-10px;
+	margin-bottom:10px;
+	
+}
+
+div.content2
+{
+	background:#bdbaba;
+	padding:10px;
+	margin:20px;
+	margin-left:0px;
+	margin-right:0px;
+	height:auto;
+	width:240px;
+	text-align:left;
+	float:right;
+}
+
+div.content3
+{
+	background:#bdbaba;
+	padding:10px;
+	margin:20px;
+	margin-left:0px;
+	margin-right:0px;
+	height:auto;
+	width:600px;
+	text-align:left;
+	float:left;
+}
+
+div.content4
+{
+	background-color:#bdbaba;
+	margin-top:10px;
+	width:100%;
+	padding:10px;
+	margin:20px;
+	margin-left:0px;
+	margin-top:0px;
+	padding-left:0px;
+}
+
+h1
+{
+	font-size:25px;
+}
+
+div.copyright
+{
+	clear:both;
+	width:900px;
+}
+
+h2
+{
+	font-size:22px;
+	color:#333333;
+	font-weight:bold;
+}
+
+a {text-decoration: none; color:#000000;}
+a:link {text-decoration: none; color:#000000;}
+a:visited {text-decoration: none; color:#000000;}
+a:hover {text-decoration: none; color:#000000;}
+a:active {text-decoration: none; color:#000000;}
