@@ -10,6 +10,9 @@ div.catbalk{
 div.catbalk2{
 div.userinfoheader{
 div.categoriecatbalk{
+div.catforumhok{
+div.forforumhok{
+div.categorieinfocontainer{
 div.categorieinfoforumhok{
 div.categorieinfoposthok{
 div.foruminfoposthok{
@@ -20,6 +23,7 @@ div.categorieforumhok{
 div.categorieposthok{
 div.forumposthok{
 div.categorielastpost{
+div.eindfloat{
 div.footer{
 div.categoriecontainer{
 div.categorieforumcontainer{

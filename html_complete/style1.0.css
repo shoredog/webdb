@@ -20,8 +20,6 @@ div.container{
     margin-right: auto;
 }
 
-
-
 div.banner{
 	width:100%;
 	background:#666666;
@@ -120,6 +118,28 @@ div.categoriecatbalk{
 	clear:left;
 }
 
+div.catforumhok{
+	height:auto;
+	border-left:1px solid #000000;
+	border-right:1px #000 solid;
+	border-bottom:1px #000 solid;
+}
+
+div.forforumhok{
+	height:auto;
+	border-left:1px solid #000000;
+	border-right:1px #000 solid;
+	border-bottom:1px #000 solid;
+}
+
+div.categorieinfocontainer{
+	height:21px;
+	background:#555555;
+	float:left;
+	clear:both;
+	width:100%
+}
+
 div.categorieinfoforumhok{
 	height:auto;
 	background:#555555;
@@ -172,7 +192,6 @@ div.categorieinfolastpost{
 	width:20%;
 	float:left;
 }
-
 
 div.forumhok{
 	height:auto;
@@ -246,6 +265,9 @@ div.categorielastpost{
 	text-align:right;
 }
 
+div.eindfloat{
+	clear:both;
+}
 
 div.footer{
 	width: 100%;
@@ -353,7 +375,6 @@ div.footerdivider2{
 	padding-top:7px;
 	float:left;
 }
-
 
 /* ---------------------------------------------------------*/
 
