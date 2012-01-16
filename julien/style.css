@@ -121,11 +121,24 @@ overflow-y:auto;
 }
 
 div.registerform{
+	
 }
 
-div.registeraccept{
-
+div.formulier span{
+	width:30%;
+	display:block;
+	float:left;
+	vertical-align:middle;
+	margin-top:3px;
 }
+
+div.formulier select{
+	width:60%;
+	display:block;
+	float:left;
+	height:20px;
+}
+
 
 /* ---------------------------------------------------------*/
 
