@@ -11,6 +11,10 @@ body{
 	background:#000 url(wood.jpg) repeat;
 }
 
+div.eindfloat{
+	clear:both;
+}
+
 div.container{
 	width:50%;
 	height:auto;
@@ -86,18 +90,6 @@ div.forumhok{
 	padding-right:15px;
 }
 
-div.forumposthok{
-	height:auto;
-	border-right:1px #333 solid;
-	border-bottom:1px #333 solid;
-	padding-top:10px;
-	padding-bottom:10px;
-	padding-left:2.5%;
-	padding-right:2.5%;
-	width:25%;
-	float:left;
-}
-
 div.footer{
 	width: 100%;
 	text-align:center;
@@ -146,6 +138,13 @@ div.catforumhok{
 	border-bottom:1px #000 solid;
 }
 
+div.forforumhok{
+	height:auto;
+	border-left:1px solid #000000;
+	border-right:1px #000 solid;
+	border-bottom:1px #000 solid;
+}
+
 div.categorieinfocontainer{
 	height:21px;
 	background:#555555;
@@ -172,6 +171,16 @@ div.categorieinfoposthok{
 	padding-left:2.5%;
 	padding-right:2.5%;
 	width:7.5%;
+	float:left;
+}
+
+div.foruminfoposthok{
+	height:21px;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-left:5%;
+	padding-right:5%;
+	width:15%;
 	float:left;
 }
 
@@ -213,6 +222,16 @@ div.categorieposthok{
 	padding-left:2.5%;
 	padding-right:2.5%;
 	width:7.5%;
+	float:left;
+}
+
+div.forumposthok{
+	height:25px;
+	padding-top:15px;
+	padding-bottom:10px;
+	padding-left:5%;
+	padding-right:5%;
+	width:15%;
 	float:left;
 }
 
