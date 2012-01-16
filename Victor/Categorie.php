@@ -46,9 +46,7 @@ onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href
 				<b>Berichten</b>
 			</div>
 			<div class="categorieinfolastpost">
-				<center>
 					<b>Laatste bericht</b>
-				</center>
 			</div>
 		</div>
 		<div class="categorieforumcontainer">
@@ -110,9 +108,7 @@ onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href
 				<b>Berichten</b>
 			</div>
 			<div class="categorieinfolastpost">
-				<center>
 					<b>Laatste bericht</b>
-				</center>
 			</div>
 		</div>
 		<div class="categorieforumcontainer">
@@ -152,9 +148,7 @@ onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href
 				<b>Berichten</b>
 			</div>
 			<div class="categorieinfolastpost">
-				<center>
 					<b>Laatste bericht</b>
-				</center>
 			</div>
 		</div>
 		<div class="categorieforumcontainer">

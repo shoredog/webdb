@@ -164,7 +164,7 @@ div.categorieinfoposthok{
 	padding-bottom:3px;
 	padding-left:2.5%;
 	padding-right:2.5%;
-	width:10%;
+	width:7.5%;
 	float:left;
 }
 
@@ -174,7 +174,8 @@ div.categorieinfolastpost{
 	padding-bottom:3px;
 	padding-left:2.5%;
 	padding-right:2.5%;
-	width:20%;
+	text-align:right;
+	width:25%;
 	float:right;
 }
 
@@ -182,7 +183,6 @@ div.categorieforumcontainer{
 	height:50px;
 	background:#666666;
 	width:100%;
-	min-width:600px;
 	float:left;
 	clear:both;
 }
@@ -204,7 +204,7 @@ div.categorieposthok{
 	padding-bottom:10px;
 	padding-left:2.5%;
 	padding-right:2.5%;
-	width:10%;
+	width:7.5%;
 	float:left;
 }
 
@@ -214,7 +214,7 @@ div.categorielastpost{
 	padding-bottom:10px;
 	padding-left:2.5%;
 	padding-right:2.5%;
-	width:20%;
+	width:25%;
 	float:right;
 	text-align:right;
 }
