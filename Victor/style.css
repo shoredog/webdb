@@ -139,6 +139,13 @@ div.categoriecatbalk{
 	clear:both;
 }
 
+div.catforumhok{
+	height:auto;
+	border-left:1px solid #000000;
+	border-right:1px #000 solid;
+	border-bottom:1px #000 solid;
+}
+
 div.categorieinfocontainer{
 	height:21px;
 	background:#555555;
