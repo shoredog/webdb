@@ -7,8 +7,8 @@
 body{
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:12px;
-	color:#402110;
-	background:#000 url(achter.jpg) repeat;
+	color:#333;
+	background:#000 url(wood.jpg) repeat;
 }
 
 div.container{
@@ -24,13 +24,9 @@ div.container{
 
 div.banner{
 	width:100%;
-	background:#8C6535;
+	background:#666666;
 	vertical-align:middle;
 	text-align:right;
-	background-image:url(shoredog.png);
-	height:150px;
-	background-repeat:no-repeat;
-	background-position:center;
 	border-top-left-radius:15px;
 	border-top-right-radius:15px;
 }
@@ -43,7 +39,7 @@ div.bannerquotes{
 div.menu{
 	height:25px;
 	width:100%;
-	background:#59321b;
+	background:#333333;
 }
 
 div.menuitem{
@@ -55,14 +51,10 @@ div.menuitem{
 	color:#CCCCCC;
 }
 
-div.menuitem:hover{
-	background-color:#402110;
-}
-
 div.navigation{
 	height:auto;
 	min-width:585px;
-	background:#8C6535;
+	background:#666666;
 	padding-left:15px;
 	padding-top:5px;
 }
@@ -72,16 +64,15 @@ div.content{
 	padding:20px;
 	border-bottom-left-radius:15px;
 	border-bottom-right-radius:15px;
-	background:#8C6535;
+	background:#666666;
 	margin-bottom:50px;
 }
 
-
 div.catbalk{
 	color:#FFFFFF;
-	background:url(catbalk2.jpg) repeat-x;
+	background:url(catbalk.jpg) repeat-x;
 	height:25px;
-	border:1px #402110 solid;
+	border:1px #333 solid;
 	padding-top:10px;
 	padding-left:15px;
 	font-weight:bold;
@@ -90,9 +81,9 @@ div.catbalk{
 
 div.forumhok{
 	height:auto;
-	border-left:1px solid #402110;
-	border-right:1px #402110 solid;
-	border-bottom:1px #402110 solid;
+	border-left:1px solid #333333;
+	border-right:1px #333 solid;
+	border-bottom:1px #333 solid;
 	padding-top:10px;
 	padding-bottom:10px;
 	padding-left:15px;
@@ -107,7 +98,7 @@ div.footer{
 	height:28px;
 	left:0px;
 	right:0px;
-	background:url(catbalk2.jpg) repeat-x;
+	background:url(balk.jpg) repeat-x;
 }
 
 div.loginbox{
@@ -138,12 +129,12 @@ div.footerdivider2{
 /* ---------------------------------------------------------*/
 
 .paneelinvoer{
-	background-color:#724F20;
+	background-color:#CCCCCC;
 	width:200px;
 }
 
 .paneelinvoer2{
-	background-color:#8C6535;
+	background-color:#CCCCCC;
 }
 
 table.paneelinvoertabel td{
@@ -153,14 +144,14 @@ table.paneelinvoertabel td{
 
 div.paneelbox{
 	height:auto;
-	border-left:1px solid #402110;
-	border-right:1px #402110 solid;
-	border-bottom:1px #402110 solid;
+	border-left:1px solid #333333;
+	border-right:1px #333 solid;
+	border-bottom:1px #333 solid;
 	padding-top:10px;
 	padding-bottom:10px;
 	padding-left:15px;
 	padding-right:15px;
-	background-color:#8C6535;
+	background-color:#666;
 }
 
 div.paneelmenu{
@@ -182,7 +173,7 @@ div.paneelfooter{
 
 textarea.paneeltext{
 	width:98%;
-	background-color:#8C6535;
+	background-color:#CCCCCC;
 	font-family:Geneva, Arial, Helvetica, sans-serif;
 }
 
@@ -211,6 +202,8 @@ div.formulier select{
 	height:20px;
 	margin-bottom:6px;
 }
+<<<<<<< HEAD
+=======
 
 div.formulier input{
 	width:48%;
@@ -219,3 +212,4 @@ div.formulier input{
 	height:15px;
 	margin-bottom:6px;
 }
+>>>>>>> ab7143556253fa68ee04701e60467522feb6b767
