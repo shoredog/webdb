@@ -29,6 +29,10 @@ div.banner{
 	text-align:right;
 	border-top-left-radius:15px;
 	border-top-right-radius:15px;
+	background-image:url(logo.png);
+	height:150px;
+	background-repeat:no-repeat;
+	background-position:center;
 }
 
 div.bannerquotes{
@@ -49,6 +53,10 @@ div.menuitem{
 	text-align:center;
 	float:left;
 	color:#CCCCCC;
+}
+
+div.menuitem:hover{
+	background-color:#111111;
 }
 
 div.navigation{
@@ -98,7 +106,7 @@ div.footer{
 	height:28px;
 	left:0px;
 	right:0px;
-	background:url(balk.jpg) repeat-x;
+	background:url(catbalk.jpg) repeat-x;
 }
 
 div.loginbox{
