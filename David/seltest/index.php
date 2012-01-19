@@ -36,20 +36,20 @@
         </div>
         <div class="menu">
             <div class="menuitem">
-                <b>Forum</b>
+                <b><?php echo($algforum); ?></b>
             </div>
             <div class="menuitem">
-                <b>Gebruikers</b>
+                <b><?php echo($algusers); ?></b>
             </div>
             <div class="menuitem">
-                <b>Registratie</b>
+                <b><?php echo($algreg); ?></b>
             </div>
             <div class="menuitem">
-                <b>Log in</b>
+                <b><?php echo($alglogin); ?></b>
             </div>
         </div>
         <div class="navigation">
-            U bent hier: <b>Gebruikerspaneel</b>
+            <?php echo($alglocatie); ?><b><?php echo($gebpantitle); ?></b>
         </div>
         
         <div class="content"><div class="paneelmenu">
@@ -74,11 +74,12 @@
 				<?php
 					if(isset($_POST['submitcss']))
 					{
-						echo($cssupdate);
+						echo($gebpancssupdate);
+						echo('<br />');
 					}
 					else
 					{
-						echo('<span>'.$choosecss.'</span>
+						echo('<span>'.$gebpanchoosecss.'</span>
 							<form action="#" method="post" name="cssform">
 								<select class="paneelinvoer" name="cssselector">
 									<option value="style">ShoreDog Index</option>
@@ -91,11 +92,11 @@
 					}
 					if(isset($_POST['submittaal']))
 					{
-						echo($langupdate);
+						echo($gebpanlangupdate);
 					}
 					else
 					{
-						echo('<span>'.$chooselang.'</span>
+						echo('<span>'.$gebpanchooselang.'</span>
 							<form action="#" method="post" name="taalform">
 								<select class="paneelinvoer" name="taalselector">
 									<option value="dutch">Nederlands</option>
@@ -116,13 +117,13 @@
 </div>
 <div class="footer">
 	<div class="footerdivider1">
-		Tijmens moeder
+		<?php echo($algcontact) ?>
 	</div>
 	<div class="footerdivider2">
-		&copy; 2012 - ShoreDog Power Services, Inc.&trade; (Powered by ShoreDog Forum Engine&reg;).
+		<?php echo($algcopyright) ?>
 	</div>
 	<div class="footerdivider1">
-		is best dik
+		<?php echo($algrules) ?>
 	</div>	
 	
 </div>
