@@ -7,7 +7,7 @@
 body{
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:12px;
-	color:#333;
+	color:#402110;
 	background:#000 url(achter.jpg) repeat;
 }
 
@@ -24,9 +24,13 @@ div.container{
 
 div.banner{
 	width:100%;
-	background:#666666;
+	background:#8C6535;
 	vertical-align:middle;
 	text-align:right;
+	background-image:url(shoredog.png);
+	height:150px;
+	background-repeat:no-repeat;
+	background-position:center;
 	border-top-left-radius:15px;
 	border-top-right-radius:15px;
 }
@@ -39,7 +43,7 @@ div.bannerquotes{
 div.menu{
 	height:25px;
 	width:100%;
-	background:#333333;
+	background:#59321b;
 }
 
 div.menuitem{
@@ -51,10 +55,14 @@ div.menuitem{
 	color:#CCCCCC;
 }
 
+div.menuitem:hover{
+	background-color:#402110;
+}
+
 div.navigation{
 	height:auto;
 	min-width:585px;
-	background:#666666;
+	background:#8C6535;
 	padding-left:15px;
 	padding-top:5px;
 }
@@ -64,15 +72,16 @@ div.content{
 	padding:20px;
 	border-bottom-left-radius:15px;
 	border-bottom-right-radius:15px;
-	background:#666666;
+	background:#8C6535;
 	margin-bottom:50px;
 }
 
+
 div.catbalk{
 	color:#FFFFFF;
-	background:url(catbalk.jpg) repeat-x;
+	background:url(catbalk2.jpg) repeat-x;
 	height:25px;
-	border:1px #333 solid;
+	border:1px #402110 solid;
 	padding-top:10px;
 	padding-left:15px;
 	font-weight:bold;
@@ -81,9 +90,9 @@ div.catbalk{
 
 div.forumhok{
 	height:auto;
-	border-left:1px solid #333333;
-	border-right:1px #333 solid;
-	border-bottom:1px #333 solid;
+	border-left:1px solid #402110;
+	border-right:1px #402110 solid;
+	border-bottom:1px #402110 solid;
 	padding-top:10px;
 	padding-bottom:10px;
 	padding-left:15px;
@@ -98,7 +107,7 @@ div.footer{
 	height:28px;
 	left:0px;
 	right:0px;
-	background:url(balk.jpg) repeat-x;
+	background:url(catbalk2.jpg) repeat-x;
 }
 
 div.loginbox{
@@ -144,14 +153,14 @@ table.paneelinvoertabel td{
 
 div.paneelbox{
 	height:auto;
-	border-left:1px solid #333333;
-	border-right:1px #333 solid;
-	border-bottom:1px #333 solid;
+	border-left:1px solid #402110;
+	border-right:1px #402110 solid;
+	border-bottom:1px #402110 solid;
 	padding-top:10px;
 	padding-bottom:10px;
 	padding-left:15px;
 	padding-right:15px;
-	background-color:#666;
+	background-color:#8C6535;
 }
 
 div.paneelmenu{

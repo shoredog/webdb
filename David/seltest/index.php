@@ -33,23 +33,18 @@
 <body>
     <div class="container">
         <div class="banner">
-            <center><img src="logo.png" align="middle" /></center>
         </div>
         <div class="menu">
-            <div class="menuitem" onMouseOver="this.style.backgroundColor='#000000';" 
-    onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href='yourlinklocationhere'">
+            <div class="menuitem">
                 <b>Forum</b>
             </div>
-            <div class="menuitem" onMouseOver="this.style.backgroundColor='#000000';" 
-    onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href='yourlinklocationhere'">
+            <div class="menuitem">
                 <b>Gebruikers</b>
             </div>
-            <div class="menuitem" onMouseOver="this.style.backgroundColor='#000000';" 
-    onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href='yourlinklocationhere'">
+            <div class="menuitem">
                 <b>Registratie</b>
             </div>
-            <div class="menuitem" onMouseOver="this.style.backgroundColor='#000000';" 
-    onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href='yourlinklocationhere'">
+            <div class="menuitem">
                 <b>Log in</b>
             </div>
         </div>
@@ -120,7 +115,16 @@
 	</div>
 </div>
 <div class="footer">
-	&copy; 2012 - ShoreDog Power Services, Inc.&trade; (Powered by ShoreDog Forum Engine&reg;).
+	<div class="footerdivider1">
+		Tijmens moeder
+	</div>
+	<div class="footerdivider2">
+		&copy; 2012 - ShoreDog Power Services, Inc.&trade; (Powered by ShoreDog Forum Engine&reg;).
+	</div>
+	<div class="footerdivider1">
+		is best dik
+	</div>	
+	
 </div>
 </body>
 </html>

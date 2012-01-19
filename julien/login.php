@@ -13,44 +13,46 @@
     </div>
     <div class="menu">
     	<div class="menuitem" onMouseOver="this.style.backgroundColor='#000000';" 
-onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href='index.php'">
+		onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href='index.php'">
     		<b>Forum</b>
     	</div>
         <div class="menuitem" onMouseOver="this.style.backgroundColor='#000000';" 
-onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href='yourlinklocationhere'">
+		onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href='yourlinklocationhere'">
     		<b>Gebruikers</b>
     	</div>
         <div class="menuitem" onMouseOver="this.style.backgroundColor='#000000';" 
-onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href='register.php'">
+		onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href='register.php'">
     		<b>Registratie</b>
     	</div>
         <div class="menuitem" onMouseOver="this.style.backgroundColor='#000000';" 
-onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href='login.php'">
+		onMouseOut="this.style.backgroundColor='#333333';" onClick="window.location.href='login.php'">
     		<b>Log in</b>
     	</div>
     </div>
     <div class="navigation">
     	U bent hier: <b>Log in</b>
     </div>
-  <div class="content"><h1>Log in</h1>
-  <div class="catbalk">Log in</div>
-  <div class="forumhok">
-  <div class="loginbox">
-  <b>Vul hier uw login gegevens in:</b><p />
-  <form>
-  <div class="loginform">
-  Gebruikersnaam:<br />
-  <input type="text" name="username" /><p />
-  Wachtwoord:<br />
-  <input type="password" name="password" />
-  </div>
-  <p />
-  <input type="submit" value="Log in" /><input type="submit" value="Registreer" />
-  </form>
-  </div>
-  </div>
-  </div>
-    
+	<div class="content">
+		<h1>Log in</h1>
+		<div class="catbalk">
+			Log in
+		</div>
+		<div class="forumhok">
+			<div class="loginbox">
+				<b>Vul hier uw login gegevens in:</b><p />
+				<form>
+				<div class="loginform">
+					Gebruikersnaam:<br />
+					<input type="text" name="username" /><p />
+					Wachtwoord:<br />
+					<input type="password" name="password" />
+				</div>
+				<p />
+				<input type="submit" value="Log in" /><input type="submit" value="Registreer" />
+				</form>
+			</div>
+		</div>
+	</div>  
 </div>
 <div class="footer">
 	&copy; 2012 - ShoreDog Power Services, Inc.&trade; (Powered by ShoreDog Forum Engine).

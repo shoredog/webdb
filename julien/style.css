@@ -116,6 +116,7 @@ div.registeragree{
 height:400px;
 padding: 0px;
 border: 1px solid;
+background-color:#CCCCCC;
 overflow:-moz-scrollbars-vertical;
 overflow-y:auto;
 }
