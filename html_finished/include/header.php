@@ -1,9 +1,9 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-';
 <?php
-session_start(); 
+session_start();
+include("/include/config.php"); 
 ?>
 
 <head>
@@ -15,9 +15,9 @@ session_start();
 		$_SESSION['style'] = $_POST['cssselector'];
 	}
 	if(isset($_SESSION['style']))
-		echo('<link href="'.$_SESSION['style'].'" rel="stylesheet" type="text/css" />');
+		echo('<link href="styles/'.$_SESSION['style'].'/style.css" rel="stylesheet" type="text/css" />');
 	else
-		echo('<link href="style.css" rel="stylesheet" type="text/css" />');
+		echo('<link href="styles/shoredog_index/style.css" rel="stylesheet" type="text/css" />');
 		
 	if(isset($_POST['submittaal']))
 	{
