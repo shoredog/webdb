@@ -36,7 +36,6 @@ $gebpanchangeava = "Avatar wijzigen";
 $gebpanchangesig = "Signature wijzigen";
 $gebpanchangepass = "Wachtwoord wijzigen";
 $gebpanwelcome = "Welkom in het gebruikerspaneel! Hier kan u uw profiel naar behoefte aanpassen.";
-$gebpanforumsettings = "Foruminstellingen";
 $gebpandiscussionview = "Discussieweergave";
 $gebpannested = "Geneste weergave";
 $gebpanlinear = "Lineaire weergave";
@@ -48,7 +47,15 @@ $gebpanwoman = "Vrouw";
 $gebpannosex = "Zeg ik liever niet";
 $gebpansite = "Website";
 $gebpansubtitle = "Ondertitel";
-$gebpan
+$gebpanplace = "Woonplaats";
+$gebpanmail = "E-mail";
+$gebpandob = "Geboortedatum";
+$gebpanvis = "Zichtbaarheid";
+$gebpanvistrue = "Leeftijd en geboortedatum weergeven";
+$gebpanvisfalse = "Leeftijd en geboortedatum verbergen";
+$gebpaninterest = "Interesses";
+$gebpanbio = "Biografie";
+
 
 
 //-------------------- ADMINPANEEL (PREFIX: adpan) ------------------------

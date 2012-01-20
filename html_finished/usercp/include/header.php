@@ -29,7 +29,7 @@ include("../include/config.php");
 		include($inc);
 	}
 	else
-		include("../lang/english.php");
+		include("../lang/dutch.php");
 ?>
 <link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
 <title>Userpanel</title>

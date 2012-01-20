@@ -1,9 +1,9 @@
 <?php
-include '/include/header.php';
+include('/include/header.php');
 ?>
 
         <div class="navigation">
-            U bent hier: <b>Gebruikerspaneel</b>
+            <?php echo($alglocatie); ?><b><?php echo($gebpantitle); ?></b>
         </div>
         
         <div class="content"><div class="paneelmenu">
@@ -11,25 +11,25 @@ include '/include/header.php';
                 Menu
             </div>
           	<div class="paneelbox">
-                - Home<br />
-                - Foruminstellingen<br />
-                - Avatar wijzigen<br />
-                - Signature wijzigen<br />
-                - Wachtwoord wijzigen
+                - <a href="index.php" target="_self"><?php echo($alghome); ?></a><br />
+                - <a href="settings.php" target="_self"><?php echo($gebpanforumsettings); ?></a><br />
+                - <a href="editava.php" target="_self"><?php echo($gebpanchangeava); ?></a><br />
+                - <a href="editsig.php" target="_self"><?php echo($gebpanchangesig); ?></a><br />
+                - <a href="editpass.php" target="_self"><?php echo($gebpanchangepass); ?></a>
            	</div>
-        </div>
+        </div>>
         <div class="paneelcontent">
         	<div class="catbalk">
-                Foruminstellingen
+                <?php echo($gebpanforumsettings); ?>
             </div>
             <div class="paneelbox">
             	<div class="formulier">
-                    <span><b>Discussieweergave</b></span>
+                    <span><b><?php echo($gebpandiscussionview); ?></b></span>
                     <select class="paneelinvoer" name="weergave">
-                        <option value="genest">Geneste weergave</option>
-                        <option value="lineair">Lineaire weergave</option>
+                        <option value="genest"><?php echo($gebpannested); ?></option>
+                        <option value="lineair"><?php echo($gebpanlinear); ?></option>
                     </select>
-                    <span><b>Taal</b></span>
+                    <span><b><?php echo($gebpanlang); ?></b></span>
                     <select class="paneelinvoer" name="taal">
                         <option value="genest">Nederlands</option>
                         <option value="lineair">English</option>
@@ -38,7 +38,7 @@ include '/include/header.php';
                	</div>
             </div>
             <div class="catbalk">
-                Profielinstellingen
+                <?php echo($gebpanprofilesettings); ?>
             </div>
           	<div class="paneelbox">
                 <div class="formulier">
