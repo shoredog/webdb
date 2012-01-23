@@ -1,9 +1,10 @@
 <?php
 include '/include/header.php';
 ?>
-        <div class="navigation">
-            U bent hier: <b>Categorie&euml;n</b>
-        </div>
+	<div class="navigation">
+		U bent hier: <b>Index</b>
+	</div>
+		
     <div class="categoriecontent">
         <div class="categoriecontainer">
             <div class="categoriecatbalk">Categorie 1</div>
@@ -24,7 +25,8 @@ include '/include/header.php';
                 </div>
                 <div class="categorieforumcontainer">
                     <div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-    onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='forum.php'">
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='forum.php'">
                         <b>Forum 1</b><br />
                         <i>Beschrijving Forum 1</i>
                     </div>
@@ -39,14 +41,16 @@ include '/include/header.php';
                         </center>
                     </div>
                     <div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-    onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
                         <b>Laatste bericht 1</b></br>
                         <i>Op datum door poster</i>
                     </div>
                 </div>
                 <div class="categorieforumcontainer">
                     <div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-    onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
                         <b>Forum 2</b><br />
                         <i>Beschrijving Forum 2</i>
                     </div>
@@ -61,7 +65,8 @@ include '/include/header.php';
                         </center>
                     </div>
                     <div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-    onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
                         <b>Laatste bericht 2</b></br>
                         <i>Op datum door poster</i>
                     </div>
@@ -88,7 +93,8 @@ include '/include/header.php';
                 </div>
                 <div class="categorieforumcontainer">
                     <div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-    onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
                         <b>Forum 3</b><br />
                         <i>Beschrijving Forum 3</i>
                     </div>
@@ -103,7 +109,8 @@ include '/include/header.php';
                         </center>
                     </div>
                     <div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-    onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
                         <b>Laatste bericht 3</b></br>
                         <i>Op datum door poster</i>
                     </div>
@@ -129,7 +136,8 @@ include '/include/header.php';
                     </div>
                     <div class="categorieforumcontainer">
                         <div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-    onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+													   onMouseOut="this.style.backgroundColor='#666666';"
+													   onClick="window.location.href='yourlinklocationhere'">
                             <b>Forum 4</b><br />
                             <i>Beschrijving Forum 4</i>
                         </div>
@@ -144,7 +152,8 @@ include '/include/header.php';
                             </center>
                         </div>
                         <div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-    onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+													   onMouseOut="this.style.backgroundColor='#666666';"
+													   onClick="window.location.href='yourlinklocationhere'">
                             <b>Laatste bericht 4</b></br>
                             <i>Op datum door poster</i>
                         </div>
@@ -153,6 +162,8 @@ include '/include/header.php';
                 </div>
             </div>
         </div>
+	</div>
+
 <?php
 include '/include/footer.php';
 ?>
