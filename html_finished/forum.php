@@ -24,7 +24,8 @@ include '/include/header.php';
 				</div>
 				<div class="categorieforumcontainer">
 					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Topic 1</b><br />
 						<i>Poster Topic 1</i>
 					</div>
@@ -33,15 +34,16 @@ onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href
 							<b>100</b>
 						</center>
 					</div>
-					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Laatste bericht 1</b></br>
 						<i>Op datum door poster</i>
 					</div>
 				</div>
-				<div class="categorieforumcontainer">
-					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+				<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Topic 2</b><br />
 						<i>Poster Topic 2</i>
 					</div>
@@ -50,15 +52,16 @@ onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href
 							<b>100</b></br>
 						</center>
 					</div>
-					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
 					<b>Laatste bericht 2</b></br>
 					<i>Op datum door poster</i>
 					</div>
 				</div>
-				<div class="categorieforumcontainer">
-					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+				<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Topic 3</b><br />
 						<i>Poster Topic 3</i>
 					</div>
@@ -67,15 +70,17 @@ onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href
 							<b>100</b></br>
 						</center>
 					</div>
-					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Laatste bericht 3</b></br>
 						<i>Op datum door poster</i>
 					</div>
 				</div>
 				<div class="categorieforumcontainer">
 					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Topic 4</b><br />
 						<i>Poster Topic 4</i>
 					</div>
@@ -84,15 +89,17 @@ onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href
 							<b>100</b></br>
 						</center>
 					</div>
-					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Laatste bericht 4</b></br>
 						<i>Op datum door poster</i>
 					</div>
 				</div>
 				<div class="categorieforumcontainer">
 					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Topic 5</b><br />
 						<i>Poster Topic 5</i>
 					</div>
@@ -101,15 +108,17 @@ onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href
 							<b>100</b></br>
 						</center>
 					</div>
-					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Laatste bericht 5</b></br>
 						<i>Op datum door poster</i>
 					</div>
 				</div>
 				<div class="categorieforumcontainer">
 					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Topic 6</b><br />
 						<i>Poster Topic 6</i>
 					</div>
@@ -118,15 +127,17 @@ onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href
 							<b>100</b></br>
 						</center>
 					</div>
-					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Laatste bericht 6</b></br>
 						<i>Op datum door poster</i>
 					</div>
 				</div>
 				<div class="categorieforumcontainer">
 					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Topic 7</b><br />
 						<i>Poster Topic 7</i>
 					</div>
@@ -135,8 +146,9 @@ onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href
 							<b>100</b></br>
 						</center>
 					</div>
-					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-onMouseOut="this.style.backgroundColor='#666666';" onClick="window.location.href='yourlinklocationhere'">
+					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+												   onMouseOut="this.style.backgroundColor='#666666';"
+												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Laatste bericht 7</b></br>
 						<i>Op datum door poster</i>
 					</div>
