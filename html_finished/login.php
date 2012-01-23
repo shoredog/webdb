@@ -1,9 +1,11 @@
 <?php
 include '/include/header.php';
 ?>
+
 <div class="navigation">
-    	U bent hier: <b>Log in</b>
+    U bent hier: <b>Log in</b>
 </div>
+
 <div class="content"><h1>Log in</h1>
 	<div class="catbalk">Log in</div>
 	<div class="forumhok">
