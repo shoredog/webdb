@@ -13,7 +13,14 @@ $algloguit = "Log uit";
 $alghome = "Home";
 
 
+//-------------------- MENU (PREFIX: menu) ------------------------- 
+
+
 //-------------------- INLOG (PREFIX: inlog) ------------------------
+$inloginfo = "<b>Vul hier uw login gegevens in:</b>";
+$inloguser = "Gebruikersnaam:";
+$inlogpass = "Wachtwoord:";
+$inlogreg = '<input type="submit" value="Registreer" />';
 
 //-------------------- REGISTER (PREFIX: reg) ------------------------
 $reg = "Registratie";
@@ -25,7 +32,7 @@ $regsex = "Geslacht";
 $regbday = "Geboortedag";
 $regloc = "Locatie";
 $regagree = "Ik heb de gebruikersvoorwaarde gelezen en ga akkoord";
-$regbutton = "<input type="submit" value="Verstuur" />";
+$regbutton = '<input type="submit" value="Verstuur" />';
 $regliscence = 'Do your layouts deserve better than Lorem Ipsum? Apply as an art director and team up with the best copywriters at Jung von Matt: www.jvm.com/jobs/lipsum
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque enim massa, ultricies in molestie nec, egestas eget nisi. Fusce convallis laoreet turpis quis pretium. Donec at est vel purus eleifend ultrices. In vestibulum, ante a congue accumsan, libero sapien convallis orci, in pulvinar neque nunc id lorem. In lacus nisl, eleifend eleifend dignissim eu, rutrum a sem. Fusce dictum luctus metus, ac tempor purus sodales at. Duis mattis ullamcorper sapien a laoreet. Fusce a purus ut nisi feugiat venenatis sed ac lacus. Aenean pretium tellus sit amet mauris tempor tempor. Proin sed erat dui, eu elementum diam. Donec vel arcu eget ligula convallis fermentum at accumsan massa. Quisque feugiat rhoncus laoreet. Morbi non sodales orci. Cras odio sem, sagittis dapibus vehicula id, mollis eu lectus.
