@@ -67,7 +67,6 @@ include 'header.php';
       	<div class="paneelfooter"></div>
    		</div>
 	</div>
-</div>
 <?php
 include 'footer.php';
 ?>

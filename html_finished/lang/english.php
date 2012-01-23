@@ -12,8 +12,13 @@ $alglogin = "Log in";
 $algloguit = "Log uit";
 $alghome = "Home";
 
+//-------------------- MENU (PREFIX: menu) ------------------------- 
 
 //-------------------- INLOG (PREFIX: inlog) ------------------------
+$inloginfo = "<b>Fill in your username and password below :</b>";
+$inloguser = "Username:";
+$inlogpass = "Password:";
+$inlogreg = '<input type="submit" value="Register" />';
 
 //-------------------- REGISTER (PREFIX: reg) ------------------------
 $reg = "Registration";
