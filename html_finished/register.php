@@ -3,7 +3,7 @@ include '/include/header.php';
 ?>
     <div class="navigation">
     	<?php
-			echo $alglocatie $reg;
+			echo "$alglocatie $reg";
 		?>
     </div>
   <div class="content"><h1>Registratie</h1>
