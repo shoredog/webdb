@@ -1,9 +1,11 @@
 <?php
 include '/include/header.php';
 ?>
+
 <div class="navigation">
 	U bent hier: <b>Index</b>
 </div>
+
 <div class="content">
 	<div class="comment">
 		<div class="catbalk2">
