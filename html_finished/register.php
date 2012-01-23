@@ -4,7 +4,7 @@ include '/include/header.php';
 
 <div class="navigation">
 	<?php
-		echo "$alglocatie $reg";
+	echo "$alglocatie $reg";
 	?>
 </div>
 
@@ -12,13 +12,13 @@ include '/include/header.php';
 	<h1>Registratie</h1>
 	<div class="catbalk">
 		<?php
-			echo $regform;
+		echo $regform;
 		?>
 	</div>
 	<div class="forumhok">
 		<b>
 			<?php
-				echo $regform;
+			echo $regform;
 			?>
 		</b><br />
 		<form>
@@ -26,7 +26,7 @@ include '/include/header.php';
 				<span>
 					<b>
 						<?php
-							$regname;
+						$regname;
 						?>
 					<b>
 				</span>
@@ -38,7 +38,7 @@ include '/include/header.php';
 				<span>
 					<b>
 						<?php
-							echo $regrepmail;
+						echo $regrepmail;
 						?>
 					</b>
 				</span>
@@ -47,7 +47,7 @@ include '/include/header.php';
 				<span>
 					<b>
 						<?php
-							echo $regsex;
+						echo $regsex;
 						?>
 					<b>
 				</span>
@@ -60,16 +60,16 @@ include '/include/header.php';
 				<span>
 					<b>
 						<?php
-							echo $regbday;
+						echo $regbday;
 						?>
 					</b>
 				</span>
 				<select name="gebdag" class="paneelinvoer2" style="width:10%;">
 				<?php
-					for($i=1;$i<32;$i++)
-					{
-						echo('<option value="'.$i.'">'.$i.'</option>');	
-					}
+				for($i=1;$i<32;$i++)
+				{
+					echo('<option value="'.$i.'">'.$i.'</option>');	
+				}
 				?>
 				</select>
 				<select name="gebmaand" class="paneelinvoer2" style="width:25%;">
@@ -88,17 +88,17 @@ include '/include/header.php';
 				</select>
 				<select name="gebjaar" class="paneelinvoer2" style="width:15%;">
 					<?php
-						for($i=2012;$i>1900;$i--)
-						{
-							echo('<option value="'.$i.'">'.$i.'</option>');	
-						}
+					for($i=2012;$i>1900;$i--)
+					{
+						echo('<option value="'.$i.'">'.$i.'</option>');	
+					}
 					?>
 				</select>
 				<br/>
 				<span>
 					<b>
 						<?php
-							echo $regloc;
+						echo $regloc;
 						?>
 					</b>
 				</span>
@@ -107,22 +107,22 @@ include '/include/header.php';
 			</div>
 			<div class="registeragree">
 				<?php 
-					echo $regliscence;
+				echo $regliscence;
 				?>	
 			</div>
 
 			<input type="checkbox" name="accept" value="true" />
 			<?php 
-				echo $regagree;
+			echo $regagree;
 			?>	
 			<br />
 			<?php 
-				echo $regbutton;
+			echo $regbutton;
 			?>	
 		</form>
 	</div>
 </div>
 
 <?php
-	include '/include/footer.php';
+include '/include/footer.php';
 ?>
