@@ -27,7 +27,7 @@ div.banner{
 	background:#8C6535;
 	vertical-align:middle;
 	text-align:right;
-	background-image:url(shoredog.png);
+	background-image:url(images/shoredog.png);
 	height:150px;
 	background-repeat:no-repeat;
 	background-position:center;
@@ -138,12 +138,12 @@ div.footerdivider2{
 /* ---------------------------------------------------------*/
 
 .paneelinvoer{
-	background-color:#CCCCCC;
+	background-color:#724F20;
 	width:200px;
 }
 
 .paneelinvoer2{
-	background-color:#CCCCCC;
+	background-color:#8C6535;
 }
 
 table.paneelinvoertabel td{
@@ -182,7 +182,7 @@ div.paneelfooter{
 
 textarea.paneeltext{
 	width:98%;
-	background-color:#CCCCCC;
+	background-color:#8C6535;
 	font-family:Geneva, Arial, Helvetica, sans-serif;
 }
 
@@ -211,8 +211,6 @@ div.formulier select{
 	height:20px;
 	margin-bottom:6px;
 }
-<<<<<<< HEAD
-=======
 
 div.formulier input{
 	width:48%;
@@ -221,4 +219,3 @@ div.formulier input{
 	height:15px;
 	margin-bottom:6px;
 }
->>>>>>> ab7143556253fa68ee04701e60467522feb6b767
