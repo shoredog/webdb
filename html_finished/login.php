@@ -1,23 +1,40 @@
 <?php
 include '/include/header.php';
 ?>
+
 <div class="navigation">
-    	U bent hier: <b>Log in</b>
+		<?php
+		echo "$alglocatie <b>Log in</b>";
+		?>
 </div>
+
 <div class="content"><h1>Log in</h1>
 	<div class="catbalk">Log in</div>
 	<div class="forumhok">
 		<div class="loginbox">
-			<b>Vul hier uw login gegevens in:</b><p />
-			<form>
+			<b>
+				<?php
+				echo $inloginfo;
+				?>
+			</b><p />
+				<form>
 				<div class="loginform">
-					Gebruikersnaam:<br />
+					<?php
+					echo $inloguser;
+					?>
+					<br />
 					<input type="text" name="username" /><p />
-					Wachtwoord:<br />
+					<?php
+					echo $inlogpass;
+					?>
+					<br />
 					<input type="password" name="password" />
 				</div>
 				<p />
-				<input type="submit" value="Log in" /><input type="submit" value="Registreer" />
+				<input type="submit" value="Log in" />
+				<?php 
+				echo "$inlogreg";
+				?>
 			</form>
 		</div>
 	</div>

@@ -13,7 +13,14 @@ $algloguit = "Log uit";
 $alghome = "Home";
 $algmonths = array("Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December");
 
+//-------------------- MENU (PREFIX: menu) ------------------------- 
+
+
 //-------------------- INLOG (PREFIX: inlog) ------------------------
+$inloginfo = "<b>Fill in your username and password below :</b>";
+$inloguser = "Username:";
+$inlogpass = "Password:";
+$inlogreg = '<input type="submit" value="Register" />';
 
 //-------------------- REGISTER (PREFIX: reg) ------------------------
 $reg = "Registration";

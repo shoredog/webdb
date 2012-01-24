@@ -14,7 +14,14 @@ $alghome = "Home";
 $algmonths = array("Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December");
 
 
+//-------------------- MENU (PREFIX: menu) ------------------------- 
+
+
 //-------------------- INLOG (PREFIX: inlog) ------------------------
+$inloginfo = "<b>Vul hier uw login gegevens in:</b>";
+$inloguser = "Gebruikersnaam:";
+$inlogpass = "Wachtwoord:";
+$inlogreg = '<input type="submit" value="Registreer" />';
 
 //-------------------- REGISTER (PREFIX: reg) ------------------------
 $reg = "Registratie";
