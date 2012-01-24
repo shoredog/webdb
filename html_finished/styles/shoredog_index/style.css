@@ -499,6 +499,7 @@ textarea.paneeltext{
 width:98%;
 background-color:#CCCCCC;
 font-family:Geneva, Arial, Helvetica, sans-serif;
+resize:none;
 }
 
 a:link, a:visited, a:hover, a:active{

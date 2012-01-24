@@ -26,6 +26,34 @@ mysql_select_db($mysqldb) or die("Er is een fout opgetreden.");
             </div>
             <div class="paneelbox">
             	<div class="formulier">
+                	<?php
+						if(isset($_POST['senduserform']))
+						{
+							echo("En nu moet het gedoe verwerkt worden.</div>");
+							if(strcmp($_POST['weergave'], $_SESSION['user_tview']) != 0)
+							{
+								echo("De forumweergave moet worden geupdate.");	
+							}
+							if(strcmp($_POST['taal'], $_SESSION['user_lang']) != 0)
+							{
+								echo("De taal moet worden geupdate.");	
+							}
+							if(strcmp($_POST['cssselector'], $_SESSION['user_style']) != 0)
+							{
+								echo("De stijl moet worden geupdate.");	
+							}
+							if(strcmp($_POST['geslacht'], $_SESSION['user_sex']) != 0)
+							{
+								echo("Het geslacht moet worden geupdate.");	
+							}
+							if(strcmp($_POST['weergave'], $_SESSION['user_tview']) != 0)
+							{
+								echo("De forumweergave moet worden geupdate.");	
+							}
+						}
+						else
+						{
+					?>
                 	<form action=<?php echo($_SERVER['PHP_SELF']) ?> method="post">
                     	<?php
 							$query = "SELECT * FROM users WHERE user_id = " . $_SESSION['user_id'];
@@ -124,7 +152,14 @@ mysql_select_db($mysqldb) or die("Er is een fout opgetreden.");
                     <textarea name="interesse" cols="10" rows="8" class="paneeltext"><?php echo($userinfo['interests']); ?></textarea>
                     <b><?php echo($gebpanbio); ?></b>
                     <textarea name="biografie" cols="10" rows="8" class="paneeltext"><?php echo($userinfo['biography']); ?></textarea>
+                    <div align="right">
+                    	<input name="senduserform" type="submit" value="Verzenden" />
+                  	</div>
                 </form>
+                <?php
+						}
+						
+				?>
             </div>
       	</div>
       	<div class="paneelfooter"></div>
