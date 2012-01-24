@@ -5,6 +5,15 @@
 session_start();
 include("../include/config.php");
 $_SESSION['user_id'] = 1; 
+$_SESSION['user_name'] = "David";
+$_SESSION['user_ava'] = "avatar.jpg";
+$_SESSION['user_rank'] = 2;
+$_SESSION['user_lang'] = 2;
+$_SESSION['user_style'] = 1;
+$_SESSION['user_tview'] = 1;
+$_SESSION['ip'] = "127.0.0.1";
+mysql_connect($mysqlhost, $mysqluser, $mysqlpass);
+mysql_select_db($mysqldb);
 ?>
 
 <head>
@@ -12,12 +21,20 @@ $_SESSION['user_id'] = 1;
 
 <?php
 	if(isset($_SESSION['user_style']))
-		echo('<link href="../styles/'.$_SESSION['style'].'/style.css" rel="stylesheet" type="text/css" />');
+	{
+		$result = mysql_query("SELECT * FROM styles WHERE id = " .$_SESSION['user_style'] );
+		$style = mysql_fetch_array($result);
+		echo('<link href="../styles/'.$style['folder'].'/style.css" rel="stylesheet" type="text/css" />');
+	}
 	else
+	{
 		echo('<link href="../styles/shoredog_index/style.css" rel="stylesheet" type="text/css" />');
+	}
 	if(isset($_SESSION['user_lang']))
 	{
-		$inc = "../lang/" . $_SESSION['lang'] . ".php";
+		$result = mysql_query("SELECT * FROM langs WHERE id = " .$_SESSION['user_lang'] );
+		$lang = mysql_fetch_array($result);
+		$inc = "../lang/" . $lang['file'] . ".php";
 		include($inc);
 	}
 	else
