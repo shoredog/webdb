@@ -2,8 +2,7 @@
     include '/include/header.php';
 ?>
 <?php
-    $user = $_GET["user"];
-    $dinges = 'hallo';
+    $userid = $_GET["user"];
 ?>
 <div class="navigation">
 	U bent hier: <b>Profiel</b>
@@ -12,7 +11,7 @@
 <div class="content">
 	<div class="userinfoheader">
         <?php
-            $result = mysql_query("SELECT * FROM users WHERE user_id=$user");
+            $result = mysql_query("SELECT * FROM users WHERE user_id=$userid");
             $user = mysql_fetch_array($result);
             print "<img src=\"" . $user['avatar'] . "\" class=\"avatar\">";
             print "<h1>" . $user['user_name'] . "</h1>";
@@ -23,23 +22,28 @@
 		<div class="catbalk">User Information</div>
 		<div class="forumhok">
 			<table class="userinfotable">
-                <?php
-                    print "<tr><td>Name:</td><td>";
-                        print $user['user_name'];
-                    print "</td></tr>";
-                    print "<tr><td>Rank:</td><td>";
+                <tr>
+                    <td>Name:</td>
+                    <td><?php print $user['user_name'];?></td>
+                </tr>
+                <tr>
+                    <td>Rank:</td>
+                    <td><?php
                         if ($user['rank']==2)
                             print 'admin';
                         else
-                            print 'user';
-                    print "</td></tr>";
-                    print "<tr><td>Location:</td><td>";
-                        print $user['location'];
-                    print "</td></tr>";
-                    if ($user['show_dob']==1){
-                        print "<tr><td>Birthdate:</td><td>";
-                            print $user['date_of_birth'];
-                        print "</td></tr>";
+                            print 'user';?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Location:</td>
+                    <td><?php print $user['location'];?></td>
+                </tr><?php
+                    if ($user['show_dob']==1){?>
+                        <tr>
+                            <td>Birthdate:</td>
+                            <td><?php print $user['date_of_birth'];?></td>
+                        </tr><?php
                     }
                 ?>
 			</table>
@@ -48,20 +52,18 @@
 	<div class="profilecomments">
 		<div class="catbalk">Latest Comments</div>
 		<div class="forumhok">
-			<div class="profilecomment">
-				<div class="catbalk">Comment 1</div>
-				<div class="forumhok">hier staat dan de inhoud van comment 1</div>
-			</div>
-			<div class="profilecomment">
-				<div class="catbalk">Comment 2</div>
-				<div class="forumhok">hier staat dan de inhoud van comment 2</div>
-			</div>
-			<div class="profilecomment">
-				<div class="catbalk">Comment 3</div>
-				<div class="forumhok">hier staat dan de inhoud van comment 3</div>
-			</div>
-			<!-- hierbinnen moet met een scriptje de laatste 10 comments van de user
-				 worden opgezocht. -->
+            <?php
+                $result2 = mysql_query("SELECT * FROM comments WHERE poster_id=$userid ORDER BY comment_date DESC LIMIT 10");
+                
+                while ($comments = mysql_fetch_array($result2)) {
+                    ?>
+                    <div class="profilecomment">
+                        <div class="catbalk"><?php print $comments['comment_title'];?></div>
+                        <div class="forumhok"><?php print $comments['comment_content'];?></div>
+                    </div>
+                    <?php
+                }
+            ?>
 		</div>
 	</div>
 	<div class="eindfloat">
