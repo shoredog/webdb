@@ -11,7 +11,7 @@ $algreg = "Register";
 $alglogin = "Log in";
 $algloguit = "Log uit";
 $alghome = "Home";
-
+$algmonths = array("Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December");
 
 //-------------------- INLOG (PREFIX: inlog) ------------------------
 
@@ -22,10 +22,10 @@ $reginfo = "Fill in your information below:";
 $regname = "Username";
 $regrepmail = "Repeat email";
 $regsex = "Sex";
-$regbday = "BIrthday";
+$regbday = "Birthday";
 $regloc = "Location";
 $regagree = "I've read the userliscence and accept it";
-$regbutton = "<input type="submit" value="Send" />";
+$regbutton = "<input type=\"submit\" value=\"Send\" />";
 $regliscence = 'Do your layouts deserve better than Lorem Ipsum? Apply as an art director and team up with the best copywriters at Jung von Matt: www.jvm.com/jobs/lipsum
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque enim massa, ultricies in molestie nec, egestas eget nisi. Fusce convallis laoreet turpis quis pretium. Donec at est vel purus eleifend ultrices. In vestibulum, ante a congue accumsan, libero sapien convallis orci, in pulvinar neque nunc id lorem. In lacus nisl, eleifend eleifend dignissim eu, rutrum a sem. Fusce dictum luctus metus, ac tempor purus sodales at. Duis mattis ullamcorper sapien a laoreet. Fusce a purus ut nisi feugiat venenatis sed ac lacus. Aenean pretium tellus sit amet mauris tempor tempor. Proin sed erat dui, eu elementum diam. Donec vel arcu eget ligula convallis fermentum at accumsan massa. Quisque feugiat rhoncus laoreet. Morbi non sodales orci. Cras odio sem, sagittis dapibus vehicula id, mollis eu lectus.
@@ -63,7 +63,27 @@ $gebpanchangeava = "Change Avatar";
 $gebpanchangesig = "Change Signature";
 $gebpanchangepass = "Change Password";
 $gebpanwelcome = "Welcome in the User Control Panel. Here you can change all your forum setting to give you an optimal forum experience.";
-
+$gebpandiscussionview = "Discussionview";
+$gebpannested = "Nested view";
+$gebpanlinear = "Linear view";
+$gebpanlang = "Language";
+$gebpanstyle = "Forum Style";
+$gebpanprofilesettings = "Profile Settings";
+$gebpansex = "Sex";
+$gebpanman = "Man";
+$gebpanwoman = "Woman";
+$gebpannosex = "I'd rather not say";
+$gebpansite = "Site";
+$gebpansubtitle = "Subtitle";
+$gebpanplace = "Location";
+$gebpanmail = "E-mail";
+$gebpandob = "Birthday";
+$gebpanvis = "Visibility";
+$gebpanvistrue = "Show age and birthday";
+$gebpanvisfalse = "Hide age and birthday";
+$gebpaninterest = "Interests";
+$gebpanbio = "Biography";
+$gebpannotlogged = "You are not logged in, so you don't have access to the User Control Panel.";
 
 
 //-------------------- ADMINPANEEL (PREFIX: adpan) ------------------------

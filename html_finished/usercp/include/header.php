@@ -3,33 +3,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 session_start();
-include("../include/config.php"); 
+include("../include/config.php");
+$_SESSION['user_id'] = 1; 
 ?>
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <?php
-	if(isset($_POST['submitcss']))
-	{
-		$_SESSION['style'] = $_POST['cssselector'];
-	}
-	if(isset($_SESSION['style']))
+	if(isset($_SESSION['user_style']))
 		echo('<link href="../styles/'.$_SESSION['style'].'/style.css" rel="stylesheet" type="text/css" />');
 	else
 		echo('<link href="../styles/shoredog_index/style.css" rel="stylesheet" type="text/css" />');
-		
-	if(isset($_POST['submittaal']))
-	{
-		$_SESSION['lang'] = $_POST['taalselector'];
-	}
-	if(isset($_SESSION['lang']))
+	if(isset($_SESSION['user_lang']))
 	{
 		$inc = "../lang/" . $_SESSION['lang'] . ".php";
 		include($inc);
 	}
 	else
-		include("../lang/dutch.php");
+		include("../lang/english.php");
 ?>
 <link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
 <title>Userpanel</title>
@@ -53,3 +45,14 @@ include("../include/config.php");
                 <b><?php echo($alglogin); ?></b>
             </div>
         </div>
+        
+        <?php
+			if(!isset($_SESSION['user_id']))
+			{
+				echo('<div class="content">');
+				echo($gebpannotlogged);
+				echo('</div>');
+				include("include/footer.php");
+				die();
+			}
+		?>
