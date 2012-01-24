@@ -34,6 +34,22 @@ mysql_select_db($mysqldb) or die("Er is een fout opgetreden.");
 							{
 								echo("De forumweergave moet worden geupdate.");	
 							}
+							if(strcmp($_POST['taal'], $_SESSION['user_lang']) != 0)
+							{
+								echo("De taal moet worden geupdate.");	
+							}
+							if(strcmp($_POST['cssselector'], $_SESSION['user_style']) != 0)
+							{
+								echo("De stijl moet worden geupdate.");	
+							}
+							if(strcmp($_POST['geslacht'], $_SESSION['user_sex']) != 0)
+							{
+								echo("Het geslacht moet worden geupdate.");	
+							}
+							if(strcmp($_POST['weergave'], $_SESSION['user_tview']) != 0)
+							{
+								echo("De forumweergave moet worden geupdate.");	
+							}
 						}
 						else
 						{
