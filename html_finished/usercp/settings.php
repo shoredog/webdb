@@ -29,41 +29,88 @@ mysql_select_db($mysqldb) or die("Er is een fout opgetreden.");
                 	<?php
 						if(isset($_POST['senduserform']))
 						{
-							echo("En nu moet het gedoe verwerkt worden.</div>");
+							$succes = true;
+							$fouten = array();
+							$querys = array();
+							echo("En nu moet het gedoe verwerkt worden.<br />");
 							if(strcmp($_POST['weergave'], $_SESSION['user_tview']) != 0)
 							{
-								echo("De forumweergave moet worden geupdate.");	
+								echo("De forumweergave moet worden geupdate.<br />");
+								$querys[] = sprintf("viewtype = '%s'", $_POST['weergave']);	
 							}
 							if(strcmp($_POST['taal'], $_SESSION['user_lang']) != 0)
 							{
-								echo("De taal moet worden geupdate.");	
+								echo("De taal moet worden geupdate.<br />");	
+								$querys[] = sprintf("lang = '%s'", $_POST['taal']);
 							}
 							if(strcmp($_POST['cssselector'], $_SESSION['user_style']) != 0)
 							{
-								echo("De stijl moet worden geupdate.");	
+								echo("De stijl moet worden geupdate.<br />");	
+								$querys[] = sprintf("style = '%s'", $_POST['cssselector']);
 							}
 							if(strcmp($_POST['geslacht'], $_SESSION['user_sex']) != 0)
 							{
-								echo("Het geslacht moet worden geupdate.");	
+								echo("Het geslacht moet worden geupdate.<br />");	
+								$querys[] = sprintf("sex = '%s'", $_POST['geslacht']);
 							}
-							if(strcmp($_POST['weergave'], $_SESSION['user_tview']) != 0)
+							if(strcmp($_POST['site'], $_SESSION['user_site']) != 0)
 							{
-								echo("De forumweergave moet worden geupdate.");	
+								echo("De website moet worden geupdate.<br />");	
+								$querys[] = sprintf("personal_site = '%s'", filterInput($_POST['site']));
 							}
+							if(strcmp($_POST['ondertitel'], $_SESSION['user_subtitle']) != 0)
+							{
+								echo("De subtitel moet worden geupdate.<br />");
+								$querys[] = sprintf("sub_title = '%s'", filterInput($_POST['ondertitel']));	
+							}
+							if(strcmp($_POST['locatie'], $_SESSION['user_location']) != 0)
+							{
+								echo("De locatie moet worden geupdate.<br />");	
+								$querys[] = sprintf("location = '%s'", filterInput($_POST['locatie']));
+							}
+							if(strcmp($_POST['email'], $_SESSION['user_email']) != 0)
+							{
+								echo("De email moet worden geupdate.<br />");
+								$querys[] = sprintf("email = '%s'", filterInput($_POST['email']));	
+							}
+							if((strcmp($_POST['gebdag'], date("d", strtotime($_SESSION['user_date_of_birth']))) != 0) || (strcmp($_POST['gebmaand'], date("n", strtotime($_SESSION['user_date_of_birth']))) != 0) || (strcmp($_POST['gebjaar'], date("Y", strtotime($_SESSION['user_date_of_birth']))) != 0))
+							{
+								echo("De geboortedag moet worden geupdate.<br />");
+								$querys[] = sprintf("date_of_birth = '%s-%s-%s'", $_POST['gebjaar'], $_POST['gebmaand'], $_POST['gebdag']);	
+							}
+							if(strcmp($_POST['leeftijdzichtbaar'], $_SESSION['user_show_dob']) != 0)
+							{
+								echo("De zichtbaarheid van de geboortedatum moet worden geupdate.<br />");
+								$querys[] = sprintf("show_dob = '%s'", $_POST['leeftijdzichtbaar']);	
+							}
+							if(strcmp($_POST['interesse'], $_SESSION['user_interests']) != 0)
+							{
+								echo("De interesses moeten worden geupdate.<br />");
+								$querys[] = sprintf("interests = '%s'", $_POST['interesse']);	
+							}
+							if(strcmp($_POST['biografie'], $_SESSION['user_bio']) != 0)
+							{
+								echo("De biografie moet worden geupdate.<br />");	
+								$querys[] = sprintf("biography = '%s'", $_POST['biografie']);
+							}
+							$updatequery = "UPDATE users SET ";
+							foreach($querys as $item)
+							{
+								$updatequery .= $item . ", ";
+							}
+							$updatequery = substr($updatequery,0,-2);
+							$updatequery .= " WHERE user_id = '" . $_SESSION['user_id'] . "'";
+							echo("De uit te voeren query: <br /><br />" . $updatequery);
+							echo('</div>');
 						}
-						else
+						if(!isset($succes) || $succes == false)
 						{
 					?>
                 	<form action=<?php echo($_SERVER['PHP_SELF']) ?> method="post">
-                    	<?php
-							$query = "SELECT * FROM users WHERE user_id = " . $_SESSION['user_id'];
-							$result = mysql_query($query);
-							$userinfo = mysql_fetch_array($result);
-						?>
-                        <span><b><?php echo($gebpandiscussionview); ?></b></span>
+                    	<span><b><?php echo($gebpandiscussionview); ?></b></span>
                         <select class="paneelinvoer" name="weergave">
-                            <option value="0"<?php echo ''.(strcmp($userinfo['viewtype'], '0') == 0)?' SELECTED':''; ?>><?php echo($gebpannested); ?></option>
-                            <option value="1"<?php echo ''.(strcmp($userinfo['viewtype'], '1') == 0)?' SELECTED':''; ?>><?php echo($gebpanlinear); ?></option>
+                            <option value="0"<?php echo ''.(strcmp($_SESSION['user_tview'], '0') == 0)?' SELECTED':''; ?>><?php echo($gebpannested); ?></option>
+                            <option value="1"<?php echo ''.(strcmp($_SESSION['user_tview'], '1') == 0)?' SELECTED':''; ?>><?php echo($gebpanlinear); ?></option>
                         </select>
                         <br />
                         <span><b><?php echo($gebpanlang); ?></b></span>
@@ -72,7 +119,7 @@ mysql_select_db($mysqldb) or die("Er is een fout opgetreden.");
                                 $result = mysql_query("SELECT * FROM langs");
                                 while($row = mysql_fetch_array($result))
                                 {
-                                    echo('<option value="'.$row['id'].'"'.((strcmp($userinfo['lang'], $row['id']) == 0)?' SELECTED':'').'>'.$row['name'].'</option>');
+                                    echo('<option value="'.$row['id'].'"'.((strcmp($_SESSION['user_lang'], $row['id']) == 0)?' SELECTED':'').'>'.$row['name'].'</option>');
                                 }
                             ?>
                          </select>
@@ -83,7 +130,7 @@ mysql_select_db($mysqldb) or die("Er is een fout opgetreden.");
                             $result = mysql_query("SELECT * FROM styles");
                             while($row = mysql_fetch_array($result))
                             {
-                                echo('<option value="'.$row['id'].'"'.((strcmp($userinfo['style'], $row['id']) == 0)?' SELECTED':'').'>'.$row['title'].'</option>');
+                                echo('<option value="'.$row['id'].'"'.((strcmp($_SESSION['user_style'], $row['id']) == 0)?' SELECTED':'').'>'.$row['title'].'</option>');
                             }
                             ?>
                         </select>
@@ -97,29 +144,29 @@ mysql_select_db($mysqldb) or die("Er is een fout opgetreden.");
                     <div class="formulier">
                         <span><?php echo($gebpansex); ?></span>
                         <select class="paneelinvoer" name="geslacht">
-                            <option value="m"<?php echo ''.(strcmp($userinfo['sex'], 'm') == 0)?' SELECTED':''; ?>><?php echo($gebpanman); ?></option>
-                            <option value="v"<?php echo ''.(strcmp($userinfo['sex'], 'v') == 0)?' SELECTED':''; ?>><?php echo($gebpanwoman); ?></option>
-                            <option value="x"<?php echo ''.(strcmp($userinfo['sex'], 'x') == 0)?' SELECTED':''; ?>><?php echo($gebpannosex); ?></option>
+                            <option value="m"<?php echo ''.(strcmp($_SESSION['user_sex'], 'm') == 0)?' SELECTED':''; ?>><?php echo($gebpanman); ?></option>
+                            <option value="v"<?php echo ''.(strcmp($_SESSION['user_sex'], 'v') == 0)?' SELECTED':''; ?>><?php echo($gebpanwoman); ?></option>
+                            <option value="x"<?php echo ''.(strcmp($_SESSION['user_sex'], 'x') == 0)?' SELECTED':''; ?>><?php echo($gebpannosex); ?></option>
                         </select>
                         <br />
                         <span><?php echo($gebpansite); ?></span>
-                        <input name="site" type="text" maxlength="250" class="paneelinvoer" value="<?php echo($userinfo['personal_site']) ?>" />
+                        <input name="site" type="text" maxlength="250" class="paneelinvoer" value="<?php echo($_SESSION['user_site']) ?>" />
                         <br />
                         <span><?php echo($gebpansubtitle); ?></span>
-                        <input name="ondertitel" type="text" maxlength="250" class="paneelinvoer" value="<?php echo($userinfo['sub_title']) ?>" />
+                        <input name="ondertitel" type="text" maxlength="250" class="paneelinvoer" value="<?php echo($_SESSION['user_subtitle']) ?>" />
                         <br />
                         <span><?php echo($gebpanplace); ?></span>
-                        <input name="locatie" type="text" maxlength="250" class="paneelinvoer" value="<?php echo($userinfo['location']) ?>" />
+                        <input name="locatie" type="text" maxlength="250" class="paneelinvoer" value="<?php echo($_SESSION['user_location']) ?>" />
                         <br />
                         <span><?php echo($gebpanmail); ?></span>
-                        <input name="email" type="text" maxlength="250" class="paneelinvoer" value="<?php echo($userinfo['email']) ?>" />
+                        <input name="email" type="text" maxlength="250" class="paneelinvoer" value="<?php echo($_SESSION['user_email']) ?>" />
                         <br />
                         <span><?php echo($gebpandob); ?></span>
                         <select name="gebdag" class="paneelinvoer2" style="width:10%;">
                             <?php
                                 for($i=1;$i<32;$i++)
                                 {
-                                    echo('<option value="'.$i.'"'.((strcmp(date("d", strtotime($userinfo['date_of_birth'])), $i) == 0)?' SELECTED':'').'>'.$i.'</option>');	
+                                    echo('<option value="'.$i.'"'.((strcmp(date("d", strtotime($_SESSION['user_date_of_birth'])), $i) == 0)?' SELECTED':'').'>'.$i.'</option>');	
                                 }
                             ?>
                         </select>
@@ -128,7 +175,7 @@ mysql_select_db($mysqldb) or die("Er is een fout opgetreden.");
                                 for($i=1;$i<13;$i++)
                                 {
 									$arrayindex = $i-1;
-                                    echo('<option value="'.$i.'"'.((strcmp(date("n", strtotime($userinfo['date_of_birth'])), $i) == 0)?' SELECTED':'').'>'.$algmonths[$arrayindex].'</option>');	
+                                    echo('<option value="'.$i.'"'.((strcmp(date("n", strtotime($_SESSION['user_date_of_birth'])), $i) == 0)?' SELECTED':'').'>'.$algmonths[$arrayindex].'</option>');	
                                 }
                             ?>
                         </select>
@@ -136,22 +183,22 @@ mysql_select_db($mysqldb) or die("Er is een fout opgetreden.");
                             <?php
                                 for($i=2012;$i>1900;$i--)
                                 {
-                                    echo('<option value="'.$i.'"'.((strcmp(date("Y", strtotime($userinfo['date_of_birth'])), $i) == 0)?' SELECTED':'').'>'.$i.'</option>');	
+                                    echo('<option value="'.$i.'"'.((strcmp(date("Y", strtotime($_SESSION['user_date_of_birth'])), $i) == 0)?' SELECTED':'').'>'.$i.'</option>');	
                                 }
                             ?>
                         </select>
                         <br />
                         <span><?php echo($gebpanvis); ?></span>
                         <select class="paneelinvoer" name="leeftijdzichtbaar">
-                            <option value="ja"<?php echo ''.(strcmp($userinfo['show_dob'], '1') == 0)?' SELECTED':''; ?>><?php echo($gebpanvistrue); ?></option>
-                            <option value="nee"<?php echo ''.(strcmp($userinfo['show_dob'], '0') == 0)?' SELECTED':''; ?>><?php echo($gebpanvisfalse); ?></option>
+                            <option value="1"<?php echo ''.(strcmp($_SESSION['user_show_dob'], '1') == 0)?' SELECTED':''; ?>><?php echo($gebpanvistrue); ?></option>
+                            <option value="0"<?php echo ''.(strcmp($_SESSION['user_show_dob'], '0') == 0)?' SELECTED':''; ?>><?php echo($gebpanvisfalse); ?></option>
                         </select>
                         <br />
                     </div>
                     <b><?php echo($gebpaninterest); ?></b>
-                    <textarea name="interesse" cols="10" rows="8" class="paneeltext"><?php echo($userinfo['interests']); ?></textarea>
+                    <textarea name="interesse" cols="10" rows="8" class="paneeltext"><?php echo($_SESSION['user_interests']); ?></textarea>
                     <b><?php echo($gebpanbio); ?></b>
-                    <textarea name="biografie" cols="10" rows="8" class="paneeltext"><?php echo($userinfo['biography']); ?></textarea>
+                    <textarea name="biografie" cols="10" rows="8" class="paneeltext"><?php echo($_SESSION['user_bio']); ?></textarea>
                     <div align="right">
                     	<input name="senduserform" type="submit" value="Verzenden" />
                   	</div>
