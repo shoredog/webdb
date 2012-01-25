@@ -10,11 +10,11 @@ include '/include/header.php';
                 Menu
             </div>
           	<div class="paneelbox">
-                - Home<br />
-                - Foruminstellingen<br />
-                - Avatar wijzigen<br />
-                - Signature wijzigen<br />
-                - Wachtwoord wijzigen
+                - <a href="index.php" target="_self"><?php echo($alghome); ?></a><br />
+                - <a href="settings.php" target="_self"><?php echo($gebpanforumsettings); ?></a><br />
+                - <a href="editava.php" target="_self"><?php echo($gebpanchangeava); ?></a><br />
+                - <a href="editsig.php" target="_self"><?php echo($gebpanchangesig); ?></a><br />
+                - <a href="editpass.php" target="_self"><?php echo($gebpanchangepass); ?></a>
            	</div>
         </div>
         <div class="paneelcontent">

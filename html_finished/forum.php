@@ -34,14 +34,15 @@ include '/include/header.php';
 							<b>100</b>
 						</center>
 					</div>
-					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
 												   onMouseOut="this.style.backgroundColor='#666666';"
 												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Laatste bericht 1</b></br>
 						<i>Op datum door poster</i>
 					</div>
 				</div>
-				<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+				<div class="categorieforumcontainer">
+					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
 												   onMouseOut="this.style.backgroundColor='#666666';"
 												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Topic 2</b><br />
@@ -52,14 +53,15 @@ include '/include/header.php';
 							<b>100</b></br>
 						</center>
 					</div>
-					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
 												   onMouseOut="this.style.backgroundColor='#666666';"
 												   onClick="window.location.href='yourlinklocationhere'">
-					<b>Laatste bericht 2</b></br>
-					<i>Op datum door poster</i>
+						<b>Laatste bericht 2</b></br>
+						<i>Op datum door poster</i>
 					</div>
 				</div>
-				<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+				<div class="categorieforumcontainer">
+					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
 												   onMouseOut="this.style.backgroundColor='#666666';"
 												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Topic 3</b><br />
@@ -70,7 +72,7 @@ include '/include/header.php';
 							<b>100</b></br>
 						</center>
 					</div>
-					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
 												   onMouseOut="this.style.backgroundColor='#666666';"
 												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Laatste bericht 3</b></br>
@@ -89,7 +91,7 @@ include '/include/header.php';
 							<b>100</b></br>
 						</center>
 					</div>
-					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
 												   onMouseOut="this.style.backgroundColor='#666666';"
 												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Laatste bericht 4</b></br>
@@ -108,7 +110,7 @@ include '/include/header.php';
 							<b>100</b></br>
 						</center>
 					</div>
-					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
 												   onMouseOut="this.style.backgroundColor='#666666';"
 												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Laatste bericht 5</b></br>
@@ -127,7 +129,7 @@ include '/include/header.php';
 							<b>100</b></br>
 						</center>
 					</div>
-					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
 												   onMouseOut="this.style.backgroundColor='#666666';"
 												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Laatste bericht 6</b></br>
@@ -146,7 +148,7 @@ include '/include/header.php';
 							<b>100</b></br>
 						</center>
 					</div>
-					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
 												   onMouseOut="this.style.backgroundColor='#666666';"
 												   onClick="window.location.href='yourlinklocationhere'">
 						<b>Laatste bericht 7</b></br>
