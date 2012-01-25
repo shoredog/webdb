@@ -160,6 +160,7 @@ include '/include/header.php';
 			<div class="categoriefooter"></div>
 		</div>
 	</div>
+	
 
 <?php
 include '/include/footer.php';
