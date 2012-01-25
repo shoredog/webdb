@@ -29,8 +29,18 @@ include('include/header.php');
                 <?php echo($gebpannotepad); ?>
             </div>
           	<div class="paneelbox">
-      			<form action="#" method="post" name="kladblok">
-                	<textarea name="kladbl" cols="10" rows="5" class="paneeltext"><?php echo($gebpannotepadempty) ?></textarea>
+            <?php
+				if(isset($_POST['submitkladblok']))
+				{
+					mysql_connect($mysqlhost, $mysqluser, $mysqlpass);
+					mysql_select_db($mysqldb);
+					mysql_query("UPDATE users SET notitions='" . filterInput($_POST['kladbl']) . "' WHERE user_id =" . $_SESSION['user_id']) or die(mysql_error());
+					$_SESSION['notitions'] = filterInput($_POST['kladbl']);
+					echo("Uw kladblok is bijgewerkt.");	
+				}
+			?>
+      			<form action="<?php echo($_SERVER['PHP_SELF']) ?>" method="post" name="kladblok">
+                	<textarea name="kladbl" cols="10" rows="5" class="paneeltext"><?php echo(isset($_SESSION['notitions']))?($_SESSION['notitions']):($gebpannotepadempty) ?></textarea>
                     <div align="right">
                     	<input name="submitkladblok" type="submit" value="Opslaan" />
                     </div>
