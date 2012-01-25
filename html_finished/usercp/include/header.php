@@ -3,6 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 session_start();
+
+function filterInput($input)
+{
+	return mysql_real_escape_string(htmlspecialchars($input));	
+}
+
 include("../include/config.php");
 $_SESSION['user_id'] = 1; 
 $_SESSION['user_name'] = "David";
