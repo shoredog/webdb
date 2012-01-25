@@ -22,7 +22,12 @@ mysql_select_db($mysqldb) or die("Er is een fout opgetreden.");
         </div>
         <div class="paneelcontent">
         	<div class="catbalk">
-                <?php echo($gebpanforumsettings); ?>
+                <?php 
+				if(!isset($_POST['senduserform']))
+					echo($gebpanforumsettings); 
+				else
+					echo("Verwerken invoer...");
+				?>
             </div>
             <div class="paneelbox">
             	<div class="formulier">
@@ -32,76 +37,109 @@ mysql_select_db($mysqldb) or die("Er is een fout opgetreden.");
 							$succes = true;
 							$fouten = array();
 							$querys = array();
-							echo("En nu moet het gedoe verwerkt worden.<br />");
 							if(strcmp($_POST['weergave'], $_SESSION['user_tview']) != 0)
 							{
-								echo("De forumweergave moet worden geupdate.<br />");
 								$querys[] = sprintf("viewtype = '%s'", $_POST['weergave']);	
+								$_SESSION['user_tview'] = $_POST['weergave'];
 							}
 							if(strcmp($_POST['taal'], $_SESSION['user_lang']) != 0)
-							{
-								echo("De taal moet worden geupdate.<br />");	
+							{	
 								$querys[] = sprintf("lang = '%s'", $_POST['taal']);
+								$_SESSION['user_lang'] = $_POST['taal'];
 							}
 							if(strcmp($_POST['cssselector'], $_SESSION['user_style']) != 0)
-							{
-								echo("De stijl moet worden geupdate.<br />");	
+							{	
 								$querys[] = sprintf("style = '%s'", $_POST['cssselector']);
+								$_SESSION['user_style'] = $_POST['cssselector'];
 							}
 							if(strcmp($_POST['geslacht'], $_SESSION['user_sex']) != 0)
-							{
-								echo("Het geslacht moet worden geupdate.<br />");	
+							{	
 								$querys[] = sprintf("sex = '%s'", $_POST['geslacht']);
+								$_SESSION['user_sex'] = $_POST['geslacht'];
 							}
 							if(strcmp($_POST['site'], $_SESSION['user_site']) != 0)
 							{
-								echo("De website moet worden geupdate.<br />");	
+								if(!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*.[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", filterInput($_POST['site'])))
+								{
+									$succes = false;
+									$fouten[] = "U heeft een ongeldige website opgegeven";	
+								}
 								$querys[] = sprintf("personal_site = '%s'", filterInput($_POST['site']));
+								$_SESSION['user_site'] = $_POST['site'];
 							}
 							if(strcmp($_POST['ondertitel'], $_SESSION['user_subtitle']) != 0)
 							{
-								echo("De subtitel moet worden geupdate.<br />");
 								$querys[] = sprintf("sub_title = '%s'", filterInput($_POST['ondertitel']));	
+								$_SESSION['user_subtitle'] = $_POST['ondertitel'];
 							}
 							if(strcmp($_POST['locatie'], $_SESSION['user_location']) != 0)
 							{
-								echo("De locatie moet worden geupdate.<br />");	
 								$querys[] = sprintf("location = '%s'", filterInput($_POST['locatie']));
+								$_SESSION['user_location'] = $_POST['locatie'];
 							}
 							if(strcmp($_POST['email'], $_SESSION['user_email']) != 0)
 							{
-								echo("De email moet worden geupdate.<br />");
-								$querys[] = sprintf("email = '%s'", filterInput($_POST['email']));	
+								if(!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", filterInput($_POST['email'])))
+								{
+									$succes = false;
+									$fouten[] = "U heeft een ongeldig e-mail adres opgegeven";	
+								}
+								else
+								{
+									$querys[] = sprintf("email = '%s'", filterInput($_POST['email']));
+									$_SESSION['user_email'] = $_POST['email'];
+								}
 							}
 							if((strcmp($_POST['gebdag'], date("d", strtotime($_SESSION['user_date_of_birth']))) != 0) || (strcmp($_POST['gebmaand'], date("n", strtotime($_SESSION['user_date_of_birth']))) != 0) || (strcmp($_POST['gebjaar'], date("Y", strtotime($_SESSION['user_date_of_birth']))) != 0))
 							{
-								echo("De geboortedag moet worden geupdate.<br />");
 								$querys[] = sprintf("date_of_birth = '%s-%s-%s'", $_POST['gebjaar'], $_POST['gebmaand'], $_POST['gebdag']);	
+								$_SESSION['user_date_of_birth'] = sprintf("%s-%s-%s", $_POST['gebjaar'], $_POST['gebmaand'], $_POST['gebdag']);
 							}
 							if(strcmp($_POST['leeftijdzichtbaar'], $_SESSION['user_show_dob']) != 0)
 							{
-								echo("De zichtbaarheid van de geboortedatum moet worden geupdate.<br />");
-								$querys[] = sprintf("show_dob = '%s'", $_POST['leeftijdzichtbaar']);	
+								$querys[] = sprintf("show_dob = '%s'", $_POST['leeftijdzichtbaar']);
+								$_SESSION['user_show_dob'] = $_POST['leeftijdzichtbaar'];
 							}
 							if(strcmp($_POST['interesse'], $_SESSION['user_interests']) != 0)
 							{
-								echo("De interesses moeten worden geupdate.<br />");
 								$querys[] = sprintf("interests = '%s'", $_POST['interesse']);	
+								$_SESSION['user_interests'] = $_POST['interesse'];
 							}
 							if(strcmp($_POST['biografie'], $_SESSION['user_bio']) != 0)
-							{
-								echo("De biografie moet worden geupdate.<br />");	
+							{	
 								$querys[] = sprintf("biography = '%s'", $_POST['biografie']);
+								$_SESSION['user_bio'] = $_POST['biografie'];
 							}
-							$updatequery = "UPDATE users SET ";
-							foreach($querys as $item)
+							if(empty($querys))
 							{
-								$updatequery .= $item . ", ";
+								echo("Uw wijzigingen zijn succesvol doorgevoerd.");
+								echo('</div>');
 							}
-							$updatequery = substr($updatequery,0,-2);
-							$updatequery .= " WHERE user_id = '" . $_SESSION['user_id'] . "'";
-							echo("De uit te voeren query: <br /><br />" . $updatequery);
-							echo('</div>');
+							else if($succes)
+							{
+								$updatequery = "UPDATE users SET ";
+								foreach($querys as $item)
+								{
+									$updatequery .= $item . ", ";
+								}
+								$updatequery = substr($updatequery,0,-2);
+								$updatequery .= " WHERE user_id = '" . $_SESSION['user_id'] . "'";
+								mysql_query($updatequery);
+								echo("Uw wijzigingen zijn succesvol doorgevoerd.");
+								echo('</div>');
+							}
+							else
+							{
+								echo('<b><span style="color:red; width:auto">De volgende fouten zijn opgetreden:</span></b><br />');
+								echo('<ul>');
+								foreach($fouten as $error)
+									echo("<li>$error</li>\n");
+								echo('</ul>');	
+								echo('</div></div>');
+								echo('<div class="catbalk">Foruminstellingen</div>');
+								echo('<div class="paneelbox"><div class="formulier">');
+							}
+							
 						}
 						if(!isset($succes) || $succes == false)
 						{

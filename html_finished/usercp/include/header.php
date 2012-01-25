@@ -3,30 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 session_start();
-
-function filterInput($input)
-{
-	return mysql_real_escape_string(htmlspecialchars($input));	
-}
-
+require("../include/functions.php");
 include("../include/config.php");
-$_SESSION['user_id'] = 1; 
-$_SESSION['user_name'] = "David";
-$_SESSION['user_ava'] = "avatar.jpg";
-$_SESSION['user_rank'] = 2;
-$_SESSION['user_lang'] = 2;
-$_SESSION['user_style'] = 1;
-$_SESSION['user_tview'] = 1;
-$_SESSION['user_sex'] = 'x';
-$_SESSION['user_site'] = 'www.daveid.nl';
-$_SESSION['user_subtitle'] = 'Test';
-$_SESSION['user_location'] = 'Krommenie';
-$_SESSION['user_email'] = 'dve@live.nl';
-$_SESSION['user_date_of_birth'] = '1993-09-12';
-$_SESSION['user_show_dob'] = 1;
-$_SESSION['user_interests'] = 'Bla bla, don\'t care, etc.';
-$_SESSION['user_bio'] = 'PHP-pro.';
-$_SESSION['ip'] = "127.0.0.1";
 mysql_connect($mysqlhost, $mysqluser, $mysqlpass);
 mysql_select_db($mysqldb);
 ?>
