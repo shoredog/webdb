@@ -8,6 +8,8 @@ function filterInput($input)
 	return mysql_real_escape_string(htmlspecialchars($input));	
 }
 
+
+
 function bbToHtml($input)
 {
 	$bbarray = array("[b]","[/b]","[i]","[/i]",'[youtube]','[/youtube]','[u]','[/u]','[img]','[/img]','[code]','[/code]','[center]','[/center]','\r\n','\n','\r');
