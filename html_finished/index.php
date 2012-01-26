@@ -42,7 +42,17 @@
 								</div>
 								<div class="categorieposthok">
 									<center>
-										<b>100</b>
+										<?php
+											$forum_id = $forum['forum_id'];
+											$result3 = mysql_query("SELECT * FROM forums WHERE parent_id=$forum_id");
+											$result4 = mysql_fetch_array($result3);
+											$result5 = count($result4, 0);
+										?>
+										<b>
+											<?php
+												print $result5;
+											?>
+										</b>
 									</center>
 								</div>
 								<div class="categorieposthok">
