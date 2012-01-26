@@ -234,9 +234,9 @@ mysql_select_db($mysqldb) or die("Er is een fout opgetreden.");
                         <br />
                     </div>
                     <b><?php echo($gebpaninterest); ?></b>
-                    <textarea name="interesse" cols="10" rows="8" class="paneeltext"><?php echo($_SESSION['user_interests']); ?></textarea>
+                    <textarea name="interesse" cols="10" rows="8" class="paneeltext"><?php echo(str_replace("\\r\\n", "&#10;", $_SESSION['user_interests'])); ?></textarea>
                     <b><?php echo($gebpanbio); ?></b>
-                    <textarea name="biografie" cols="10" rows="8" class="paneeltext"><?php echo($_SESSION['user_bio']); ?></textarea>
+                    <textarea name="biografie" cols="10" rows="8" class="paneeltext"><?php echo(str_replace("\\r\\n", "&#10;", $_SESSION['user_bio'])); ?></textarea>
                     <div align="right">
                     	<input name="senduserform" type="submit" value="Verzenden" />
                   	</div>
