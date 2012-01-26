@@ -32,7 +32,7 @@ if(isset($_POST['submitsig']))
                	Uw huidige signature
             </div>
           	<div class="paneelbox">
-                	<?php echo(BbToHtml($_SESSION['user_sig']))  ?>
+                	<?php echo(bbToHtml($_SESSION['user_sig']))  ?>
 			</div>
             <div class="catbalk">
                	 Uw signature bewerken

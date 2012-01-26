@@ -1,6 +1,8 @@
 <?php
 session_start();
 include("/include/config.php"); 
+mysql_connect($mysqlhost, $mysqluser, $mysqlpass);
+mysql_select_db($mysqldb);
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -9,26 +11,27 @@ include("/include/config.php");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <?php
-	if(isset($_POST['submitcss']))
-	{
-		$_SESSION['style'] = $_POST['cssselector'];
-	}
 	if(isset($_SESSION['user_style']))
-		echo('<link href="styles/'.$_SESSION['user_style'].'/style.css" rel="stylesheet" type="text/css" />');
-	else
-		echo('<link href="styles/1/style.css" rel="stylesheet" type="text/css" />');
-		
-	if(isset($_POST['submittaal']))
 	{
-		$_SESSION['lang'] = $_POST['taalselector'];
+		$result = mysql_query("SELECT * FROM styles WHERE id = " .$_SESSION['user_style'] );
+		$style = mysql_fetch_array($result);
+		echo('<link href="styles/'.$style['folder'].'/style.css" rel="stylesheet" type="text/css" />');
 	}
-	if(isset($_SESSION['lang']))
+	else
 	{
-		$inc = "/lang/" . $_SESSION['lang'] . ".php";
+		echo('<link href="styles/shoredog_index/style.css" rel="stylesheet" type="text/css" />');
+	}
+	if(isset($_SESSION['user_lang']))
+	{
+		$result = mysql_query("SELECT * FROM langs WHERE id = " .$_SESSION['user_lang'] );
+		$lang = mysql_fetch_array($result);
+		if(empty($lang['file']))
+			$lang['file'] = "english";
+		$inc = "lang/" . $lang['file'] . ".php";
 		include($inc);
 	}
 	else
-		include("/lang/english.php");
+		include("lang/english.php");
 ?>
 <link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
 <title>Shoredog</title>

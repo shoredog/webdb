@@ -7,25 +7,7 @@
 
 <body>
 <?php
-	$tijd = time();
-	$username = "Dave";
-	$merge = $username . $tijd;
-	echo($merge);
-	$enc = sha1($merge);
-	echo("<br />");
-	echo($enc);
-	$enc = substr($enc,4,14);
-	echo("<br />");
-	echo($enc);
-	do
-	SELECT password FROM users
-	while fetch array
-	if is gelijk
-	maak nieuwe
-	$succes = false
-	else
-	$succes = true
-	while succes = false
+	echo(sha1("David"));
 ?>
 </body>
 </html>

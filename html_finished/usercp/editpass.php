@@ -2,14 +2,15 @@
 include '/include/header.php';
 if(isset($_POST['submitpass']))
 {
-	$succes = false;
+	$succes = true;
 	$errors = array();
 	mysql_connect($mysqlhost, $mysqluser, $mysqlpass);
 	mysql_select_db($mysqldb);
 	$query = sprintf("SELECT password FROM users WHERE user_id = %s", $_SESSION['user_id']);
 	$result = mysql_query($query);
-	$oldpass = $result['password'];
-	if(sha1(filterInput($_POST['huidigpw'])) !== $oldpass)
+	$output = mysql_fetch_array($result);
+	$oldpass = $output['password'];
+	if(sha1(filterInput($_POST['huidigpw'])) != $oldpass)
 	{
 		$errors[] = "U heeft uw huidige wachtwoord verkeerd ingevuld";
 		$succes = false;
@@ -50,6 +51,20 @@ if(isset($_POST['submitpass']))
             </div>
           	<div class="paneelbox">
             	<div class="formulier">
+                	<?php
+						if(isset($succes) && $succes == true)
+							echo("Uw wachtwoord is succesvol geupdate.");
+						if(isset($succes) && $succes == false)
+						{
+							echo('<b><span style="color:red; width:auto">De volgende fouten zijn opgetreden:</span></b><br />');
+							echo('<ul>');
+							foreach($errors as $error)
+								echo("<li>$error</li>\n");
+							echo('</ul>');		
+						}
+						if(!isset($succes) || $succes == false)
+						{
+					?>
                 	<form action="<?php echo($_SERVER['PHP_SELF']) ?>" method="post">
                         <span>Uw huidige wachtwoord</span>
                         <input name="huidigpw" type="password" maxlength="250" class="paneelinvoer" />
@@ -63,6 +78,9 @@ if(isset($_POST['submitpass']))
                         <div align="right">
                             <input name="submitpass" type="submit" value="Opslaan" style="width:20%;" />
                         </div>
+                        <?php
+						}
+						?>
              	</div>       	
 			</div>
       	</div>
