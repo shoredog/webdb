@@ -1,5 +1,22 @@
 <?php
 include '/include/header.php';
+if(isset($_POST['submitava']))
+{
+	$succes = false;
+	if(isImage(filterInput($_POST['avatar'])))
+	{
+		$succes = true;	
+	}
+	if($succes == true)
+	{
+		$_SESSION['user_ava'] = filterInput($_POST['avatar']);
+		$query = sprintf("UPDATE users SET avatar = '%s' WHERE user_id = %s", $_SESSION['user_ava'], $_SESSION['user_id']);
+		mysql_connect($mysqlhost, $mysqluser, $mysqlpass);
+		mysql_select_db($mysqldb);
+		mysql_query($query);
+		mysql_close();	
+	}
+}
 ?>
         <div class="navigation">
             U bent hier: <b>Gebruikerspaneel</b>
@@ -37,20 +54,14 @@ include '/include/header.php';
           	<div class="paneelbox">
       			<div class="formulier">
                 	<?php
-					if(isset($_POST['submitava']))
+					if(isset($succes) && $succes == true)
 					{
-						$img = getimagesize(filterInput($_POST['avatar']));
-						if(!is_array($img))
-						{
-							echo("U heeft een ongeldige URL opgegeven.");
-						}
-						else
-						{
-							$_SESSION['user_ava'] = filterInput($_POST['avatar']);
-						}
+						echo("Uw avatar is geupdate.");	
 					}
 					else
 					{
+						if(isset($succes) && $succes == false)
+							echo("<span style=\"color:red; font-weigth:bold; width:100%;\">U heeft een verkeerde URL opgegeven. <i>(Toegestane bestandstypen: jpg, png, gif, bmp)</i></span>");
 					?>
                         <span>Link naar avatar</span>
                         <form name="editava" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">

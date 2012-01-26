@@ -14,4 +14,15 @@ function bbToHtml($input)
 	$htmlarray = array("<b>","</b>","<i>","</i>",'<iframe width="100%" height="250px" src="http://www.youtube.com/embed/','?wmode=opaque" frameborder="0" allowfullscreen></iframe>','<u>','</u>','<img src="','" width="100%"','<textarea cols="65" rows="9" class="paneelinvoer" style="width:100%" disabled="disabled">','</textarea>','<center>','</center>','<br />','<br />','<br />');
 	return str_replace($bbarray, $htmlarray, $input);
 }
+
+function isImage($url)
+{
+	$spliturl = explode(".", $url);
+	if(sizeof($spliturl) < 2)
+		return false;
+	$type = $spliturl[sizeof($spliturl) - 1];
+	if($type == "jpg" || $type == "png" || $type == "bmp" || $type == "gif")
+		return true;
+	return false;
+}
 ?>

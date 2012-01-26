@@ -211,7 +211,8 @@ div.formulier select{
 	height:20px;
 	margin-bottom:6px;
 }
-
+<<<<<<< HEAD
+=======
 
 div.formulier input{
 	width:48%;
@@ -220,9 +221,4 @@ div.formulier input{
 	height:15px;
 	margin-bottom:6px;
 }
-
-a:link, a:visited, a:hover, a:active{
-	text-decoration:none;
-	font-weight:bold;
-	color:#C90;
-}
+>>>>>>> ab7143556253fa68ee04701e60467522feb6b767
