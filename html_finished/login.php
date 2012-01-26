@@ -37,8 +37,8 @@ include '/include/header.php';
 					echo "$inlogreg";
 				
 					if(isset($_POST['login'])){
-						mysql_connect('localhost', 'root', '') or die (mysql_error());
-						mysql_select_db('webdb') or die (mysql_error());
+						mysql_connect($mysqlhost, $mysqluser, $mysqlpass);
+						mysql_select_db($mysqldb);
 
 						$qry = sprintf('SELECT * FROM users WHERE user_name=\'%s\' AND password=\'%s\'', $_POST['username'], $_POST['password']); 
 						$result = mysql_query($qry);
