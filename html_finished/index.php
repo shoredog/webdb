@@ -1,5 +1,7 @@
 <?php
 	include '/include/header.php';
+    mysql_connect("$mysqlhost","$mysqluser","$mysqlpass") or die(mysql_error());
+    mysql_select_db("$mysqldb") or die(mysql_error());
 ?>
 	<div class="navigation">
 		U bent hier: <b>Index</b>

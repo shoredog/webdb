@@ -1,7 +1,9 @@
-<?php
-    include '/include/header.php';
+<?php 
+    include 'include/header.php';
+    mysql_connect("$mysqlhost","$mysqluser","$mysqlpass") or die(mysql_error());
+    mysql_select_db("$mysqldb") or die(mysql_error());
 
-    if (!isset($_GET["user"]))
+    if (!isset($_GET['user']))
     {
         if (isset($_SESSION['user_id']))
         {
