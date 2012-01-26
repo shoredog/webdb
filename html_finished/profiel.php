@@ -1,8 +1,21 @@
 <?php
     include '/include/header.php';
-?>
-<?php
-    $userid = $_GET["user"];
+
+    if (!isset($_GET["user"]))
+    {
+        if (isset($_SESSION['user_id']))
+        {
+            $userid = $_SESSION['user_id'];
+        }
+        else
+        {
+            header('Location: index.php');
+        }
+    }
+    else
+    {
+        $userid = $_GET["user"];
+    }
 ?>
 <div class="navigation">
 	U bent hier: <b>Profiel</b>
@@ -53,6 +66,10 @@
                         <td>Edit Profile</td>
                     </tr>
           <?php }?>
+                <tr>
+                    <td>Email:</td>
+                    <td><?php print $user['email'];?></td>
+                </tr>
 			</table>
 		</div>
 	</div>
