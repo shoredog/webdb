@@ -20,7 +20,7 @@ $algmonths = array("Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli
 $inloginfo = "<b>Fill in your username and password below :</b>";
 $inloguser = "Username:";
 $inlogpass = "Password:";
-$inlogreg = '<input type="submit" value="Register" />';
+$inlogreg = "<form method=\"link\" action=\"register.php\"><input type=\"submit\" value=\"Register\" /></form>";
 
 //-------------------- REGISTER (PREFIX: reg) ------------------------
 $reg = "Registration";

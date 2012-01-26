@@ -21,7 +21,7 @@ $algmonths = array("Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli
 $inloginfo = "<b>Vul hier uw login gegevens in:</b>";
 $inloguser = "Gebruikersnaam:";
 $inlogpass = "Wachtwoord:";
-$inlogreg = '<input type="submit" value="Registreer" />';
+$inlogreg = "<form method=\"link\" action=\"register.php\"><input type=\"submit\" value=\"Registreer\" /></form>";
 
 //-------------------- REGISTER (PREFIX: reg) ------------------------
 $reg = "Registratie";

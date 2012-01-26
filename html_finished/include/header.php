@@ -1,11 +1,10 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 session_start();
 include("/include/config.php"); 
 ?>
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -14,10 +13,10 @@ include("/include/config.php");
 	{
 		$_SESSION['style'] = $_POST['cssselector'];
 	}
-	if(isset($_SESSION['style']))
-		echo('<link href="styles/'.$_SESSION['style'].'/style.css" rel="stylesheet" type="text/css" />');
+	if(isset($_SESSION['user_style']))
+		echo('<link href="styles/'.$_SESSION['user_style'].'/style.css" rel="stylesheet" type="text/css" />');
 	else
-		echo('<link href="styles/shoredog_index/style.css" rel="stylesheet" type="text/css" />');
+		echo('<link href="styles/1/style.css" rel="stylesheet" type="text/css" />');
 		
 	if(isset($_POST['submittaal']))
 	{
@@ -32,7 +31,7 @@ include("/include/config.php");
 		include("/lang/english.php");
 ?>
 <link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
-<title>Projectweek HTML 1</title>
+<title>Shoredog</title>
 </head>
 
 <body>
@@ -49,7 +48,18 @@ include("/include/config.php");
             <div class="menuitem" onClick="window.location.href='register.php'">
                 <b>Registratie</b>
             </div>
-            <div class="menuitem" onClick="window.location.href='login.php'">
-                <b>Log in</b>
-            </div>
+			<?php
+			if(!empty($_SESSION['user_rank'])){
+				 echo "
+					<div class=\"menuitem\" onClick=\"window.location.href='logout.php'\">
+							<b>Log out</b>
+					</div>";
+			}
+			else { 
+				echo "
+					<div class=\"menuitem\" onClick=\"window.location.href='login.php'\">
+						<b>Log in</b>
+					</div>";
+			
+			} ?>
         </div>
