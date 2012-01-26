@@ -22,142 +22,70 @@ include '/include/header.php';
 						<b>Laatste bericht</b>
 					</div>
 				</div>
-				<div class="categorieforumcontainer">
-					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-												   onMouseOut="this.style.backgroundColor='#666666';"
-												   onClick="window.location.href='yourlinklocationhere'">
-						<b>Topic 1</b><br />
-						<i>Poster Topic 1</i>
-					</div>
-					<div class="forumposthok">
-						<center>
-							<b>100</b>
-						</center>
-					</div>
-					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-												   onMouseOut="this.style.backgroundColor='#666666';"
-												   onClick="window.location.href='yourlinklocationhere'">
-						<b>Laatste bericht 1</b></br>
-						<i>Op datum door poster</i>
-					</div>
-				</div>
-				<div class="categorieforumcontainer">
-					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-												   onMouseOut="this.style.backgroundColor='#666666';"
-												   onClick="window.location.href='yourlinklocationhere'">
-						<b>Topic 2</b><br />
-						<i>Poster Topic 2</i>
-					</div>
-					<div class="forumposthok">
-						<center>
-							<b>100</b></br>
-						</center>
-					</div>
-					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-												   onMouseOut="this.style.backgroundColor='#666666';"
-												   onClick="window.location.href='yourlinklocationhere'">
-						<b>Laatste bericht 2</b></br>
-						<i>Op datum door poster</i>
-					</div>
-				</div>
-				<div class="categorieforumcontainer">
-					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-												   onMouseOut="this.style.backgroundColor='#666666';"
-												   onClick="window.location.href='yourlinklocationhere'">
-						<b>Topic 3</b><br />
-						<i>Poster Topic 3</i>
-					</div>
-					<div class="forumposthok">
-						<center>
-							<b>100</b></br>
-						</center>
-					</div>
-					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-												   onMouseOut="this.style.backgroundColor='#666666';"
-												   onClick="window.location.href='yourlinklocationhere'">
-						<b>Laatste bericht 3</b></br>
-						<i>Op datum door poster</i>
-					</div>
-				</div>
-				<div class="categorieforumcontainer">
-					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-												   onMouseOut="this.style.backgroundColor='#666666';"
-												   onClick="window.location.href='yourlinklocationhere'">
-						<b>Topic 4</b><br />
-						<i>Poster Topic 4</i>
-					</div>
-					<div class="forumposthok">
-						<center>
-							<b>100</b></br>
-						</center>
-					</div>
-					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-												   onMouseOut="this.style.backgroundColor='#666666';"
-												   onClick="window.location.href='yourlinklocationhere'">
-						<b>Laatste bericht 4</b></br>
-						<i>Op datum door poster</i>
-					</div>
-				</div>
-				<div class="categorieforumcontainer">
-					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-												   onMouseOut="this.style.backgroundColor='#666666';"
-												   onClick="window.location.href='yourlinklocationhere'">
-						<b>Topic 5</b><br />
-						<i>Poster Topic 5</i>
-					</div>
-					<div class="forumposthok">
-						<center>
-							<b>100</b></br>
-						</center>
-					</div>
-					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-												   onMouseOut="this.style.backgroundColor='#666666';"
-												   onClick="window.location.href='yourlinklocationhere'">
-						<b>Laatste bericht 5</b></br>
-						<i>Op datum door poster</i>
-					</div>
-				</div>
-				<div class="categorieforumcontainer">
-					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-												   onMouseOut="this.style.backgroundColor='#666666';"
-												   onClick="window.location.href='yourlinklocationhere'">
-						<b>Topic 6</b><br />
-						<i>Poster Topic 6</i>
-					</div>
-					<div class="forumposthok">
-						<center>
-							<b>100</b></br>
-						</center>
-					</div>
-					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-												   onMouseOut="this.style.backgroundColor='#666666';"
-												   onClick="window.location.href='yourlinklocationhere'">
-						<b>Laatste bericht 6</b></br>
-						<i>Op datum door poster</i>
-					</div>
-				</div>
-				<div class="categorieforumcontainer">
-					<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-												   onMouseOut="this.style.backgroundColor='#666666';"
-												   onClick="window.location.href='yourlinklocationhere'">
-						<b>Topic 7</b><br />
-						<i>Poster Topic 7</i>
-					</div>
-					<div class="forumposthok">
-						<center>
-							<b>100</b></br>
-						</center>
-					</div>
-					<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-												   onMouseOut="this.style.backgroundColor='#666666';"
-												   onClick="window.location.href='yourlinklocationhere'">
-						<b>Laatste bericht 7</b></br>
-						<i>Op datum door poster</i>
-					</div>
-				</div>
-				<div class ="eindfloat"></div>
+				<?php
+					$parent_id = $_GET['id'];
+					$result = mysql_query("SELECT * FROM forums WHERE parent_id=$parent_id");
+					while ($forum = mysql_fetch_array($result))
+					{
+						?>
+						<div class="categorieforumcontainer">
+							<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+														   onMouseOut="this.style.backgroundColor='#666666';"
+														   onClick="window.location.href='forum.php?id=<?php print $forum['forum_id'];?>'">
+								<b>Forum: <?php print $forum['forum_name'];?></b><br />
+								<i><?php print $forum['forum_description'];?></i>
+							</div>
+							<div class="forumposthok">
+								<center>
+									<b>100</b>
+								</center>
+							</div>
+							<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
+														   onMouseOut="this.style.backgroundColor='#666666';"
+														   onClick="window.location.href='yourlinklocationhere'">
+								<b>Laatste bericht 1</b></br>
+								<i>Op datum door poster</i>
+							</div>
+						</div>
+						<div class ="eindfloat"></div>
+						<div class="categoriefooter"></div>
+						<?php
+					}
+					$parent_id = $_GET['id'];
+					$result = mysql_query("SELECT * FROM comments WHERE comment_parent_id=0 AND comment_forum_parent_id=$parent_id");
+					while ($topic = mysql_fetch_array($result))
+					{
+						?>
+						<div class="categorieforumcontainer">
+							<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
+														   onMouseOut="this.style.backgroundColor='#666666';"
+														   onClick="window.location.href='topics.php?id=<?php print $topic['comment_id'];?>'">
+								<b>Topic: <?php print $topic['comment_title'];?></b><br />
+								<?php 
+									$temp = $topic['poster_id'];
+									$result2 = mysql_query("SELECT * FROM users WHERE user_id=$temp");
+									$result2 = mysql_fetch_array($result2);
+								?>
+								<i>Gepost door <?php print $result2['user_name'];?></i>
+							</div>
+							<div class="forumposthok">
+								<center>
+									<b>100</b>
+								</center>
+							</div>
+							<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
+														   onMouseOut="this.style.backgroundColor='#666666';"
+														   onClick="window.location.href='yourlinklocationhere'">
+								<b>Laatste bericht 1</b></br>
+								<i>Op datum door poster</i>
+							</div>
+						</div>
+						<div class ="eindfloat"></div>
+						<div class="categoriefooter"></div>
+						<?php
+					}
+				?>
 			</div>
-			<div class="categoriefooter"></div>
 		</div>
 	</div>
 
