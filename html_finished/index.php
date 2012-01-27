@@ -1,5 +1,7 @@
 <?php
 	include '/include/header.php';
+    mysql_connect("$mysqlhost","$mysqluser","$mysqlpass") or die(mysql_error());
+    mysql_select_db("$mysqldb") or die(mysql_error());
 ?>
 	<div class="navigation">
 		U bent hier: <b>Index</b>
@@ -42,7 +44,17 @@
 								</div>
 								<div class="categorieposthok">
 									<center>
-										<b>100</b>
+										<?php
+											$forum_id = $forum['forum_id'];
+											$result3 = mysql_query("SELECT * FROM forums WHERE parent_id=$forum_id");
+											$result4 = mysql_fetch_array($result3);
+											$result5 = count($result4, 0);
+										?>
+										<b>
+											<?php
+												print $result5;
+											?>
+										</b>
 									</center>
 								</div>
 								<div class="categorieposthok">
