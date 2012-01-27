@@ -40,9 +40,7 @@
 							$result4 = mysql_query("SELECT * FROM forums WHERE parent_id=$forum_id");
 							?>
 							<div class="categorieforumcontainer">
-								<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-															   onMouseOut="this.style.backgroundColor='#666666';"
-															   onClick="window.location.href='forum.php?id=<?php print $forum['forum_id'];?>'">
+								<div class="categorieforumhok" onClick="window.location.href='forum.php?id=<?php print $forum['forum_id'];?>'">
 									<b><?php print $forum['forum_name'];?></b><br />
 									<i><?php print $forum['forum_description'];?></i>
 								</div>
@@ -66,9 +64,7 @@
 										<b>100</b>
 									</center>
 								</div>
-								<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-															   onMouseOut="this.style.backgroundColor='#666666';"
-															   onClick="window.location.href='yourlinklocationhere'">
+								<div class="categorielastpost" onClick="window.location.href='yourlinklocationhere'">
 									<b>Laatste bericht 1</b></br>
 									<i>Op datum door poster</i>
 								</div>
@@ -85,5 +81,5 @@
 	</div>
 
 <?php
-	include 'include/footer.php';
+	include '/include/footer.php';
 ?>
