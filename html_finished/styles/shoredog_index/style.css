@@ -304,6 +304,10 @@ clear:both;
 float:left;
 }
 
+div.categorieforumhok:hover{
+background-color:#888888;
+}
+
 div.categorieposthok{
 height:25px;
 padding-top:15px;
@@ -311,16 +315,6 @@ padding-bottom:10px;
 padding-left:2.5%;
 padding-right:2.5%;
 width:7.5%;
-float:left;
-}
-
-div.forumposthok{
-height:25px;
-padding-top:15px;
-padding-bottom:10px;
-padding-left:5%;
-padding-right:5%;
-width:15%;
 float:left;
 }
 
@@ -333,6 +327,10 @@ padding-right:2.5%;
 width:25%;
 float:right;
 text-align:right;
+}
+
+div.categorielastpost:hover{
+background-color:#888888;							   
 }
 
 div.categoriefooter{
