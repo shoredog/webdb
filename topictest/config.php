@@ -1,7 +1,7 @@
 <?php
 //--------- MySQL Configuration Data ---------------------
 $mysqlhost = "localhost";
-$mysqluser = "webdb1231";
-$mysqlpass = "c9uchuxa";
+$mysqluser = "root";
+$mysqlpass = "";
 $mysqldb = "webdb1231" ;
 ?>

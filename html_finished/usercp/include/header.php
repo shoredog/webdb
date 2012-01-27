@@ -45,15 +45,26 @@ mysql_select_db($mysqldb);
             <div class="menuitem" onClick="window.location.href='../index.php'">
                 <b><?php echo($algforum); ?></b>
             </div>
-            <div class="menuitem" onClick="window.location.href='../users/index.php'">
+            <div class="menuitem" onClick="window.location.href='../usercp/index.php'">
                 <b><?php echo($algusers); ?></b>
             </div>
             <div class="menuitem" onClick="window.location.href='../register.php'">
                 <b><?php echo($algreg); ?></b>
             </div>
-            <div class="menuitem" onClick="window.location.href='../login.php'">
-                <b><?php echo($alglogin); ?></b>
-            </div>
+            <?php
+			if(!empty($_SESSION['user_rank'])){
+				 echo "
+					<div class=\"menuitem\" onClick=\"window.location.href='../logout.php' \">
+							<b>$algloguit</b>
+					</div>";
+			}
+			else { 
+				echo "
+					<div class=\"menuitem\" onClick=\"window.location.href='../login.php' \">
+						<b>$alglogin</b>
+					</div>";
+			
+			} ?>
         </div>
         
         <?php

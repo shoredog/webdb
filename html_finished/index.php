@@ -1,5 +1,7 @@
 <?php
-	include '/include/header.php';
+	include 'include/header.php';
+    mysql_connect("$mysqlhost","$mysqluser","$mysqlpass") or die(mysql_error());
+    mysql_select_db("$mysqldb") or die(mysql_error());
 ?>
 	<div class="navigation">
 		U bent hier: <b>Index</b>
@@ -30,19 +32,31 @@
 						</div>
 						<?php
 						$categorie_id = $categorie['forum_id'];
-						$result2 = mysql_query("SELECT * FROM forums WHERE parent_id=$categorie_id");
+						$result2 = mysql_query("SELECT * FROM forums WHERE parent_id=$categorie_id");	
 						while ($forum = mysql_fetch_array($result2))
-						{ ?>
+						{ 
+							$forum_id = $forum['forum_id'];
+							$result3 = mysql_query("SELECT * FROM comments WHERE comment_forum_parent_id=$forum_id");
+							$result4 = mysql_query("SELECT * FROM forums WHERE parent_id=$forum_id");
+							?>
 							<div class="categorieforumcontainer">
-								<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
-															   onMouseOut="this.style.backgroundColor='#666666';"
-															   onClick="window.location.href='forum.php?id=<?php print $forum['forum_id'];?>'">
+								<div class="categorieforumhok" onClick="window.location.href='forum.php?id=<?php print $forum['forum_id'];?>'">
 									<b><?php print $forum['forum_name'];?></b><br />
 									<i><?php print $forum['forum_description'];?></i>
 								</div>
 								<div class="categorieposthok">
 									<center>
-										<b>100</b>
+										<b>
+											<?php
+												$aantal = 0;
+												
+												while ($discussies = mysql_fetch_array($result3))
+												{
+													$aantal++;
+												}
+													print $aantal;
+											?>
+										</b>
 									</center>
 								</div>
 								<div class="categorieposthok">
@@ -50,9 +64,7 @@
 										<b>100</b>
 									</center>
 								</div>
-								<div class="categorielastpost" onMouseOver="this.style.backgroundColor='#888888';"
-															   onMouseOut="this.style.backgroundColor='#666666';"
-															   onClick="window.location.href='yourlinklocationhere'">
+								<div class="categorielastpost" onClick="window.location.href='yourlinklocationhere'">
 									<b>Laatste bericht 1</b></br>
 									<i>Op datum door poster</i>
 								</div>

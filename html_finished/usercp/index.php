@@ -50,5 +50,5 @@ include('include/header.php');
       	<div class="paneelfooter"></div>
    		</div>
 <?php
-include('/include/footer.php');
+include('include/footer.php');
 ?>

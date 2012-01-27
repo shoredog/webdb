@@ -1,6 +1,7 @@
 <?php
 session_start();
-include("/include/config.php"); 
+require("include/functions.php");
+include("include/config.php");
 mysql_connect($mysqlhost, $mysqluser, $mysqlpass);
 mysql_select_db($mysqldb);
 ?>
@@ -45,7 +46,7 @@ mysql_select_db($mysqldb);
             <div class="menuitem" onClick="window.location.href='index.php'">
                 <b>Forum</b>
             </div>
-            <div class="menuitem" onClick="window.location.href='userpanel.php'">
+            <div class="menuitem" onClick="window.location.href='usercp/index.php'">
                 <b>Gebruikers</b>
             </div>
             <div class="menuitem" onClick="window.location.href='register.php'">
