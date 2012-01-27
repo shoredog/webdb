@@ -136,7 +136,7 @@ include 'include/header.php';
 						<?php
 						echo $regsex;
 						?>
-					<b>
+					</b>
 				</span>
 				<select class="paneelinvoer" name="sex" >
 					<option value="x">Zeg ik liever niet</option>
