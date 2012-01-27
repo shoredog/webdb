@@ -1,5 +1,5 @@
 <?php
-include '/include/header.php';
+include 'include/header.php';
 ?>
 
 <div class="navigation">
@@ -52,5 +52,5 @@ include '/include/header.php';
 </div>
 
 <?php
-include '/include/footer.php';
+include 'include/footer.php';
 ?>
