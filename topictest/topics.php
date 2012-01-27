@@ -5,7 +5,43 @@
 <link href="style.css" rel="stylesheet" type="text/css" />
 <title>Projectweek HTML 1</title>
 </head>
+<?php include "config.php"; 
+mysql_connect($mysqlhost, $mysqluser, $mysqlpass) or die(mysql_error());
+mysql_select_db($mysqldb);
+function getAllChilds($commentid, $depth){
+	$query = sprintf("SELECT * FROM comments WHERE comment_parent_id = %s", $commentid);
+	$result = mysql_query($query) or die(mysql_error());
+	while($output = mysql_fetch_array($result))
+	{
+		$userquery = sprintf("SELECT * FROM users WHERE user_id = %s", $output['poster_id']);
+		$userresult = mysql_query($userquery) or die(mysql_error());
+		$useroutput = mysql_fetch_array($userresult) or die(mysql_error());
+		$newwidth = 93 - (4*$depth);
+		?>
+        	
+        	<div class="comment" style="margin-top:20px; width:<?php echo $newwidth ?>%">
+			<div class="catbalk2">
+			<center><img src="<?php echo($useroutput['avatar']) ?>" width="70px" height="70px" /></center><br />
+			<b><?php echo($useroutput['user_name']) ?></b><br />
+			<i>Rank: <?php echo($useroutput['rank']) ?></i>
+			</div>	
+			<div class="forumhok2">
+				<?php echo($output['comment_content']) ?>
+				<hr style="margin-top:20px" /><br />
+				<?php echo($useroutput['signature']) ?>
+			</div>
+			</div>
+            <div style="float:right"><input type="button" value="Reageren!" /></div>
+            <div class="eindfloat"></div>
+			
+    <?php
+	getAllChilds($output['comment_id'], $depth + 1);
+	}
+}
 
+
+
+?>
 <body>
 <div class="container">
     <div class="banner">
@@ -37,25 +73,77 @@
     	U bent hier: <b>Index</b>
     </div>
   <div class="content">
+  
 	<div class="comment">
+    <center><b><u>Beginpost</u></b></center>
+    <?php 
+	$topicid = $_GET['tid'];
+	$query = sprintf("SELECT * FROM comments WHERE comment_id = %s", $topicid);
+	$result = mysql_query($query) or die(mysql_error());
+	$output = mysql_fetch_array($result) or die(mysql_error());
+	$userquery = sprintf("SELECT * FROM users WHERE user_id = %s", $output['poster_id']);
+	$userresult = mysql_query($userquery) or die(mysql_error());
+	$useroutput = mysql_fetch_array($userresult) or die(mysql_error());
+	?>
 		<div class="catbalk2">
-		<center><img src="avatar.jpg" width="70px" height="70px" /></center><br />
-		<b>David</b><br />
-		<i>Admin</i>
+		<center><img src="<?php echo($useroutput['avatar']) ?>" width="70px" height="70px" /></center><br />
+		<b><?php echo($useroutput['user_name']) ?></b><br />
+		<i>Rank: <?php echo($useroutput['rank']) ?></i>
 		</div>	
 		<div class="forumhok2">
-			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-
+			<?php echo($output['comment_content']) ?>
+            <hr style="margin-top:20px" /><br />
+            <?php echo($useroutput['signature']) ?>
 		</div>
 		
 	</div>
-	<div class="eindfloat">
-		</div>	
+    <div style="float:right"><input type="button" value="Reageren!" /></div>
+    <div class="eindfloat"></div>	
+    <!-- Rest vd posts -->
+    
+    <?php 
+	
+	$query = sprintf("SELECT * FROM comments WHERE comment_parent_id = 1" );
+	$result = mysql_query($query) or die(mysql_error());
+	while($output = mysql_fetch_array($result))
+	{
+		$userquery = sprintf("SELECT * FROM users WHERE user_id = %s", $output['poster_id']);
+		$userresult = mysql_query($userquery) or die(mysql_error());
+		$useroutput = mysql_fetch_array($userresult) or die(mysql_error());
+		?>
+        	<div class="comment" style="margin-top:20px;">
+			<div class="catbalk2">
+			<center><img src="<?php echo($useroutput['avatar']) ?>" width="70px" height="70px" /></center><br />
+			<b><?php echo($useroutput['user_name']) ?></b><br />
+			<i>Rank: <?php echo($useroutput['rank']) ?></i>
+			</div>	
+			<div class="forumhok2">
+				<?php echo($output['comment_content']) ?>
+				<hr style="margin-top:20px" /><br />
+				<?php echo($useroutput['signature']) ?>
+			</div>
+			 </div>
+             <div style="float:right"><input type="button" value="Reageren!" /></div>
+		<div class="eindfloat"></div>
+    <?php
+	getAllChilds($output['comment_id'],1);
+	}
+	?>
+   
+   <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+   <div style="float:right; width:100%;"><textarea name="commentcontent" class="paneeltext" style="margin-top:20px; width:100%;"></textarea></div>
+   <div style="float:right;"><input type="submit" value="Verzenden maar!" /></div>
+	</form>
+    <div class="eindfloat"></div>
   </div>
     
 </div>
 <div class="footer">
 	&copy; 2012 - ShoreDog Power Services, Inc.&trade; (Powered by ShoreDog Forum Engine).
 </div>
+<?php
+	mysql_close();
+?>
 </body>
 </html>
+
