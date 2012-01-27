@@ -36,43 +36,43 @@
 	<div class="profileinfo">
 		<div class="catbalk">User Information</div>
 		<div class="forumhok">
-			<table class="userinfotable">
-                <tr>
-                    <td>Name:</td>
-                    <td><?php print $user['user_name'];?></td>
-                </tr>
-                <tr>
-                    <td>Rank:</td>
-                    <td><?php
+			<div class="userinfotable">
+                <div class="row">
+                    <div class="cell">Name:</div>
+                    <div class="cell"><?php print $user['user_name'];?></div>
+                </div>
+                <div class="row">
+                    <div class="cell">Rank:</div>
+                    <div class="cell"><?php
                         if ($user['rank']==2)
                             print 'admin';
                         else
                             print 'user';?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Location:</td>
-                    <td><?php print $user['location'];?></td>
-                </tr><?php
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell">Location:</div>
+                    <div class="cell"><?php print $user['location'];?></div>
+                </div><?php
                     if ($user['show_dob']==1)
                     {?>
-                        <tr>
-                            <td>Birthdate:</td>
-                            <td><?php print date("d-m-Y" , strtotime($user['date_of_birth']));?></td>
-                        </tr>
-              <?php }
-                if (isset($SESSION_['user_id']) && ($_SESSION['user_id'] == $userid))
+                        <div class="row">
+                            <div class="cell">Birthdate:</div>
+                            <div class="cell"><?php print date("d-m-Y" , strtotime($user['date_of_birth']));?></div>
+                        </div>
+              <?php } ?>
+                <div class="row">
+                    <div class="cell">Email:</div>
+                    <div class="cell"><?php print $user['email'];?></div>
+                </div>
+          <?php if (isset($SESSION_['user_id']) && ($_SESSION['user_id'] == $userid))
                 { ?>
-                    <tr>
-                        <td></td>
-                        <td>Edit Profile</td>
-                    </tr>
+                    <div class="row">
+                        <div class="cell"></div>
+                        <div class="cell">Edit Profile</div>
+                    </div>
           <?php }?>
-                <tr>
-                    <td>Email:</td>
-                    <td><?php print $user['email'];?></td>
-                </tr>
-			</table>
+			</div>
 		</div>
 	</div>
 	<div class="profilecomments">
