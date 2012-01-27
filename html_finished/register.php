@@ -56,6 +56,11 @@ include '/include/header.php';
 					$errors[] = "De door U opgeven e-mailadressen komen niet overeen.";
 					$succes = false;
 				}
+				if(empty($_POST['accept']))
+				{
+					$errors[] = "U moet de gebruikersvoorwaarde accepteren voordat uw zich kan registreren.";
+					$succes = false;
+				}
 				if($succes == true)
 				{
 					$tijd = time();
@@ -82,8 +87,9 @@ include '/include/header.php';
 					mail($to, $subject, $body);
 					
 					{ ?>
-					Uw registratie is gelukt. Controleer uw inbox voor een e-mail met uw wachtwoord.
+					Uw registratie is gelukt. Controleer uw inbox voor een e-mail met uw wachtwoord. <br />
 					<?php }
+					echo $pass;
 				}
 				else
 					{
