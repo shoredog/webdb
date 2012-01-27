@@ -15,10 +15,11 @@ include '/include/header.php';
 					<div class="categorieinfoforumhok" >
 						<b>Forum</b>
 					</div>
-					<div class="foruminfoposthok">
-						<center>
-							<b>Berichten</b>
-						</center>
+					<div class="categorieinfoposthok">
+						<b>Discussies</b>
+					</div>
+					<div class="categorieinfoposthok">
+						<b>Berichten</b>
 					</div>
 					<div class="categorieinfolastpost">
 						<b>Laatste bericht</b>
@@ -37,7 +38,24 @@ include '/include/header.php';
 								<b>Forum: <?php print $forum['forum_name'];?></b><br />
 								<i><?php print $forum['forum_description'];?></i>
 							</div>
-							<div class="forumposthok">
+							<div class="categorieposthok">
+								<center>
+									<b>
+										<?php
+											$forum_id = $forum['forum_id'];
+											$result3 = mysql_query("SELECT * FROM comments WHERE comment_forum_parent_id=$forum_id");
+											$aantal = 0;
+											
+											while ($discussies = mysql_fetch_array($result3))
+											{
+												$aantal++;
+											}
+											print $aantal;
+										?>
+									</b>
+								</center>
+							</div>
+							<div class="categorieposthok">
 								<center>
 									<b>100</b>
 								</center>
@@ -70,7 +88,14 @@ include '/include/header.php';
 								?>
 								<i>Gepost door <?php print $result2['user_name'];?></i>
 							</div>
-							<div class="forumposthok">
+							<div class="categorieposthok">
+								<center>
+									<b>
+										-
+									</b>
+								</center>
+							</div>
+							<div class="categorieposthok">
 								<center>
 									<b>100</b>
 								</center>

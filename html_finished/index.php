@@ -32,9 +32,13 @@
 						</div>
 						<?php
 						$categorie_id = $categorie['forum_id'];
-						$result2 = mysql_query("SELECT * FROM forums WHERE parent_id=$categorie_id");
+						$result2 = mysql_query("SELECT * FROM forums WHERE parent_id=$categorie_id");	
 						while ($forum = mysql_fetch_array($result2))
-						{ ?>
+						{ 
+							$forum_id = $forum['forum_id'];
+							$result3 = mysql_query("SELECT * FROM comments WHERE comment_forum_parent_id=$forum_id");
+							$result4 = mysql_query("SELECT * FROM forums WHERE parent_id=$forum_id");
+							?>
 							<div class="categorieforumcontainer">
 								<div class="categorieforumhok" onMouseOver="this.style.backgroundColor='#888888';"
 															   onMouseOut="this.style.backgroundColor='#666666';"
@@ -44,15 +48,15 @@
 								</div>
 								<div class="categorieposthok">
 									<center>
-										<?php
-											$forum_id = $forum['forum_id'];
-											$result3 = mysql_query("SELECT * FROM forums WHERE parent_id=$forum_id");
-											$result4 = mysql_fetch_array($result3);
-											$result5 = count($result4, 0);
-										?>
 										<b>
 											<?php
-												print $result5;
+												$aantal = 0;
+												
+												while ($discussies = mysql_fetch_array($result3))
+												{
+													$aantal++;
+												}
+													print $aantal;
 											?>
 										</b>
 									</center>
