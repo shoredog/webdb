@@ -38,7 +38,7 @@ include '/include/header.php';
 				
 					if(isset($_POST['login'])){
 					
-						$qry = sprintf('SELECT * FROM users WHERE user_name=\'%s\' AND password=\'%s\'', $_POST['username'], sha1($_POST['password'])); 
+						$qry = sprintf('SELECT * FROM users WHERE user_name=\'%s\' AND password=\'%s\'', filterInput($_POST['username']), sha1($_POST['password'])); 
 						$result = mysql_query($qry);
 						$userinfo = mysql_fetch_array($result);
 						
@@ -58,10 +58,12 @@ include '/include/header.php';
 						$_SESSION['user_show_dob'] = $userinfo['show_dob'];
 						$_SESSION['user_interests'] = $userinfo['interests'];
 						$_SESSION['user_bio'] = $userinfo['biography'];
-							
+						$_SESSION['user_sig'] = $userinfo['signature'];
+						
 						$_SESSION['ip'] = @$REMOTE_ADDR;
-				
+						
 						if(mysql_num_rows($result) > 0) {
+								
 							header("Location: index.php");
 						}
 						else {
