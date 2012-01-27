@@ -37,9 +37,7 @@ include '/include/header.php';
 					echo "$inlogreg";
 				
 					if(isset($_POST['login'])){
-						mysql_connect($mysqlhost, $mysqluser, $mysqlpass);
-						mysql_select_db($mysqldb);
-
+					
 						$qry = sprintf('SELECT * FROM users WHERE user_name=\'%s\' AND password=\'%s\'', $_POST['username'], sha1($_POST['password'])); 
 						$result = mysql_query($qry);
 						$userinfo = mysql_fetch_array($result);
@@ -71,7 +69,7 @@ include '/include/header.php';
 						}
 					}
 				?>
-			</form>
+			
 		</div>
 	</div>
 </div>

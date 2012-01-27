@@ -1,6 +1,7 @@
 <?php
 session_start();
-include("/include/config.php"); 
+require("include/functions.php");
+include("include/config.php");
 mysql_connect($mysqlhost, $mysqluser, $mysqlpass);
 mysql_select_db($mysqldb);
 ?>

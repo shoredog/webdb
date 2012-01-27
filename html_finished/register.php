@@ -19,20 +19,101 @@ include '/include/header.php';
 		<b>
 			<?php
 			echo $regform;
+			
+			if(isset($_POST['send']))
+			{	
+				$succes = true;
+				$errors = array();
+				
+				$qry = sprintf('SELECT user_id FROM users WHERE user_name=\'%s\'', $_POST['username']);
+				$result = mysql_query($qry);
+				
+				$qry2 = sprintf('SELECT user_id FROM users WHERE email=\'%s\'', $_POST['email']);
+				$result2 = mysql_query($qry2);
+				
+				if(mysql_num_rows($result) > 0) 
+					{
+						$errors[] = "Gebruikersnaam bestaat al, kies een andere naam." ;
+						$succes = false;
+					}
+				if(empty($_POST['username']))	
+					{
+						$errors[] = "U heeft geen gebruikersnaam ingevuld." ;
+						$succes = false;
+					}
+				if(mysql_num_rows($result2) > 0) 
+					{
+						$errors[] = "Er is al een account geregistreerd op dit e-mailadres." ;
+						$succes = false;
+					}
+				if(!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", filterInput($_POST['email'])))
+					{
+						$errors[] = "U heeft een ongeldig e-mail adres opgegeven.";	
+						$succes = false;
+					}
+				if(filterInput($_POST['email']) !== filterInput($_POST['emailcheck']))
+				{
+					$errors[] = "De door U opgeven e-mailadressen komen niet overeen.";
+					$succes = false;
+				}
+				if($succes == true)
+				{
+					$tijd = time();
+					$username = $_POST['username'];
+					$merge  = $tijd . $username;
+					$enc = sha1($merge);
+					$pass = substr($enc,4,10);
+					
+					
+					
+					$rday = date("Y-m-d");
+					
+					$query=sprintf('INSERT INTO users SET user_name=\'%s\' , email=\'%s\' , password=\'%s\', date_of_birth=\'%s-%s-%s\', location=\'%s\', sex=\'%s\', date_of_registration=\'%s\'', 
+					 filterInput($_POST['username']), filterInput($_POST['email']), sha1($pass), $_POST['gebjaar'], $_POST['gebmaand'], $_POST['gebdag'], filterInput($_POST['location']), $_POST['sex'], $rday  );
+					
+					mysql_query($query);
+					
+					$to = $_POST['email'];
+					$subject = "Welcome to ShoreDog";
+					$body = "Welcome $username,   <br />
+							Your password is $pass <p />
+							Good luck on our site,<br />
+							The ShoreDog Team";
+					mail($to, $subject, $body);
+					
+					{ ?>
+					Uw registratie is gelukt. Controleer uw inbox voor een e-mail met uw wachtwoord.
+					<?php }
+				}
+				else
+					{
+						echo('<br /><b><span style="color:red; width:auto">De volgende fouten zijn opgetreden:</span></b><br />');
+						echo('<ul>');
+						foreach($errors as $error)
+						echo("<li>$error</li>\n");
+						echo('</ul>');	
+					}
+							
+			}
+			if(!isset($succes) || $succes == false)
+			{
+			
 			?>
 		</b><br />
-		<form>
+		
+		<form method="post" action="<?php echo($_SERVER['PHP_SELF']) ?>">
 			<div class="formulier">
+			
 				<span>
 					<b>
 						<?php
-						$regname;
+						echo $regname;
 						?>
-					<b>
+					</b>
 				</span>
 				<input name="username" size="35" class="paneelinvoer" />
 				<br />
-				<span><b>Email</b></span>
+				<span><b>E-mail</b></span>
 				<input name="email" size="35" class="paneelinvoer"/>
 				<br />
 				<span>
@@ -51,10 +132,10 @@ include '/include/header.php';
 						?>
 					<b>
 				</span>
-				<select class="paneelinvoer" name="weergave" >
-					<option value="Man">Man</option>
-					<option value="Vrouw">Vrouw</option>
-					<option value="Onbekend">Zeg ik liever niet</option>
+				<select class="paneelinvoer" name="sex" >
+					<option value="x">Zeg ik liever niet</option>
+					<option value="m">Man</option>
+					<option value="v">Vrouw</option>
 				</select>	
 				<br />
 				<span>
@@ -73,18 +154,18 @@ include '/include/header.php';
 				?>
 				</select>
 				<select name="gebmaand" class="paneelinvoer2" style="width:25%;">
-					<option value="januari">Januari</option>
-					<option value="februai">Februari</option>
-					<option value="maart">Maart</option>
-					<option value="april">April</option>
-					<option value="mei">Mei</option>
-					<option value="juni">Juni</option>
-					<option value="juli">Juli</option>
-					<option value="augustus">Augustus</option>
-					<option value="september">September</option>
-					<option value="oktober">Oktober</option>
-					<option value="november">November</option>
-					<option value="december">December</option>
+					<option value="01">Januari</option>
+					<option value="02">Februari</option>
+					<option value="03">Maart</option>
+					<option value="04">April</option>
+					<option value="05">Mei</option>
+					<option value="06">Juni</option>
+					<option value="07">Juli</option>
+					<option value="08">Augustus</option>
+					<option value="09">September</option>
+					<option value="10">Oktober</option>
+					<option value="11">November</option>
+					<option value="12">December</option>
 				</select>
 				<select name="gebjaar" class="paneelinvoer2" style="width:15%;">
 					<?php
@@ -118,6 +199,7 @@ include '/include/header.php';
 			<br />
 			<?php 
 			echo $regbutton;
+			}
 			?>	
 		</form>
 	</div>
