@@ -24,6 +24,7 @@ if(isset($_POST['submitpass']))
 	{
 		$encoded = sha1(filterInput($_POST['newpw1']));
 		$query = sprintf("UPDATE users SET password = '%s' WHERE user_id = %s", $encoded, $_SESSION['user_id']);
+		mysql_query($query);
 	}
 	mysql_close();	
 }
