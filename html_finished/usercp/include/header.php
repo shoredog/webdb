@@ -45,7 +45,7 @@ mysql_select_db($mysqldb);
             <div class="menuitem" onClick="window.location.href='../index.php'">
                 <b><?php echo($algforum); ?></b>
             </div>
-            <div class="menuitem" onClick="window.location.href='../users/index.php'">
+            <div class="menuitem" onClick="window.location.href='../usercp/index.php'">
                 <b><?php echo($algusers); ?></b>
             </div>
             <div class="menuitem" onClick="window.location.href='../register.php'">
