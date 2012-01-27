@@ -1,5 +1,5 @@
 <?php
-include '/include/header.php';
+include 'include/header.php';
 if(isset($_POST['submitsig']))
 {
 	$succes = true;
@@ -63,5 +63,5 @@ if(isset($_POST['submitsig']))
    		</div>
 	</div>
 <?php
-include '/include/footer.php';
+include 'include/footer.php';
 ?>
