@@ -25,7 +25,12 @@ function getAllChilds($commentid, $depth){
 				<?php echo($useroutput['signature']) ?>
 			</div>
 			</div>
-            <div style="float:right"><input type="button" value="Reageren!" /></div>
+            <div style="float:right">
+                <form action="postcomment.php" method="get">
+                    <input type="hidden" name="topic_id" value='<?php print $output['comment_id']; ?>'/>
+                    <input type="submit" value="Reageren!" />
+                </form>
+            </div>
             <div class="eindfloat"></div>
 			
     <?php
@@ -62,7 +67,12 @@ function getAllChilds($commentid, $depth){
 		</div>
 		
 	</div>
-    <div style="float:right"><input type="button" value="Reageren!" /></div>
+    <div style="float:right">
+        <form action="postcomment.php" method="get">
+            <input type="hidden" name="topic_id" value='<?php print $output['comment_id']; ?>'/>
+            <input type="submit" value="Reageren!" />
+        </form>
+    </div>
     <div class="eindfloat"></div>	
     <!-- Rest vd posts -->
     
@@ -88,7 +98,12 @@ function getAllChilds($commentid, $depth){
 				<?php echo($useroutput['signature']) ?>
 			</div>
 			 </div>
-             <div style="float:right"><input type="button" value="Reageren!" /></div>
+             <div style="float:right">
+                <form action="postcomment.php" method="get">
+                    <input type="hidden" name="topic_id" value='<?php print $output['comment_id']; ?>'/>
+                    <input type="submit" value="Reageren!" />
+                </form>
+            </div>
 		<div class="eindfloat"></div>
     <?php
 	getAllChilds($output['comment_id'],1);

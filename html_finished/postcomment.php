@@ -48,15 +48,17 @@ else
     header('location: index.php');
 };
 
-if (!isset($_GET['topic_id']) | !isset($_GET['forum_id']))
+if (!isset($_GET['topic_id']))
 {
     header('location: errordoc/error404.html');
 }
 $topic_id = $_GET['topic_id'];
-$forum_id = $_GET['forum_id'];
 $result = mysql_query("SELECT * FROM comments WHERE comment_id=$topic_id");
 $result = mysql_fetch_array($result);
+$forum_id = $result['comment_forum_parent_id'];
 
+$temp = mysql_query("SELECT * FROM users WHERE user_id=$user_id");
+$temp = mysql_fetch_array($temp);
 ?>
 
 
@@ -72,7 +74,7 @@ $result = mysql_fetch_array($result);
         <form action="postcomment.php" method="post">
             <div class="formulier">
                 <span><b>Gebruikersnaam:</b></span>
-                <span>Tijmen Zwaan <a href="logout ofzo">change user</a></span>
+                <span> <?php print $temp['user_name'] ?> (<a href="logout.php"> Log out</a> )</span>
                 <div class="profilefooter"></div>
             </div>
             <div class="formulier">
