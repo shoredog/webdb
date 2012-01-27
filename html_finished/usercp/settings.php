@@ -1,5 +1,5 @@
 <?php
-include('/include/header.php');
+include('include/header.php');
 mysql_connect($mysqlhost, $mysqluser, $mysqlpass) or die("Er is een fout opgetreden.");
 mysql_select_db($mysqldb) or die("Er is een fout opgetreden.");
 ?>
@@ -251,5 +251,5 @@ mysql_select_db($mysqldb) or die("Er is een fout opgetreden.");
    		</div>
 	</div>
 <?php
-include '/include/footer.php';
+include 'include/footer.php';
 ?>
