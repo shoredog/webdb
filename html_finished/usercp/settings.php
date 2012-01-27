@@ -64,8 +64,11 @@ mysql_select_db($mysqldb) or die("Er is een fout opgetreden.");
 									$succes = false;
 									$fouten[] = "U heeft een ongeldige website opgegeven";	
 								}
-								$querys[] = sprintf("personal_site = '%s'", filterInput($_POST['site']));
-								$_SESSION['user_site'] = $_POST['site'];
+								else
+								{
+									$querys[] = sprintf("personal_site = '%s'", filterInput($_POST['site']));
+									$_SESSION['user_site'] = $_POST['site'];
+								}
 							}
 							if(strcmp($_POST['ondertitel'], $_SESSION['user_subtitle']) != 0)
 							{
@@ -79,7 +82,7 @@ mysql_select_db($mysqldb) or die("Er is een fout opgetreden.");
 							}
 							if(strcmp($_POST['email'], $_SESSION['user_email']) != 0)
 							{
-								if(!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", filterInput($_POST['email'])))
+								if(!preg_match("~^[a-z0-9][a-z0-9_.\-]*@([a-z0-9]+\.)*[a-z0-9][a-z0-9\-]+\.([a-z]{2,6})$~i", filterInput($_POST['email'])))
 								{
 									$succes = false;
 									$fouten[] = "U heeft een ongeldig e-mail adres opgegeven";	
@@ -110,7 +113,7 @@ mysql_select_db($mysqldb) or die("Er is een fout opgetreden.");
 								$querys[] = sprintf("biography = '%s'", $_POST['biografie']);
 								$_SESSION['user_bio'] = $_POST['biografie'];
 							}
-							if(empty($querys))
+							if($succes && empty($querys))
 							{
 								echo("Uw wijzigingen zijn succesvol doorgevoerd.");
 								echo('</div>');
