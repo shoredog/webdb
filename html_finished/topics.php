@@ -1,7 +1,32 @@
 <?php
-include 'include/header.php';
+include 'include/config.php';
 mysql_connect($mysqlhost, $mysqluser, $mysqlpass) or die(mysql_error());
 mysql_select_db($mysqldb);
+if(isset($_GET['id']))
+	$topicid = $_GET['id'];
+else
+	$topicid = 1;
+$query = sprintf("SELECT * FROM comments WHERE comment_id = %s", $topicid);
+$result = mysql_query($query) or die(mysql_error());
+$output = mysql_fetch_array($result) or die(mysql_error());
+if($output['comment_parent_id'] != 0) 
+{
+	$parent = getParent($output['comment_parent_id']);
+	header("Location: topics.php?id=$parent&post=$topicid#$topicid");
+}
+include 'include/header.php';
+
+
+function getParent($id)
+{
+	$query = sprintf("SELECT * FROM comments WHERE comment_id = %s", $id);
+	$result = mysql_query($query) or die(mysql_error());
+	$output = mysql_fetch_array($result) or die(mysql_error());
+	if($output['comment_parent_id'] != 0)
+		return getParent($output['comment_parent_id']);
+	return $output['comment_id'];
+}
+
 function printFullPost($commentid, $depth, $output)
 {
 	if(isset($_GET['id']))
@@ -87,10 +112,7 @@ function getAllChilds($commentid, $depth){
 		$topicid = 1;
 	$query = sprintf("SELECT * FROM comments WHERE comment_id = %s", $topicid);
 	$result = mysql_query($query) or die(mysql_error());
-	$output = mysql_fetch_array($result) or die(mysql_error());
-	if($output['comment_parent_id'] != 0)
-		$error = true;
-  ?>
+	$output = mysql_fetch_array($result) or die(mysql_error());  ?>
   <div class="catbalk" style="margin-bottom:10px; float:right; width:93%; padding-left:3%; padding-right:3%;"><center><?php echo(isset($error)?'Er is een fout opgetreden.':$output['comment_title']) ?></center></div>
 	<div class="comment">
     <?php

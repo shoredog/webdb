@@ -541,10 +541,15 @@ input.topic{
 	padding-top:3px;
 	padding-left:6px;
 	padding-right:6px;
+	margin-top:10px;
 }
 
 input.topic:active
 {
 	background-image:url(achter.jpg);	
 	color:#CCCCCC;
+}
+
+img{
+	max-width:100%;	
 }

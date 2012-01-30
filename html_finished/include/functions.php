@@ -8,11 +8,6 @@ function filterInput($input)
 	return mysql_real_escape_string(htmlspecialchars($input));	
 }
 
-function filterQuotes($input)
-{
-	return preg_replace(array("/\[quote\=(.*)\](.*)\[\/quote\]/i", "/\[quote\](.*)\[\/quote\]/i"), "[..]", $input);
-}
-
 function bbToHtml($input)
 {
 	$bbarray = array("[b]","[/b]","[i]","[/i]",'[youtube]','[/youtube]','[u]','[/u]','[img]','[/img]','[code]','[/code]','[center]','[/center]','\r\n','\n','\r',);
@@ -29,7 +24,7 @@ function resursiveQuotes($input)
     $regex = '#\[quote\=?"?(.*?)"?\]((?:[^[]|\[(?!/?quote\=?"?(.*?)"?\])|(?R))+)\[/quote\]#i';
     if (is_array($input)) 
     {
-        $input = '<div class="catbalk" style="border-color:#000; margin-top:5px;">Quote' 
+        $input = '<div class="catbalk" style="border-color:#000; margin-top:5px; padding-top:2px; padding-bottom:2px; height:15px;">Quote' 
 			.( (strlen($input[1])>0) ? ' door <strong>'.$input[1].'</strong>' : '' )
 			.'</div>'
             .'<div class="quote">'

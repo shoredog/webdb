@@ -1,7 +1,7 @@
 <?php
 session_start();
 require("include/functions.php");
-include("include/config.php");
+if(!isset($mysqlhost)) include("include/config.php");
 mysql_connect($mysqlhost, $mysqluser, $mysqlpass);
 mysql_select_db($mysqldb);
 ?>
