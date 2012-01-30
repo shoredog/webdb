@@ -60,14 +60,14 @@ mysql_select_db($mysqldb);
 					</div>";
 			}
 			else { 
-				echo "
+				?>"
 					<div class="menuitem" onClick="window.location.href='../register.php'">
 						<b><?php echo($algreg); ?></b>
 					</div>
 					<div class=\"menuitem\" onClick=\"window.location.href='../login.php' \">
 						<b>$alglogin</b>
 					</div>";
-			
+            <?php
 			} ?>
         </div>
         
