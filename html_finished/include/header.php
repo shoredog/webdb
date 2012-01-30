@@ -49,18 +49,21 @@ mysql_select_db($mysqldb);
             <div class="menuitem" onClick="window.location.href='usercp/index.php'">
                 <b>Gebruikers</b>
             </div>
-            <div class="menuitem" onClick="window.location.href='register.php'">
-                <b>Registratie</b>
-            </div>
 			<?php
 			if(!empty($_SESSION['user_rank'])){
 				 echo "
+					<div class=\"menuitem\" onClick=\"window.location.href='profiel.php'\">
+						<b>Profiel</b>
+					</div>
 					<div class=\"menuitem\" onClick=\"window.location.href='logout.php'\">
 							<b>Log out</b>
 					</div>";
 			}
 			else { 
 				echo "
+					<div class=\"menuitem\" onClick=\"window.location.href='register.php'\">
+						<b>Registreer</b>
+					</div>
 					<div class=\"menuitem\" onClick=\"window.location.href='login.php'\">
 						<b>Log in</b>
 					</div>";

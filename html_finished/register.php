@@ -63,13 +63,9 @@ include 'include/header.php';
 				}
 				if($succes == true)
 				{
-					$tijd = time();
-					$username = $_POST['username'];
-					$merge  = $tijd . $username;
-					$enc = sha1($merge);
-					$pass = substr($enc,4,10);
-					
-					
+					for($a=0;$a<8;$a++) {
+					@$pass .= chr(rand(33,123));
+					}
 					
 					$rday = date("Y-m-d");
 					
@@ -80,11 +76,12 @@ include 'include/header.php';
 					
 					$to = $_POST['email'];
 					$subject = "Welcome to ShoreDog";
-					$body = "Welcome $username,   <br />
-							Your password is $pass <p />
-							Good luck on our site,<br />
+					$header = "From: Shoredog" ."\r\n"  .
+					$body = "Welcome $username, \n
+							Your password is $pass \p
+							Good luck on our site, \n
 							The ShoreDog Team";
-					mail($to, $subject, $body);
+					mail($to, $subject, $body, $header);
 					
 					{ ?>
 					Uw registratie is gelukt. Controleer uw inbox voor een e-mail met uw wachtwoord. <br />

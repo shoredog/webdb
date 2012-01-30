@@ -49,4 +49,5 @@ function isImage($url)
 		return true;
 	return false;
 }
+
 ?>
