@@ -40,7 +40,7 @@
             $user = mysql_fetch_array($result);
             print "<img src=\"" . $user['avatar'] . "\" class=\"avatar\">";
             print "<h1>" . $user['user_name'] . "</h1>";
-            print "<h2>" . $user['signature'] . "</h2>";
+            print "<h2>" . $user['sub_title'] . "</h2>";
         ?>
 	</div>
 	<div class="profileinfo">
@@ -94,14 +94,14 @@
                         while ($profileComments = mysql_fetch_array($result3))
                         {?>
                             <div class="profilecomment">
-                                <div class="catbalk"><a href="profiel.php?user=<?php
+                                <a href="profiel.php?user=<?php
                                     $poster = $profileComments['poster_id'];
                                     print $poster; ?>"><?php
                                     $posterTable = mysql_query("SELECT * FROM users WHERE user_id=$poster");
                                     $posterName = mysql_fetch_array($posterTable);
                                     print $posterName['user_name'];
-                                ?></a></div>
-                                <div class="forumhok"><?php print $profileComments['content'];?></div>
+                                ?></a><br/>
+                                <?php print $profileComments['content'];?>
                             </div>
                   <?php }
                     if (isset($_SESSION['user_id']))
