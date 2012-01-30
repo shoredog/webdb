@@ -1,3 +1,21 @@
+<script type="text/javascript"> 
+// <![CDATA[
+	var isOpen = false;
+    function toggleQuickReaction()
+	{
+		if(isOpen)
+		{
+			document.getElementById('quickreact').innerHTML = '<center><input type="button" value="Snelle reactie posten" class="topic" onclick="toggleQuickReaction()" /></center>';
+			isOpen = false;
+		}
+		else
+		{
+			document.getElementById('quickreact').innerHTML = '<center><input type="button" value="Snelle reactie verbergen" class="topic" onclick="toggleQuickReaction()" /></center><form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post"><textarea name="commentcontent" class="paneeltext" style="margin-top:20px; width:100%; height:300px;"></textarea><div style="float:right;"><input type="submit" class="topic" value="Verzenden maar!" name="sendnewpost" /></div></form>';
+			isOpen = true;
+		}
+	}
+// ]]> 
+</script>
 <?php
 include 'include/config.php';
 mysql_connect($mysqlhost, $mysqluser, $mysqlpass) or die(mysql_error());
@@ -161,11 +179,9 @@ function getAllChilds($commentid, $depth){
 		if(isset($_SESSION['user_id']))
 		{
 	?>
-   
-   <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-   <div style="float:right; width:100%;"><textarea name="commentcontent" class="paneeltext" style="margin-top:20px; width:100%;"></textarea></div>
-   <div style="float:right;"><input type="submit" value="Verzenden maar!" name="sendnewpost" /></div>
-	</form>
+   	<div class="quickreaction" name="quickreact" id="quickreact">
+   	<center><input type="button" value="Snelle reactie posten" class="topic" onclick="toggleQuickReaction()" /></center>
+  	</div>
     <div class="eindfloat"></div>
   </div>
   
