@@ -9,17 +9,33 @@ include 'include/header.php';
     </div>
 	<div class="categoriecontent">
 		<div class="categoriecontainer">
-			<div class="categoriecatbalk">Forum 1</div>
+			<div class="categoriecatbalk">
+				<div class="categoriecatbalkleft">
+					Forum 1
+				</div>
+				<div class="categoriecatbalkright">
+					<a href="posttopic.php">Maak topic</a>
+				</div>
+			</div>
 			<div class="forforumhok">
 				<div class="categorieinfocontainer">
 					<div class="categorieinfoforumhok" >
 						<b>Forum</b>
 					</div>
 					<div class="categorieinfoposthok">
-						<b>Discussies</b>
+						<center>
+							<b>Fora</b>
+						</center>
 					</div>
 					<div class="categorieinfoposthok">
-						<b>Berichten</b>
+						<center>
+							<b>Topics</b>
+						</center>
+					</div>
+					<div class="categorieinfoposthok">
+						<center>
+							<b>Posts</b>
+						</center>
 					</div>
 					<div class="categorieinfolastpost">
 						<b>Laatste bericht</b>
@@ -41,10 +57,27 @@ include 'include/header.php';
 									<b>
 										<?php
 											$forum_id = $forum['forum_id'];
-											$result3 = mysql_query("SELECT * FROM comments WHERE comment_forum_parent_id=$forum_id");
+											$result2 = mysql_query("SELECT * FROM forums WHERE parent_id=$forum_id");
+											$aantalfora = 0;
+											
+											while (mysql_fetch_array($result2))
+											{
+												$aantalfora++;
+											}
+											print $aantalfora;
+										?>
+									</b>
+								</center>
+							</div>
+							<div class="categorieposthok">
+								<center>
+									<b>
+										<?php
+											$forum_id = $forum['forum_id'];
+											$result2 = mysql_query("SELECT * FROM comments WHERE comment_forum_parent_id=$forum_id");
 											$aantal = 0;
 											
-											while ($discussies = mysql_fetch_array($result3))
+											while (mysql_fetch_array($result2))
 											{
 												$aantal++;
 											}
@@ -55,7 +88,19 @@ include 'include/header.php';
 							</div>
 							<div class="categorieposthok">
 								<center>
-									<b>100</b>
+									<b>
+										<?php
+											$forum_id = $forum['forum_id'];
+											$result2 = mysql_query("SELECT * FROM comments WHERE comment_forum_parent_id=$forum_id");
+											$aantalposts = 0;
+											
+											while (mysql_fetch_array($result2))
+											{
+												$aantalposts++;
+											}
+											print $aantalposts;
+										?>
+									</b>
 								</center>
 							</div>
 							<div class="categorielastpost" onClick="window.location.href='yourlinklocationhere'">
@@ -77,10 +122,10 @@ include 'include/header.php';
 								<b>Topic: <?php print $topic['comment_title'];?></b><br />
 								<?php 
 									$temp = $topic['poster_id'];
-									$result2 = mysql_query("SELECT * FROM users WHERE user_id=$temp");
-									$result2 = mysql_fetch_array($result2);
+									$result3 = mysql_query("SELECT * FROM users WHERE user_id=$temp");
+									$result3 = mysql_fetch_array($result3);
 								?>
-								<i>Gepost door <?php print $result2['user_name'];?></i>
+								<i>Gepost door <?php print $result3['user_name'];?></i>
 							</div>
 							<div class="categorieposthok">
 								<center>
@@ -91,7 +136,27 @@ include 'include/header.php';
 							</div>
 							<div class="categorieposthok">
 								<center>
-									<b>100</b>
+									<b>
+										-
+									</b>
+								</center>
+							</div>
+							<div class="categorieposthok">
+								<center>
+									<b>
+										<?php
+											$forum_id = $topic['comment_parent_id'];
+											$result5 = mysql_query("SELECT * FROM comments WHERE comment_forum_parent_id=$forum_id");
+											$aantalposts = 0;
+											
+											while (mysql_fetch_array($result5))
+											{
+												$aantalposts++;
+											}
+											$aantalposts++;
+											print $aantalposts;
+										?>
+									</b>
 								</center>
 							</div>
 							<div class="categorielastpost" onClick="window.location.href='yourlinklocationhere'">

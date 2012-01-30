@@ -3,6 +3,7 @@
     mysql_connect("$mysqlhost","$mysqluser","$mysqlpass") or die(mysql_error());
     mysql_select_db("$mysqldb") or die(mysql_error());
 ?>
+												
 	<div class="navigation">
 		U bent hier: <b>Index</b>
 	</div>
@@ -21,10 +22,19 @@
 								<b>Forum</b>
 							</div>
 							<div class="categorieinfoposthok">
-								<b>Discussies</b>
+								<center>
+									<b>Fora</b>
+								</center>
 							</div>
 							<div class="categorieinfoposthok">
-								<b>Berichten</b>
+								<center>
+									<b>Topics</b>
+								</center>
+							</div>
+							<div class="categorieinfoposthok">
+								<center>
+									<b>Posts</b>
+								</center>
 							</div>
 							<div class="categorieinfolastpost">
 								<b>Laatste bericht</b>
@@ -48,13 +58,32 @@
 									<center>
 										<b>
 											<?php
-												$aantal = 0;
+												$forum_id = $forum['forum_id'];
+												$result5 = mysql_query("SELECT * FROM forums WHERE parent_id=$forum_id");
+												$aantalfora = 0;
 												
-												while ($discussies = mysql_fetch_array($result3))
+												while (mysql_fetch_array($result5))
 												{
-													$aantal++;
+													$aantalfora++;
 												}
-													print $aantal;
+												print $aantalfora;
+											?>
+										</b>
+									</center>
+								</div>
+								<div class="categorieposthok">
+									<center>
+										<b>
+											<?php
+												$topic_id = $forum['forum_id'];
+												$result5 = mysql_query("SELECT * FROM comments WHERE comment_forum_parent_id=$topic_id");
+												$aantaltopics = 0;
+												
+												while (mysql_fetch_array($result5))
+												{
+													$aantaltopics++;
+												}
+												print $aantaltopics;
 											?>
 										</b>
 									</center>
