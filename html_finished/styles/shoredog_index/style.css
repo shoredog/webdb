@@ -221,6 +221,26 @@ margin-top:20px;
 clear:both;
 }
 
+div.categoriecatbalkleft{
+float:left;
+height:auto;
+
+}
+
+div.categoriecatbalkright{
+float:right;
+height:auto;
+padding-right:15px;
+}
+
+div.categoriecatbalkright a:link{
+color:#FFFFFF;
+}
+
+div.categoriecatbalkright a:hover{
+text-decoration:underline;
+}
+
 div.catforumhok{
 height:auto;
 border-left:1px solid #000000;
@@ -249,7 +269,7 @@ padding-top:3px;
 padding-bottom:3px;
 padding-left:2.5%;
 padding-right:2.5%;
-width:40%;
+width:35%;
 float:left;
 clear:both;
 }
@@ -260,7 +280,7 @@ padding-top:3px;
 padding-bottom:3px;
 padding-left:2.5%;
 padding-right:2.5%;
-width:7.5%;
+width:5%;
 float:left;
 }
 
@@ -300,7 +320,10 @@ padding-top:10px;
 padding-bottom:10px;
 padding-left:2.5%;
 padding-right:2.5%;
-width:40%;
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+width:35%;
 clear:both;
 float:left;
 }
@@ -315,7 +338,7 @@ padding-top:15px;
 padding-bottom:10px;
 padding-left:2.5%;
 padding-right:2.5%;
-width:7.5%;
+width:5%;
 float:left;
 }
 
@@ -393,6 +416,12 @@ height:auto;
 background-color:#6f6f6f;
 }
 
+div.profilecomment2{
+height:auto;
+background-color:#6f6f6f;
+border: 1px solid #333;
+}
+
 div.userinfoheader{
 color:#FFFFFF;
 background-image:url(catbalk.jpg);
@@ -412,7 +441,7 @@ div.userinfoheader h1{
 
 div.userinfoheader h2{
     margin-top:0px;
-    margin-left:75px;
+    margin-left:70px;
     font-size:11px;
     color:#EEE;
 }
@@ -541,10 +570,15 @@ input.topic{
 	padding-top:3px;
 	padding-left:6px;
 	padding-right:6px;
+	margin-top:10px;
 }
 
 input.topic:active
 {
 	background-image:url(achter.jpg);	
 	color:#CCCCCC;
+}
+
+img{
+	max-width:100%;	
 }

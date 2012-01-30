@@ -93,7 +93,7 @@
                         $result3 = mysql_query("SELECT * FROM profilereactions WHERE profile_id=$userid ORDER BY profile_reactions_id DESC LIMIT 10");
                         while ($profileComments = mysql_fetch_array($result3))
                         {?>
-                            <div class="profilecomment">
+                            <div class="profilecomment2">
                                 <a href="profiel.php?user=<?php
                                     $poster = $profileComments['poster_id'];
                                     print $poster; ?>"><?php
@@ -126,7 +126,7 @@
                 while ($comments = mysql_fetch_array($result2))
                 {?>
                     <div class="profilecomment">
-                        <div class="catbalk"><?php print $comments['comment_title'];?></div>
+                        <div class="catbalk"><a href="topics.php?id=<?php print $comments['comment_id']; ?>"><font color="#FFF"><?php print $comments['comment_title'];?></font></a></div>
                         <div class="forumhok"><?php print bbToHtml($comments['comment_content']);?></div>
                     </div>
           <?php }?>
