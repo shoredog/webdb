@@ -122,6 +122,7 @@ function getAllChilds($commentid, $depth){
 	
     <div style="float:right">
         <form action="postcomment.php" method="get">
+            <input type="hidden" name="quote" value='<?php print $output['comment_content'] ?>' />
             <input type="hidden" name="topic_id" value='<?php print $output['comment_id']; ?>'/>
             <input type="button" value="Verkrijg URL" class="topic" onclick="prompt('De URL voor deze post is:','<?php echo($_SERVER["SERVER_NAME"].$_SERVER['PHP_SELF'].'?id='.$topicid) ?>')" />
             <input type="button" value="Like" class="topic" />

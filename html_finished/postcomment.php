@@ -16,7 +16,7 @@ if (isset($_POST['onderwerp']) && isset($_POST['bericht']))
     $bericht = $_POST['bericht'];
     $topic_id = $_POST['topic_id'];
     $forum_id = $_POST['forum_id'];
-    $poster_id = $_POST['poster_id'];
+    $poster_id = $_SESSION['user_id'];
     $onderwep = filterInput($onderwerp);
     $bericht = filterInput($bericht);
 
@@ -56,9 +56,12 @@ $topic_id = $_GET['topic_id'];
 $result = mysql_query("SELECT * FROM comments WHERE comment_id=$topic_id");
 $result = mysql_fetch_array($result);
 $forum_id = $result['comment_forum_parent_id'];
+$poster_id = $result['poster_id'];
 
 $temp = mysql_query("SELECT * FROM users WHERE user_id=$user_id");
 $temp = mysql_fetch_array($temp);
+$temp2 = mysql_query("SELECT * FROM users WHERE user_id = $poster_id");
+$temp2 = mysql_fetch_array($temp2);
 ?>
 
 
@@ -79,12 +82,12 @@ $temp = mysql_fetch_array($temp);
             </div>
             <div class="formulier">
                 <span><b>Onderwerp:</b></span>
-                <input name="onderwerp" type="text" value="<?php print $result['comment_title'];?>" maxlength="250" class="paneelinvoer" />
+                <input name="onderwerp" type="text" value="RE: <?php print $result['comment_title'];?>" maxlength="250" class="paneelinvoer" />
                 <div class="profilefooter"></div>
             </div>
             <div class="formulier">
                 <span><b>Bericht:</b></span>
-                <textarea name="bericht" cols="60" rows="15" class="paneeltext"></textarea>
+                <textarea name="bericht" cols="60" rows="15" class="paneeltext">[quote=<?php print $temp2['user_name']; ?>]<?php print $result['comment_content'] ?>[/quote]</textarea>
                 <div class="profilefooter"></div>
             </div>
             <input type="hidden" name="topic_id" value='<?php print $topic_id ?>' />
