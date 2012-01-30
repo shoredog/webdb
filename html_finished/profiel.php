@@ -24,7 +24,7 @@
     if (isset($_POST['bericht']))
     {
         $user_id = $_SESSION['user_id'];
-        $bericht = $_POST['bericht'];
+        $bericht = filterInput($_POST['bericht']);
         mysql_query("INSERT INTO profilereactions (poster_id, profile_id, content, approved)
                     VALUES ('$user_id', '$userid', '$bericht', '1')") or die(mysql_error());
     }

@@ -1,5 +1,5 @@
-<!-- ik ga er hier van uit dat in de url het topic_id en het
-     forum_id worden meegegeven met deze exacte namen
+<!-- ik ga er hier van uit dat in de url het topic_id
+     wordt meegegeven met deze exacte naam.
 -->
 
 <?php
@@ -11,14 +11,11 @@
 <?php
 if (isset($_POST['onderwerp']) && isset($_POST['bericht']))
 {
-    include '/include/functions.php';
-    $onderwerp = $_POST['onderwerp'];
-    $bericht = $_POST['bericht'];
+    $onderwerp = filterInput($_POST['onderwerp']);
+    $bericht = filterInput($_POST['bericht']);
     $topic_id = $_POST['topic_id'];
     $forum_id = $_POST['forum_id'];
     $poster_id = $_SESSION['user_id'];
-    $onderwep = filterInput($onderwerp);
-    $bericht = filterInput($bericht);
 
     mysql_query("INSERT INTO comments (comment_parent_id, comment_forum_parent_id, comment_title, comment_description, comment_content, poster_id)
                 VALUES ('$topic_id', '$forum_id', '$onderwerp', '', '$bericht', '$poster_id')") or die(mysql_error());
@@ -28,8 +25,8 @@ if (isset($_POST['onderwerp']) && isset($_POST['bericht']))
             New Reply
         </div>
         <div class="forumhok">
-            Post Succesfull! <br />
-            <a href="topics.php?id=<?php print $topic_id; ?>&forum_id=<?php print $forum_id; ?>">Click here to return to the topic</a>
+            Post Succesfull! <br/>
+            <a href="topics.php?id=<?php print mysql_insert_id() ?>">Click here to return to the topic</a>
         </div>
     </div>
     <?php
@@ -45,7 +42,7 @@ if (isset($_SESSION['user_id']))
 }
 else
 {
-    header('location: index.php');
+    header('location: login.php');
 };
 
 if (!isset($_GET['topic_id']))
