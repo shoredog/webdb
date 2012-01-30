@@ -76,9 +76,9 @@ include 'include/header.php';
 					
 					$to = $_POST['email'];
 					$subject = "Welcome to ShoreDog";
-					$header = "From: Shoredog" ."\r\n"  .
+					$header = "From: ShoreDog.nl" ."\r\n"  ;
 					$body = "Welcome $username, \n
-							Your password is $pass \p
+							Your password is $pass .
 							Good luck on our site, \n
 							The ShoreDog Team";
 					mail($to, $subject, $body, $header);
@@ -86,7 +86,6 @@ include 'include/header.php';
 					{ ?>
 					Uw registratie is gelukt. Controleer uw inbox voor een e-mail met uw wachtwoord. <br />
 					<?php }
-					echo $pass;
 				}
 				else
 					{
