@@ -9,14 +9,47 @@ else
 $query = sprintf("SELECT * FROM comments WHERE comment_id = %s", $topicid);
 $result = mysql_query($query) or die(mysql_error());
 $output = mysql_fetch_array($result) or die(mysql_error());
+$topictitle = $output['comment_title'];
+$forumid = $output['comment_forum_parent_id'];
 if($output['comment_parent_id'] != 0) 
 {
 	$parent = getParent($output['comment_parent_id']);
 	header("Location: topics.php?id=$parent&post=$topicid#$topicid");
 }
 include 'include/header.php';
-
-
+if (isset($_POST['sendnewpost']))
+{
+    $onderwerp = $_POST['onderwerp'];
+    $bericht = $_POST['bericht'];
+    $topic_id = $_POST['topic_id'];
+    $forum_id = $_POST['forum_id'];
+    $poster_id = $_SESSION['user_id'];
+    $onderwep = filterInput($onderwerp);
+    $bericht = filterInput($bericht);
+	mysql_query("INSERT INTO comments (comment_parent_id, comment_forum_parent_id, comment_title, comment_description, comment_content, poster_id)
+                VALUES ('$topic_id', '$forum_id', '$onderwerp', '', '$bericht', '$poster_id')") or die(mysql_error());
+	header("Location: topics.php?id=$topic_id#bottom");
+}
+?>
+<script type="text/javascript"> 
+// <![CDATA[
+	var isOpen = false;
+    function toggleQuickReaction()
+	{
+		if(isOpen)
+		{
+			document.getElementById('quickreact').innerHTML = '<center><input type="button" value="Snelle reactie posten" class="topic" onclick="toggleQuickReaction()" /></center>';
+			isOpen = false;
+		}
+		else
+		{
+			document.getElementById('quickreact').innerHTML = "<center><input type=\"button\" value=\"Snelle reactie verbergen\" class=\"topic\" onclick=\"toggleQuickReaction()\" /></center><form action=\"<?php echo $_SERVER['PHP_SELF'] ?>?id=<?php echo($topicid) ?>\" method=\"post\"><textarea name=\"bericht\" class=\"paneeltext\" style=\"margin-top:20px; width:100%; height:300px;\"></textarea><input type=\"hidden\" name=\"onderwerp\" value=\"RE: <?php echo $topictitle ?>\" /><input type=\"hidden\" name=\"topic_id\" value=\"<?php echo($topicid) ?>\" /><input type=\"hidden\" name=\"forum_id\" value=\"<?php echo($forumid) ?>\" /><div style=\"float:right;\"><input type=\"submit\" class=\"topic\" value=\"Verzenden maar!\" name=\"sendnewpost\" /></div></form>";
+			isOpen = true;
+		}
+	}
+// ]]> 
+</script>
+<?php
 function getParent($id)
 {
 	$query = sprintf("SELECT * FROM comments WHERE comment_id = %s", $id);
@@ -36,7 +69,7 @@ function printFullPost($commentid, $depth, $output)
 	$userquery = sprintf("SELECT * FROM users WHERE user_id = %s", $output['poster_id']);
 	$userresult = mysql_query($userquery) or die(mysql_error());
 	$useroutput = mysql_fetch_array($userresult) or die(mysql_error());
-	$newwidth = 93 - (4*$depth);
+	$newwidth = 95 - (4*$depth);
 	if($newwidth < 77) $newwidth = 77;
 	?>
     <a name="<?php echo($output['comment_id']) ?>"></a>
@@ -58,7 +91,7 @@ function printFullPost($commentid, $depth, $output)
 			<input type="hidden" name="topic_id" value='<?php print $output['comment_id']; ?>'/>
             <input type="button" value="Verkrijg URL" class="topic" onclick="prompt('De URL voor deze post is:','<?php echo($_SERVER["SERVER_NAME"].$_SERVER['PHP_SELF'].'?id='.$topicid.'&post='.$output['comment_id'].'#'.$output['comment_id']) ?>')" />
             <input type="button" value="Like" class="topic" />
-            <input type="button" value="Reageren!" class="topic" onclick="window.location.href='postcomment.php?topic_id=<?php echo($output['comment_id']); ?>'" />
+            <input type="button" value="Reageren" class="topic" onclick="window.location.href='postcomment.php?topic_id=<?php echo($output['comment_id']); ?>'" />
 		</form>
 	</div></div>
 	<div class="eindfloat"></div>
@@ -148,11 +181,10 @@ function getAllChilds($commentid, $depth){
             <input type="hidden" name="topic_id" value='<?php print $output['comment_id']; ?>'/>
             <input type="button" value="Verkrijg URL" class="topic" onclick="prompt('De URL voor deze post is:','<?php echo($_SERVER["SERVER_NAME"].$_SERVER['PHP_SELF'].'?id='.$topicid) ?>')" />
             <input type="button" value="Like" class="topic" />
-            <input type="button" value="Reageren!" class="topic" onclick="window.location.href='postcomment.php?topic_id=<?php echo($topicid); ?>'" />
+            <input type="button" value="Reageren" class="topic" onclick="window.location.href='postcomment.php?topic_id=<?php echo($topicid); ?>'" />
         </form>
     </div></div>
     <div class="eindfloat"></div>	
-    <!-- Rest vd posts -->
     <?php
 	getAllChilds($topicid,0);
 	?>
@@ -161,13 +193,11 @@ function getAllChilds($commentid, $depth){
 		if(isset($_SESSION['user_id']))
 		{
 	?>
-   
-   <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-   <div style="float:right; width:100%;"><textarea name="commentcontent" class="paneeltext" style="margin-top:20px; width:100%;"></textarea></div>
-   <div style="float:right;"><input type="submit" value="Verzenden maar!" name="sendnewpost" /></div>
-	</form>
-    <div class="eindfloat"></div>
-  </div>
+            <div class="quickreaction" name="quickreact" id="quickreact">
+            <center><input type="button" value="Snelle reactie posten" class="topic" onclick="toggleQuickReaction()" /></center>
+            </div>
+            <div class="eindfloat"><a name="bottom"></a></div>
+          </div>
   
   <?php
 		}
