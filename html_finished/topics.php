@@ -12,6 +12,7 @@ function printFullPost($commentid, $depth, $output)
 	$userresult = mysql_query($userquery) or die(mysql_error());
 	$useroutput = mysql_fetch_array($userresult) or die(mysql_error());
 	$newwidth = 93 - (4*$depth);
+	if($newwidth < 77) $newwidth = 77;
 	?>
     <a name="<?php echo($output['comment_id']) ?>"></a>
 	<div class="comment" style="margin-top:20px; width:<?php echo $newwidth ?>%">
@@ -32,7 +33,7 @@ function printFullPost($commentid, $depth, $output)
 			<input type="hidden" name="topic_id" value='<?php print $output['comment_id']; ?>'/>
             <input type="button" value="Verkrijg URL" class="topic" onclick="prompt('De URL voor deze post is:','<?php echo($_SERVER["SERVER_NAME"].$_SERVER['PHP_SELF'].'?id='.$topicid.'&post='.$output['comment_id'].'#'.$output['comment_id']) ?>')" />
             <input type="button" value="Like" class="topic" />
-            <input type="submit" value="Reageren!" class="topic" />
+            <input type="button" value="Reageren!" class="topic" onclick="window.location.href='postcomment.php?topic_id=<?php echo($output['comment_id']); ?>'" />
 		</form>
 	</div></div>
 	<div class="eindfloat"></div>
@@ -62,12 +63,14 @@ function getAllChilds($commentid, $depth){
 				else
 					$topicid = 1;
 				for($i = 0; $i < $depth*6; $i++)
+				{
+					if($i > 24) break;
 					echo("&nbsp");
+				}
 				echo('- <a href="'.$_SERVER['PHP_SELF'].'?id='.$topicid.'&post='.$output['comment_id'].'#'.$output['comment_id'].'">'.$output['comment_title'].'</a>');
 				echo("<br />");
 			}
 		}
-	if($depth < 4)
 		getAllChilds($output['comment_id'], $depth + 1);
 	}
 }
@@ -122,7 +125,7 @@ function getAllChilds($commentid, $depth){
             <input type="hidden" name="topic_id" value='<?php print $output['comment_id']; ?>'/>
             <input type="button" value="Verkrijg URL" class="topic" onclick="prompt('De URL voor deze post is:','<?php echo($_SERVER["SERVER_NAME"].$_SERVER['PHP_SELF'].'?id='.$topicid) ?>')" />
             <input type="button" value="Like" class="topic" />
-            <input type="submit" value="Reageren!" class="topic" />
+            <input type="button" value="Reageren!" class="topic" onclick="window.location.href='postcomment.php?topic_id=<?php echo($topicid); ?>'" />
         </form>
     </div></div>
     <div class="eindfloat"></div>	
@@ -138,7 +141,7 @@ function getAllChilds($commentid, $depth){
    
    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
    <div style="float:right; width:100%;"><textarea name="commentcontent" class="paneeltext" style="margin-top:20px; width:100%;"></textarea></div>
-   <div style="float:right;"><input type="submit" value="Verzenden maar!" /></div>
+   <div style="float:right;"><input type="submit" value="Verzenden maar!" name="sendnewpost" /></div>
 	</form>
     <div class="eindfloat"></div>
   </div>
