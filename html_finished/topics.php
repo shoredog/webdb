@@ -69,6 +69,7 @@ function getAllChilds($commentid, $depth){
 	</div>
     <div style="float:right">
         <form action="postcomment.php" method="get">
+            <input type="hidden" name="quote" value='<?php print $output['comment_content'] ?>' />
             <input type="hidden" name="topic_id" value='<?php print $output['comment_id']; ?>'/>
             <input type="submit" value="Reageren!" />
         </form>
