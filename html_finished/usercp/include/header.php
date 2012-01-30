@@ -52,7 +52,7 @@ mysql_select_db($mysqldb);
             <?php
 			if(!empty($_SESSION['user_rank'])){
 				 echo "
-				 	<div class=\"menuitem\" onClick=\"window.location.href='profiel.php'\">
+				 	<div class=\"menuitem\" onClick=\"window.location.href='../profiel.php'\">
 						<b>Profiel</b>
 					</div>
 					<div class=\"menuitem\" onClick=\"window.location.href='../logout.php' \">
