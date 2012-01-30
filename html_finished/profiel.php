@@ -104,7 +104,7 @@
                                 <div class="forumhok"><?php print $profileComments['content'];?></div>
                             </div>
                   <?php }
-                    if (isset($_SESSION['user_id]'))
+                    if (isset($_SESSION['user_id']))
                     { ?>
                         <b><br/>Laat een bericht achter:</b>
                         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
