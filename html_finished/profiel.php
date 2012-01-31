@@ -8,16 +8,37 @@
         if (isset($_SESSION['user_id']))
         {
             $userid = $_SESSION['user_id'];
+            $isint = "true";
         }
         else
         {
-            header('Location: index.php');
+            header('location: index.php');
         }
     }
     else
     {
-        $userid = $_GET["user"];
+        if (is_numeric($_GET['user']))
+        {
+            $isint = "true";
+        }
+        else
+        {
+            $isint = "false";
+        }
+        
+        $userid = $_GET['user'];
     }
+    
+        if ($isint == "true")
+        {
+            $result = mysql_query("SELECT * FROM users WHERE user_id=$userid");
+        }
+        else
+        {
+            $result = mysql_query("SELECT * FROM users WHERE user_name='$userid'");
+        }
+        $user = mysql_fetch_array($result) or die(mysql_error());
+        $userid = $user['user_id'];
 ?>
 
 <?php
@@ -36,8 +57,6 @@
 <div class="content">
 	<div class="userinfoheader">
         <?php
-            $result = mysql_query("SELECT * FROM users WHERE user_id=$userid");
-            $user = mysql_fetch_array($result);
             print "<img src=\"" . $user['avatar'] . "\" class=\"avatar\">";
             print "<h1>" . $user['user_name'] . "</h1>";
             print "<h2>" . $user['sub_title'] . "</h2>";
