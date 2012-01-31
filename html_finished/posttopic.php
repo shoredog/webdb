@@ -9,7 +9,7 @@
     {
         $onderwerp = filterInput($_POST['onderwerp']);
         $bericht = filterInput($_POST['bericht']);
-        $description = filterInput(['description']);
+        $description = filterInput($_POST['description']);
         $forum_id = $_POST['forum_id'];
         $user_id = $_POST['user_id'];
         
@@ -73,7 +73,7 @@
                     </div>
                     <div class="formulier">
                         <span><b>Bericht:</b></span>
-                        <textarea name="bericht" cols="60" rows="15" class="paneeltext" />
+                        <textarea name="bericht" cols="60" rows="15" class="paneeltext" ></textarea>
                         <div class="profilefooter"></div>
                     </div>
                     <input type="hidden" name="forum_id" value="<?php print $forum_id; ?>" />
@@ -89,6 +89,5 @@
 ?>
 
 <?php
-}
 include 'include/footer.php';
 ?>

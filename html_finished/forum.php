@@ -14,7 +14,7 @@ include 'include/header.php';
 					Forum 1
 				</div>
 				<div class="categoriecatbalkright">
-					<a href="posttopic.php">Maak topic</a>
+					<a href="posttopic.php?forum_id=<?php print $_GET['id']; ?>">Maak topic</a>
 				</div>
 			</div>
 			<div class="forforumhok">
