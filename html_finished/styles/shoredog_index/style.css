@@ -263,16 +263,16 @@ text-decoration:underline;
 
 div.catforumhok{
 height:auto;
-border-left:1px solid #000000;
-border-right:1px #000 solid;
-border-bottom:1px #000 solid;
+border-left:1px solid #333;
+border-right:1px #333 solid;
+border-bottom:1px #333 solid;
 }
 
 div.forforumhok{
 height:auto;
-border-left:1px solid #000000;
-border-right:1px #000 solid;
-border-bottom:1px #000 solid;
+border-left:1px solid #333;
+border-right:1px #333 solid;
+border-bottom:1px #333 solid;
 }
 
 div.categorieinfocontainer{
@@ -328,7 +328,7 @@ float:right;
 div.categorieforumcontainer{
 height:50px;
 background:#666666;
-border-top:1px #000 solid;
+border-top:1px #333 solid;
 width:100%;
 float:left;
 clear:both;
