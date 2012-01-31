@@ -29,7 +29,7 @@ if (isset($_POST['sendnewpost']))
     $bericht = filterInput($bericht);
 	mysql_query("INSERT INTO comments (comment_parent_id, comment_forum_parent_id, comment_title, comment_description, comment_content, poster_id)
                 VALUES ('$topic_id', '$forum_id', '$onderwerp', '', '$bericht', '$poster_id')") or die(mysql_error());
-	header("Location: topics.php?id=$topic_id#bottom");
+	header("Location: topics.php?id=$topic_id&scrdwn=1");
 }
 ?>
 <script type="text/javascript"> 
@@ -46,6 +46,7 @@ if (isset($_POST['sendnewpost']))
 		{
 			document.getElementById('quickreact').innerHTML = "<center><input type=\"button\" value=\"Snelle reactie verbergen\" class=\"topic\" onclick=\"toggleQuickReaction()\" /></center><form action=\"<?php echo $_SERVER['PHP_SELF'] ?>?id=<?php echo($topicid) ?>\" method=\"post\"><textarea name=\"bericht\" class=\"paneeltext\" style=\"margin-top:20px; width:100%; height:300px;\"></textarea><input type=\"hidden\" name=\"onderwerp\" value=\"RE: <?php echo $topictitle ?>\" /><input type=\"hidden\" name=\"topic_id\" value=\"<?php echo($topicid) ?>\" /><input type=\"hidden\" name=\"forum_id\" value=\"<?php echo($forumid) ?>\" /><div style=\"float:right;\"><input type=\"submit\" class=\"topic\" value=\"Verzenden maar!\" name=\"sendnewpost\" /></div></form>";
 			isOpen = true;
+			window.scrollTo(0,document.body.scrollHeight);
 		}
 	}
 // ]]> 
@@ -90,6 +91,7 @@ function printFullPost($commentid, $depth, $output)
 	<div style="float:right">
 		<form action="postcomment.php" method="get">
 			<input type="hidden" name="topic_id" value='<?php print $output['comment_id']; ?>'/>
+            <input type="button" value="Scroll naar boven" class="topic" onclick="window.scrollTo(0,0)" />
             <input type="button" value="Verkrijg URL" class="topic" onclick="prompt('De URL voor deze post is:','<?php echo($_SERVER["SERVER_NAME"].$_SERVER['PHP_SELF'].'?id='.$topicid.'&post='.$output['comment_id'].'#'.$output['comment_id']) ?>')" />
             <input type="button" value="Like" class="topic" />
             <input type="button" value="Reageren" class="topic" onclick="window.location.href='postcomment.php?topic_id=<?php echo($output['comment_id']); ?>'" />
@@ -202,6 +204,14 @@ function getAllChilds($commentid, $depth){
           </div>
   
   <?php
+		}
+		if(isset($_GET['scrdwn']) && $_GET['scrdwn'] == 1)
+		{
+			?>
+            <script type="text/javascript">
+				window.scrollTo(0,document.body.scrollHeight);
+			</script>
+            <?php	
 		}
   ?>
     

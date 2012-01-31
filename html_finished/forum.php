@@ -60,14 +60,8 @@ include 'include/header.php';
 									<b>
 										<?php
 											$forum_id = $forum['forum_id'];
-											$result2 = mysql_query("SELECT * FROM forums WHERE parent_id=$forum_id");
-											$aantalfora = 0;
-											
-											while (mysql_fetch_array($result2))
-											{
-												$aantalfora++;
-											}
-											print $aantalfora;
+                                            $count = countForumChildren($forum_id, 0);
+                                            print $count;
 										?>
 									</b>
 								</center>
@@ -76,15 +70,8 @@ include 'include/header.php';
 								<center>
 									<b>
 										<?php
-											$forum_id = $forum['forum_id'];
-											$result2 = mysql_query("SELECT * FROM comments WHERE comment_forum_parent_id=$forum_id");
-											$aantal = 0;
-											
-											while (mysql_fetch_array($result2))
-											{
-												$aantal++;
-											}
-											print $aantal;
+                                            $count = countSubTopics($forum_id, 0);
+                                            print $count;
 										?>
 									</b>
 								</center>
@@ -93,23 +80,34 @@ include 'include/header.php';
 								<center>
 									<b>
 										<?php
-											$forum_id = $forum['forum_id'];
-											$result2 = mysql_query("SELECT * FROM comments WHERE comment_forum_parent_id=$forum_id");
-											$aantalposts = 0;
-											
-											while (mysql_fetch_array($result2))
-											{
-												$aantalposts++;
-											}
-											print $aantalposts;
+                                            $count = countSubPosts($forum_id, 0);
+                                            print $count;
 										?>
 									</b>
 								</center>
 							</div>
-							<div class="categorielastpost" onClick="window.location.href='yourlinklocationhere'">
-								<b>Laatste bericht 1</b></br>
-								<i>Op datum door poster</i>
-							</div>
+							<?php
+                                $query = sprintf("SELECT * FROM comments WHERE comment_forum_parent_id=$forum_id ORDER BY comment_date DESC LIMIT 1");
+                                $result4 = mysql_query($query);
+                                $result4 = mysql_fetch_array($result4);
+                                if(!empty($result4['comment_id']))
+                                {
+                                ?>
+                                    <div class="categorielastpost" onClick="window.location.href='topics.php?id=<?php print $result4['comment_id']; ?>'">
+                                        <b><?php print $result4['comment_title']; ?></b></br>
+                                        <i><?php print date("d-m-Y" , strtotime($result4['comment_date'])); ?></i>
+                                    </div>
+                                <?php
+                                }
+                                else
+                                {
+                                ?>
+                                    <div class="categorielastpost" >
+                                        <b>Geen laatste bericht</b></br>
+                                    </div>
+                                <?php
+                                }
+                            ?>
 						</div>
 						<div class ="eindfloat"></div>
 						<div class="categoriefooter"></div>
@@ -128,7 +126,7 @@ include 'include/header.php';
 									$result3 = mysql_query("SELECT * FROM users WHERE user_id=$temp");
 									$result3 = mysql_fetch_array($result3);
 								?>
-								<i>Gepost door <?php print $result3['user_name'];?></i>
+								<i>Gepost door <a style="font-weight:lighter" href="profiel.php?user=<?php print $result3['user_name']; ?>"><?php print $result3['user_name'];?></a></i>
 							</div>
 							<div class="categorieposthok">
 								<center>
@@ -148,24 +146,22 @@ include 'include/header.php';
 								<center>
 									<b>
 										<?php
-											$forum_id = $topic['comment_parent_id'];
-											$result5 = mysql_query("SELECT * FROM comments WHERE comment_forum_parent_id=$forum_id");
-											$aantalposts = 0;
-											
-											while (mysql_fetch_array($result5))
-											{
-												$aantalposts++;
-											}
-											$aantalposts++;
-											print $aantalposts;
+											$topic_id = $topic['comment_id'];
+											$count = countTopicPosts($topic_id, 1);
+                                            print $count;
 										?>
 									</b>
 								</center>
 							</div>
-							<div class="categorielastpost" onClick="window.location.href='yourlinklocationhere'">
-								<b>Laatste bericht 1</b></br>
-								<i>Op datum door poster</i>
-							</div>
+                            <?php
+                                $query2 = sprintf("SELECT * FROM comments WHERE comment_parent_id=$topic_id OR comment_id=$topic_id ORDER BY comment_date DESC LIMIT 1");
+                                $result5 = mysql_query($query2);
+                                $result5 = mysql_fetch_array($result5)
+                            ?>
+                            <div class="categorielastpost" onClick="window.location.href='topics.php?id=<?php print $result5['comment_id']; ?>'">
+                                <b><?php print $result5['comment_title']; ?></b></br>
+                                <i><?php print date("d-m-Y" , strtotime($result5['comment_date'])); ?></i>
+                            </div>
 						</div>
 						<div class ="eindfloat"></div>
 						<div class="categoriefooter"></div>

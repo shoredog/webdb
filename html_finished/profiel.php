@@ -3,9 +3,9 @@
     mysql_connect("$mysqlhost","$mysqluser","$mysqlpass") or die(mysql_error());
     mysql_select_db("$mysqldb") or die(mysql_error());
 
-    if (!isset($_GET['user']))
+    if (empty($_GET['user']))
     {
-        if (isset($_SESSION['user_id']))
+        if (!empty($_SESSION['user_id']))
         {
             $userid = $_SESSION['user_id'];
             $isint = "true";
@@ -26,7 +26,7 @@
             $isint = "false";
         }
         
-        $userid = $_GET['user'];
+        $userid = filterInput($_GET['user']);
     }
     
         if ($isint == "true")
@@ -37,12 +37,22 @@
         {
             $result = mysql_query("SELECT * FROM users WHERE user_name='$userid'");
         }
-        $user = mysql_fetch_array($result) or die(mysql_error());
+        if (!($user = mysql_fetch_array($result)))
+        {
+            ?>
+            <div class="content">
+                <div class="catbalk">Error - 404</div>
+                <div class="forumhok">User Not Found</div>
+            </div>
+            <?php
+            include("include/footer.php");
+            die(mysql_error());
+        }
         $userid = $user['user_id'];
 ?>
 
 <?php
-    if (isset($_POST['bericht']))
+    if (!empty($_POST['bericht']))
     {
         $user_id = $_SESSION['user_id'];
         $bericht = filterInput($_POST['bericht']);
@@ -67,38 +77,72 @@
 		<div class="forumhok">
 			<div class="userinfotable">
                 <div class="row">
-                    <div class="cell">Name:</div>
-                    <div class="cell"><?php print $user['user_name'];?></div>
+                    <div class="cellleft">Name:</div>
+                    <div class="cellright"><?php print $user['user_name'];?></div>
+                    <div class="paneelfooter"></div>
                 </div>
                 <div class="row">
-                    <div class="cell">Rank:</div>
-                    <div class="cell"><?php
+                    <div class="cellleft">Rank:</div>
+                    <div class="cellright"><?php
                         if ($user['rank']==2)
                             print 'admin';
                         else
                             print 'user';?>
                     </div>
+                    <div class="paneelfooter"></div>
                 </div>
+                <?php
+                if(!empty($user['location']))
+                { ?>
                 <div class="row">
-                    <div class="cell">Location:</div>
-                    <div class="cell"><?php print $user['location'];?></div>
-                </div><?php
-                    if ($user['show_dob']==1)
-                    {?>
-                        <div class="row">
-                            <div class="cell">Birthdate:</div>
-                            <div class="cell"><?php print date("d-m-Y" , strtotime($user['date_of_birth']));?></div>
-                        </div>
-              <?php } ?>
-                <div class="row">
-                    <div class="cell">Email:</div>
-                    <div class="cell"><?php print $user['email'];?></div>
+                    <div class="cellleft">Location:</div>
+                    <div class="cellright"><?php print $user['location'];?></div>
+                    <div class="paneelfooter"></div>
                 </div>
-          <?php if (isset($SESSION_['user_id']) && ($_SESSION['user_id'] == $userid))
+                <?php
+                }
+                if ($user['show_dob']==1 && (!empty($user['date_of_birth'])))
+                {?>
+                    <div class="row">
+                        <div class="cellleft">Birthdate:</div>
+                        <div class="cellright"><?php print date("d-m-Y" , strtotime($user['date_of_birth']));?></div>
+                        <div class="paneelfooter"></div>
+                    </div>
+                <?php
+                }
+                if(!empty($user['email']))
                 { ?>
                     <div class="row">
-                        <div class="cell"></div>
-                        <div class="cell">Edit Profile</div>
+                        <div class="cellleft">Email:</div>
+                        <div class="cellright"><?php print $user['email'];?></div>
+                        <div class="paneelfooter"></div>
+                    </div>
+                <?php
+                }
+                if(!empty($user['interests']))
+                { ?>
+                    <div class="row">
+                        <div class="cellleft">Interests:</div>
+                        <div class="cellright"><?php print $user['interests'];?></div>
+                        <div class="paneelfooter"></div>
+                    </div>
+                <?php
+                }
+                if(!empty($user['personal_site']))
+                { ?>
+                    <div class="row">
+                        <div class="cellleft">Website:</div>
+                        <div class="cellright"><?php print $user['personal_site'];?></div>
+                        <div class="paneelfooter"></div>
+                    </div>
+                <?php
+                }
+                if (isset($_SESSION['user_id']) && ($_SESSION['user_id'] == $userid))
+                { ?>
+                    <div class="row">
+                        <div class="cellleft"></div>
+                        <div class="cellright"><a href="usercp/index.php">Edit Profile</a></div>
+                        <div class="paneelfooter"></div>
                     </div>
           <?php }?>
 			</div>
@@ -138,6 +182,12 @@
       <?php }?>
 	</div>
 	<div class="profilecomments">
+        <div class="catbalk">Biography</div>
+        <div class="forumhok">
+            <?php
+                print $user['biography'];
+            ?>
+        </div>
 		<div class="catbalk">Comments by this user</div>
 		<div class="forumhok">
             <?php

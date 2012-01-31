@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("include/functions.php");
+if(!isset($func)) include("include/functions.php");
 if(!isset($mysqlhost)) include("include/config.php");
 mysql_connect($mysqlhost, $mysqluser, $mysqlpass);
 mysql_select_db($mysqldb);
@@ -39,33 +39,44 @@ mysql_select_db($mysqldb);
 </head>
 
 <body>
+<script type="text/javascript">
+	if (/MSIE (\d+\.\d+);/.test(navigator.userAgent))
+	{ 
+   		var ieversion=new Number(RegExp.$1);
+   		if (ieversion<8)
+   		{
+      		window.location = "ie.html";
+   		}
+	}
+</script>
+	<a name="top"></a>
 	<div class="container">
         <div class="banner">
         </div>
         <div class="menu">
-            <div class="menuitem" onClick="window.location.href='index.php'">
+            <div class="menuitemleft" onClick="window.location.href='index.php'">
                 <b>Forum</b>
             </div>
-            <div class="menuitem" onClick="window.location.href='usercp/index.php'">
+            <div class="menuitemleft" onClick="window.location.href='usercp/index.php'">
                 <b>Gebruikers</b>
             </div>
 			<?php
 			if(!empty($_SESSION['user_rank'])){
 				 echo "
-					<div class=\"menuitem\" onClick=\"window.location.href='profiel.php'\">
-						<b>Profiel</b>
-					</div>
-					<div class=\"menuitem\" onClick=\"window.location.href='logout.php'\">
+					<div class=\"menuitemright\" onClick=\"window.location.href='logout.php'\">
 							<b>Log out</b>
+					</div>
+					<div class=\"menuitemright\" onClick=\"window.location.href='profiel.php'\">
+						<b>Profiel</b>
 					</div>";
 			}
 			else { 
 				echo "
-					<div class=\"menuitem\" onClick=\"window.location.href='register.php'\">
-						<b>Registreer</b>
-					</div>
-					<div class=\"menuitem\" onClick=\"window.location.href='login.php'\">
+					<div class=\"menuitemright\" onClick=\"window.location.href='login.php'\">
 						<b>Log in</b>
+					</div>
+					<div class=\"menuitemright\" onClick=\"window.location.href='register.php'\">
+						<b>Registreer</b>
 					</div>";
 			
 			} ?>

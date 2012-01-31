@@ -46,8 +46,6 @@
 						while ($forum = mysql_fetch_array($result2))
 						{ 
 							$forum_id = $forum['forum_id'];
-							$result3 = mysql_query("SELECT * FROM comments WHERE comment_forum_parent_id=$forum_id");
-							$result4 = mysql_query("SELECT * FROM forums WHERE parent_id=$forum_id");
 							?>
 							<div class="categorieforumcontainer">
 								<div class="categorieforumhok" onClick="window.location.href='forum.php?id=<?php print $forum['forum_id'];?>'">
@@ -58,15 +56,8 @@
 									<center>
 										<b>
 											<?php
-												$forum_id = $forum['forum_id'];
-												$result5 = mysql_query("SELECT * FROM forums WHERE parent_id=$forum_id");
-												$aantalfora = 0;
-												
-												while (mysql_fetch_array($result5))
-												{
-													$aantalfora++;
-												}
-												print $aantalfora;
+                                                $count = countForumChildren($forum_id, 0);
+                                                print $count;
 											?>
 										</b>
 									</center>
@@ -75,28 +66,44 @@
 									<center>
 										<b>
 											<?php
-												$topic_id = $forum['forum_id'];
-												$result5 = mysql_query("SELECT * FROM comments WHERE comment_forum_parent_id=$topic_id");
-												$aantaltopics = 0;
-												
-												while (mysql_fetch_array($result5))
-												{
-													$aantaltopics++;
-												}
-												print $aantaltopics;
+												$count = countSubTopics($forum_id, 0);
+                                                print $count;
 											?>
 										</b>
 									</center>
 								</div>
 								<div class="categorieposthok">
 									<center>
-										<b>100</b>
+										<b>
+											<?php
+                                                $count = countSubPosts($forum_id, 0);
+                                                print $count;
+											?>
+										</b>
 									</center>
 								</div>
-								<div class="categorielastpost" onClick="window.location.href='yourlinklocationhere'">
-									<b>Laatste bericht 1</b></br>
-									<i>Op datum door poster</i>
-								</div>
+                                <?php
+                                    $query = sprintf("SELECT * FROM comments WHERE comment_forum_parent_id=$forum_id ORDER BY comment_date DESC LIMIT 1");
+                                    $result3 = mysql_query($query);
+                                    $result3 = mysql_fetch_array($result3);
+                                    if (!empty($result3['comment_id']))
+                                    {
+                                    ?>
+                                        <div class="categorielastpost" onClick="window.location.href='topics.php?id=<?php print $result3['comment_id']; ?>'">
+                                            
+                                            <b><?php print $result3['comment_title']; ?></b></br>
+                                            <i><?php print date("d-m-Y" , strtotime($result3['comment_date'])); ?></i>
+                                        </div>
+                                    <?php
+                                    }
+                                    else
+                                    { ?>
+                                        <div class="categorielastpost" >
+                                            <b>Geen laatste bericht</b></br>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
 							</div>
 						<?php
 						}
