@@ -58,7 +58,7 @@ mysql_select_db($mysqldb);
                 <b>Forum</b>
             </div>
             <div class="menuitemleft" onClick="window.location.href='usercp/index.php'">
-                <b>Gebruikers</b>
+                <b>Gebruikerspaneel</b>
             </div>
 			<?php
 			if(!empty($_SESSION['user_rank'])){

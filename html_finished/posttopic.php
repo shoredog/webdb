@@ -5,7 +5,7 @@
 ?>
 
 <?php
-    if (isset($_POST['onderwerp']) && isset($_POST['bericht']))
+    if (!empty($_POST['onderwerp']) && !empty($_POST['bericht']))
     {
         $onderwerp = filterInput($_POST['onderwerp']);
         $bericht = filterInput($_POST['bericht']);
@@ -29,16 +29,16 @@
     }
     else
     {  
-        if (!isset($_SESSION['user_id']))
+        if (empty($_SESSION['user_id']))
         {
             header('location: login.php');
         };
-        if (!isset($_GET['forum_id']))
+        if (empty($_GET['forum_id']))
         {
             header('location: errordoc/error404.html');
         }
         $user_id = $_SESSION['user_id'];
-        $forum_id = $_GET['forum_id'];
+        $forum_id = filterInput($_GET['forum_id']);
     ?>
 
     <?php

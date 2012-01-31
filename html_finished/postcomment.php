@@ -9,7 +9,7 @@
 ?>
    
 <?php
-if (isset($_POST['onderwerp']) && isset($_POST['bericht']))
+if (!empty($_POST['onderwerp']) && !empty($_POST['bericht']))
 {
     $onderwerp = filterInput($_POST['onderwerp']);
     $bericht = filterInput($_POST['bericht']);
@@ -36,7 +36,7 @@ else
 ?>
    
 <?php  
-if (isset($_SESSION['user_id']))
+if (!empty($_SESSION['user_id']))
 {
     $user_id = $_SESSION['user_id'];
 }
@@ -45,7 +45,7 @@ else
     header('location: login.php');
 };
 
-if (!isset($_GET['topic_id']))
+if (empty($_GET['topic_id']))
 {
     header('location: errordoc/error404.html');
 }
