@@ -11,10 +11,15 @@ include 'include/header.php';
 		<div class="categoriecontainer">
 			<div class="categoriecatbalk">
 				<div class="categoriecatbalkleft">
-					Forum 1
+                    <?php 
+                        $parent_id = $_GET['id'];
+                        $result = mysql_query("SELECT * FROM forums WHERE forum_id=$parent_id");
+                        $result = mysql_fetch_array($result);
+                        print $result['forum_name'];
+                        ?>
 				</div>
 				<div class="categoriecatbalkright">
-					<a href="posttopic.php?forum_id=<?php print $_GET['id']; ?>">Maak topic</a>
+					<a href="posttopic.php?forum_id=<?php print $parent_id; ?>">Maak topic</a>
 				</div>
 			</div>
 			<div class="forforumhok">
@@ -42,7 +47,6 @@ include 'include/header.php';
 					</div>
 				</div>
 				<?php
-					$parent_id = $_GET['id'];
 					$result = mysql_query("SELECT * FROM forums WHERE parent_id=$parent_id");
 					while ($forum = mysql_fetch_array($result))
 					{
