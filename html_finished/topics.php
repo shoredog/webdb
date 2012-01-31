@@ -1,9 +1,10 @@
 <?php
 include 'include/config.php';
+include 'include/functions.php';
 mysql_connect($mysqlhost, $mysqluser, $mysqlpass) or die(mysql_error());
 mysql_select_db($mysqldb);
-if(isset($_GET['id']))
-	$topicid = $_GET['id'];
+if(isset($_GET['id']) || is_int($_GET['id']))
+	$topicid = filterInput($_GET['id']);
 else
 	$topicid = 1;
 $query = sprintf("SELECT * FROM comments WHERE comment_id = %s", $topicid);
@@ -133,12 +134,8 @@ function getAllChilds($commentid, $depth){
 	}
 }
 
-?>
-    <div class="navigation">
-    	U bent hier: <b>Index</b>
-    </div>
-  <div class="content">
-  <?php
+?>  
+<?php
 	if(isset($_GET['id']))
 		$topicid = $_GET['id'];
 	else
@@ -146,6 +143,11 @@ function getAllChilds($commentid, $depth){
 	$query = sprintf("SELECT * FROM comments WHERE comment_id = %s", $topicid);
 	$result = mysql_query($query) or die(mysql_error());
 	$output = mysql_fetch_array($result) or die(mysql_error());  ?>
+    <div class="navigation">
+    	U bent hier: <b><?php echo getForumParents($output['comment_forum_parent_id'], $output['comment_title']) ?></b>
+    </div>
+  <div class="content">
+
   <div class="catbalk" style="margin-bottom:10px; float:right; width:93%; padding-left:3%; padding-right:3%;"><center><?php echo(isset($error)?'Er is een fout opgetreden.':$output['comment_title']) ?></center></div>
 	<div class="comment">
     <?php

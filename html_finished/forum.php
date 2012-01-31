@@ -3,20 +3,19 @@ include 'include/header.php';
     mysql_connect("$mysqlhost","$mysqluser","$mysqlpass") or die(mysql_error());
     mysql_select_db("$mysqldb") or die(mysql_error());
 ?>
-
+<?php
+    $parent_id = $_GET['id'];
+    $result = mysql_query("SELECT * FROM forums WHERE forum_id=$parent_id");
+    $result = mysql_fetch_array($result);
+?>
     <div class="navigation">
-    	U bent hier: <b>Forum 1</b>
+    	U bent hier: <b><?php print getForumParents($result['parent_id'], $result['forum_name']); ?></b>
     </div>
 	<div class="categoriecontent">
 		<div class="categoriecontainer">
 			<div class="categoriecatbalk">
 				<div class="categoriecatbalkleft">
-                    <?php 
-                        $parent_id = $_GET['id'];
-                        $result = mysql_query("SELECT * FROM forums WHERE forum_id=$parent_id");
-                        $result = mysql_fetch_array($result);
-                        print $result['forum_name'];
-                        ?>
+                    <?php print $result['forum_name']; ?>
 				</div>
 				<div class="categoriecatbalkright">
 					<a href="posttopic.php?forum_id=<?php print $parent_id; ?>">Maak topic</a>

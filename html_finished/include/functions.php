@@ -2,6 +2,7 @@
 # 		PHP FUNCTIONS FOR SHOREDOG FORUM SYSTEMS
 #		COPYRIGHT 2012 - SHOREDOG INCORPORATED
 
+$func = true;
 
 function filterInput($input)
 {
@@ -45,4 +46,14 @@ function isImage($url)
 	return false;
 }
 
+function getForumParents($id, $uitvoer)
+{
+	$query = sprintf("SELECT * FROM forums WHERE forum_id = %s", $id);
+	$result = mysql_query($query) or die(mysql_error());
+	$output = mysql_fetch_array($result) or die(mysql_error());
+	$uitvoer = $output['forum_name'] . ' - '. $uitvoer;
+	if($output['parent_id'] != 0)
+		$uitvoer = getForumParents($output['parent_id'], $uitvoer);
+	return $uitvoer;
+}
 ?>
