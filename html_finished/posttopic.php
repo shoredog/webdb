@@ -35,7 +35,7 @@
         };
         if (empty($_GET['forum_id']))
         {
-            header('location: errordoc/error404.html');
+            header('location: index.php');
         }
         $user_id = $_SESSION['user_id'];
         $forum_id = filterInput($_GET['forum_id']);

@@ -47,7 +47,7 @@ else
 
 if (empty($_GET['topic_id']))
 {
-    header('location: errordoc/error404.html');
+    header('index.php');
 }
 $topic_id = $_GET['topic_id'];
 $result = mysql_query("SELECT * FROM comments WHERE comment_id=$topic_id");
