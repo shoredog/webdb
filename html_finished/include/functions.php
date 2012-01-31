@@ -137,4 +137,16 @@ function countTopicPosts($id, $count)
     }
     return $count;
 }
+
+function getCommentParent($id)
+{
+    $query = sprintf("SELECT * FROM comments WHERE comment_id=$id");
+    $result = mysql_query($query);
+    $result = mysql_fetch_array($result);
+    if($result['comment_parent_id']!=0)
+    {
+        $id = getCommentParent($result['comment_parent_id']);
+    }
+    return $id;
+}
 ?>

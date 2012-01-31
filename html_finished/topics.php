@@ -18,7 +18,7 @@ if($output['comment_parent_id'] != 0)
 	header("Location: topics.php?id=$parent&post=$topicid#$topicid");
 }
 include 'include/header.php';
-if (isset($_POST['sendnewpost']))
+if (isset($_POST['sendnewpost']) && !empty($_POST['bericht']))
 {
     $onderwerp = $_POST['onderwerp'];
     $bericht = $_POST['bericht'];
@@ -29,7 +29,13 @@ if (isset($_POST['sendnewpost']))
     $bericht = filterInput($bericht);
 	mysql_query("INSERT INTO comments (comment_parent_id, comment_forum_parent_id, comment_title, comment_description, comment_content, poster_id)
                 VALUES ('$topic_id', '$forum_id', '$onderwerp', '', '$bericht', '$poster_id')") or die(mysql_error());
-	header("Location: topics.php?id=$topic_id&scrdwn=1");
+    $comment_id = mysql_insert_id();
+    $result = mysql_query("SELECT * FROM comments WHERE comment_id=$comment_id");
+    $result = mysql_fetch_array($result);
+    $date = $result['comment_date'];
+    $parent_id = getCommentParent($comment_id);
+    mysql_query("UPDATE comments SET comment_last_edit='$date' WHERE comment_id=$parent_id");
+	header("Location: topics.php?id=$comment_id&scrdwn=1");
 }
 ?>
 <script type="text/javascript"> 

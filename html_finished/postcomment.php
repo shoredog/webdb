@@ -19,6 +19,12 @@ if (!empty($_POST['onderwerp']) && !empty($_POST['bericht']))
 
     mysql_query("INSERT INTO comments (comment_parent_id, comment_forum_parent_id, comment_title, comment_description, comment_content, poster_id)
                 VALUES ('$topic_id', '$forum_id', '$onderwerp', '', '$bericht', '$poster_id')") or die(mysql_error());
+    $comment_id = mysql_insert_id();
+    $result = mysql_query("SELECT * FROM comments WHERE comment_id=$comment_id");
+    $result = mysql_fetch_array($result);
+    $date = $result['comment_date'];
+    $parent_id = getCommentParent($comment_id);
+    mysql_query("UPDATE comments SET comment_last_edit='$date' WHERE comment_id=$parent_id");
     ?>
     <div class="content">
         <div class="catbalk">
@@ -26,7 +32,7 @@ if (!empty($_POST['onderwerp']) && !empty($_POST['bericht']))
         </div>
         <div class="forumhok">
             Post Succesfull! <br/>
-            <a href="topics.php?id=<?php print mysql_insert_id() ?>">Click here to return to the topic</a>
+            <a href="topics.php?id=<?php print $comment_id ?>">Click here to return to the topic</a>
         </div>
     </div>
     <?php
