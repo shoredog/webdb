@@ -15,7 +15,7 @@ include 'include/header.php';
 			<?php
 			session_unset();
 			?>
-			Uw bent nu uitgelogt.<br />
+			Uw bent nu uitgelogd.<br />
 			Klik <a href="index.php">hier</a> om terug te gaan naar de begin pagina
 		</div>
 	</div>

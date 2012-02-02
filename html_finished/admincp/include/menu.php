@@ -1,0 +1,6 @@
+- <a href="index.php" target="_self">Home</a><br />
+- <a href="editrank.php" target="_self">Rank aanpassen</a><br />
+- <a href="topicmod.php" target="_self">Topic moderation</a><br />
+- <a href="catmanagement.php" target="_self">Categoriemanagement</a><br />
+- <a href="forummanagement.php" target="_self">Forummanagement</a><br />
+- <a href="settings.php" target="_self">Algemene instellingen</a>

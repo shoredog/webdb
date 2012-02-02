@@ -1,5 +1,4 @@
 <?php
-
 //-------------------- ALGEMEEN (PREFIX: alg) ------------------------
 $alglocatie = "Your location: ";
 $algcopyright = "&copy;". date("Y") ."- ShoreDog Power Services, Inc.&trade; (Powered by ShoreDog Forum Engine&reg;).";
@@ -12,6 +11,7 @@ $alglogin = "Log in";
 $algloguit = "Log uit";
 $alghome = "Home";
 $algmonths = array("Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December");
+$userranks = array("Banned","Gebruiker","Administrator");
 
 //-------------------- MENU (PREFIX: menu) ------------------------- 
 

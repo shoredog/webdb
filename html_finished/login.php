@@ -36,37 +36,41 @@ include 'include/header.php';
 				<?php 
 					echo "$inlogreg";
 				
-					if(isset($_POST['login'])){
-					
+					if(isset($_POST['login']))
+					{
 						$qry = sprintf('SELECT * FROM users WHERE user_name=\'%s\' AND password=\'%s\'', filterInput($_POST['username']), sha1($_POST['password'])); 
 						$result = mysql_query($qry);
-						$userinfo = mysql_fetch_array($result);
-						
-						$_SESSION['user_id'] = $userinfo['user_id'];
-						$_SESSION['user_name'] = $userinfo['user_name'];
-						$_SESSION['user_ava'] = $userinfo['avatar'];
-						$_SESSION['user_rank'] = $userinfo['rank'];
-						$_SESSION['user_lang'] = $userinfo['lang'];
-						$_SESSION['user_style'] = $userinfo['style'];
-						$_SESSION['user_tview'] = $userinfo['viewtype'];
-						$_SESSION['user_sex'] = $userinfo['sex'];
-						$_SESSION['user_site'] = $userinfo['personal_site'];
-						$_SESSION['user_subtitle'] = $userinfo['sub_title'];
-						$_SESSION['user_location'] = $userinfo['location'];
-						$_SESSION['user_email'] = $userinfo['email'];
-						$_SESSION['user_date_of_birth'] = $userinfo['date_of_birth'];
-						$_SESSION['user_show_dob'] = $userinfo['show_dob'];
-						$_SESSION['user_interests'] = $userinfo['interests'];
-						$_SESSION['user_bio'] = $userinfo['biography'];
-						$_SESSION['user_sig'] = $userinfo['signature'];
-						
-						$_SESSION['ip'] = @$REMOTE_ADDR;
-						
-						if(mysql_num_rows($result) > 0) {
-								
-							header("Location: index.php");
+						if(mysql_num_rows($result) > 0) 
+						{	
+							$userinfo = mysql_fetch_array($result);
+							if($userinfo['rank'] == 0)
+								echo("<br />U bent verbannen van het forum, inloggen is niet mogelijk.");
+							else
+							{
+								$_SESSION['user_id'] = $userinfo['user_id'];
+								$_SESSION['user_name'] = $userinfo['user_name'];
+								$_SESSION['user_ava'] = $userinfo['avatar'];
+								$_SESSION['user_rank'] = $userinfo['rank'];
+								$_SESSION['user_lang'] = $userinfo['lang'];
+								$_SESSION['user_style'] = $userinfo['style'];
+								$_SESSION['user_tview'] = $userinfo['viewtype'];
+								$_SESSION['user_sex'] = $userinfo['sex'];
+								$_SESSION['user_site'] = $userinfo['personal_site'];
+								$_SESSION['user_subtitle'] = $userinfo['sub_title'];
+								$_SESSION['user_location'] = $userinfo['location'];
+								$_SESSION['user_email'] = $userinfo['email'];
+								$_SESSION['user_date_of_birth'] = $userinfo['date_of_birth'];
+								$_SESSION['user_show_dob'] = $userinfo['show_dob'];
+								$_SESSION['user_interests'] = $userinfo['interests'];
+								$_SESSION['user_bio'] = $userinfo['biography'];
+								$_SESSION['user_sig'] = $userinfo['signature'];
+								$_SESSION['notitions'] = $userinfo['notitions'];
+								$_SESSION['ip'] = @$REMOTE_ADDR;
+								header("Location: index.php");
+							}
 						}
-						else {
+						else 
+						{
 							echo "<p />Het is niet gelukt in te loggen. Controleer uw gegevens en probeer het opnieuw.";
 						}
 					}

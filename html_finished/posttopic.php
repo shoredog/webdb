@@ -13,6 +13,13 @@
         $forum_id = $_POST['forum_id'];
         $user_id = $_POST['user_id'];
         
+        $result = mysql_query("SELECT * FROM comments WHERE poster_id=$user_id ORDER BY comment_date DESC LIMIT 1");
+        $result = mysql_fetch_array($result);
+        
+        $time = time();
+        $comment_date30 = strtotime($result['comment_date']) + 30;
+        if ($time >= $comment_date30)
+        {
         mysql_query("INSERT INTO comments (comment_parent_id, comment_forum_parent_id, comment_title, comment_description, comment_content, poster_id)
                     VALUES ('0', '$forum_id', '$onderwerp', '$description', '$bericht', '$user_id')") or die(mysql_error());
         ?>
@@ -26,6 +33,21 @@
             </div>
         </div>
         <?php
+        }
+        else
+        {
+        ?>
+        <div class="content">
+            <div class="catbalk">
+                New Reply
+            </div>
+            <div class="forumhok">
+                You must wait 30 seconds before posting. <br/>
+                <a href="forum.php?id=<?php print $forum_id ?>">Click here to return to the topic</a>
+            </div>
+        </div>
+        <?php
+        }
     }
     else
     {  
@@ -47,7 +69,7 @@
     ?>
 
         <div class="navigation">
-            U bent hier: <b>posttopic</b>
+            U bent hier: <b>Post-topic</b>
         </div>
 
         <div class="content">
@@ -58,23 +80,23 @@
                 <form action="posttopic.php" method="post">
                     <div class="formulier">
                         <span><b>Gebruikersnaam:</b></span>
-                        <span> <?php print $user['user_name'] ?> (<a href="logout.php"> Log out </a>)</span>
-                        <div class="profilefooter"></div>
+                        <span> <?php print $user['user_name'] ?> (<a href="logout.php">Log out</a>)</span>
+                        <div class="paneelfooter"></div>
                     </div>
                     <div class="formulier">
                         <span><b>Onderwerp:</b></span>
                         <input name="onderwerp" type="text" maxlength="250" class="paneelinvoer" />
-                        <div class="profilefooter"></div>
+                        <div class="paneelfooter"></div>
                     </div>
                     <div class="formulier">
-                        <span><b>Description?:</b></span>
+                        <span><b>Description:</b></span>
                         <input name="description" type="text" maxlength="250" class="paneelinvoer" />
-                        <div class="profilefooter"></div>
+                        <div class="paneelfooter"></div>
                     </div>
                     <div class="formulier">
                         <span><b>Bericht:</b></span>
                         <textarea name="bericht" cols="60" rows="15" class="paneeltext" ></textarea>
-                        <div class="profilefooter"></div>
+                        <div class="paneelfooter"></div>
                     </div>
                     <input type="hidden" name="forum_id" value="<?php print $forum_id; ?>" />
                     <input type="hidden" name="user_id" value="<?php print $user_id; ?>" />

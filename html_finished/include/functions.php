@@ -62,7 +62,7 @@ function getForumParents($id, $uitvoer)
     $query = sprintf("SELECT * FROM forums WHERE forum_id = %s", $id);
     $result = mysql_query($query) or die(mysql_error());
     $output = mysql_fetch_array($result) or die(mysql_error());
-    $uitvoer = '<b><a href="'.(($output['parent_id'] != 0)?'forum':'index').'.php?id='.$id.'">'.$output['forum_name'] . '</a></b> - '. $uitvoer;
+    $uitvoer = '<b><a href="'.(($output['parent_id'] != 0)?'forum':'categorie').'.php?id='.$id.'">'.$output['forum_name'] . '</a></b> - '. $uitvoer;
     if($output['parent_id'] != 0)
     $uitvoer = getForumParents($output['parent_id'], $uitvoer);
     return $uitvoer;

@@ -6,13 +6,13 @@ $algcopyright = "&copy;". date("Y") ."- ShoreDog Power Services, Inc.&trade; (Po
 $algrules = "Forumregelement";
 $algcontact = "Contactgegevens";
 $algforum = "Forum";
-$algusers = "Gebruikers";
+$algusers = "Gebruikerspaneel";
 $algreg = "Registratie";
 $alglogin = "Log in";
 $algloguit = "Log uit";
 $alghome = "Home";
 $algmonths = array("Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December");
-
+$userranks = array("Banned","Gebruiker","Administrator");
 
 //-------------------- MENU (PREFIX: menu) ------------------------- 
 

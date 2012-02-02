@@ -6,6 +6,15 @@
 												
 	<div class="navigation">
 		U bent hier: <b>Index</b>
+		<?php 
+			if(!empty($_SESSION['user_id']) && $_SESSION['user_rank'] > 1)
+			{
+				?>
+				<div class="navigationright">
+					<a href="postforum.php?id=0">Maak categorie</a>
+				</div>
+				<?php
+			} ?>
 	</div>
 		
     <div class="categoriecontent">
@@ -15,7 +24,20 @@
 			{
 				?>  
 				<div class="categoriecontainer">
-					<div class="categoriecatbalk"><?php print $categorie['forum_name'];?></div>
+					<div class="categoriecatbalk">
+						<div class="categoriecatbalkleft">
+							<a href="categorie.php?id=<?php print $categorie['forum_id']; ?>"><?php print $categorie['forum_name'];?></a>
+						</div>
+						<?php 
+						if(!empty($_SESSION['user_id']) && $_SESSION['user_rank'] > 1)
+						{
+							?>
+								<div class="categoriecatbalkright">
+									<a href="postforum.php?id=<?php print $categorie['forum_id']; ?>">Maak forum</a>
+								</div>
+							<?php
+						} ?>
+					</div>
 					<div class="catforumhok">
 						<div class="categorieinfocontainer">
 							<div class="categorieinfoforumhok" >
@@ -88,11 +110,14 @@
                                     $result3 = mysql_fetch_array($result3);
                                     if (!empty($result3['comment_id']))
                                     {
+										$poster_id = $result3['poster_id'];
+										$poster = mysql_query("SELECT * FROM users WHERE user_id=$poster_id");
+										$result4 = mysql_fetch_array($poster);
                                     ?>
                                         <div class="categorielastpost" onClick="window.location.href='topics.php?id=<?php print $result3['comment_id']; ?>'">
                                             
                                             <b><?php print $result3['comment_title']; ?></b></br>
-                                            <i><?php print date("d-m-Y" , strtotime($result3['comment_date'])); ?></i>
+											<i><?php print date("d-m-Y" , strtotime($result3['comment_date'])); ?> door <a style="font-weight:lighter" href="profiel.php?user=<?php print $result4['user_name'];?>"><?php print $result4['user_name'];?></a></i>
                                         </div>
                                     <?php
                                     }

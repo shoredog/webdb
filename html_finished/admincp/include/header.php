@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
@@ -34,7 +33,7 @@ mysql_select_db($mysqldb);
 		include("../lang/english.php");
 ?>
 <link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
-<title>Userpanel</title>
+<title>Adminpanel</title>
 </head>
 
 <body>
@@ -42,36 +41,39 @@ mysql_select_db($mysqldb);
         <div class="banner">
         </div>
         <div class="menu">
-            <div class="menuitem" onClick="window.location.href='../index.php'">
+            <div class="menuitemleft" onClick="window.location.href='../index.php'">
                 <b><?php echo($algforum); ?></b>
             </div>
-            <div class="menuitem" onClick="window.location.href='../usercp/index.php'">
+            <div class="menuitemleft" onClick="window.location.href='../usercp/index.php'">
                 <b><?php echo($algusers); ?></b>
             </div>
-            <div class="menuitem" onClick="window.location.href='../register.php'">
-                <b><?php echo($algreg); ?></b>
-            </div>
-            <?php
+            
+			<?php
 			if(!empty($_SESSION['user_rank'])){
 				 echo "
-					<div class=\"menuitem\" onClick=\"window.location.href='../logout.php' \">
-							<b>$algloguit</b>
+					<div class=\"menuitemright\" onClick=\"window.location.href='../logout.php'\">
+							<b>Log out</b>
+					</div>
+					<div class=\"menuitemright\" onClick=\"window.location.href='../profiel.php'\">
+						<b>Profiel</b>
 					</div>";
 			}
 			else { 
 				echo "
-					<div class=\"menuitem\" onClick=\"window.location.href='../login.php' \">
-						<b>$alglogin</b>
+					<div class=\"menuitemright\" onClick=\"window.location.href='../login.php'\">
+						<b>Log in</b>
+					</div>
+					<div class=\"menuitemright\" onClick=\"window.location.href='../register.php'\">
+						<b>Registreer</b>
 					</div>";
 			
 			} ?>
         </div>
-        
         <?php
-			if(!isset($_SESSION['user_id']))
+			if(!isset($_SESSION['user_id']) || $_SESSION['user_id'] < 2)
 			{
 				echo('<div class="content">');
-				echo($gebpannotlogged);
+				echo("Geen admin of niet ingelogd!");
 				echo('</div>');
 				include("include/footer.php");
 				die();

@@ -1,8 +1,13 @@
 <?php
-session_start();
-if(!isset($func)) include("include/functions.php");
-if(!isset($mysqlhost)) include("include/config.php");
-mysql_connect($mysqlhost, $mysqluser, $mysqlpass);
+	if($_SERVER['SERVER_PORT'] == 80){
+		$ssl = "https://".$_SERVER['HTTP_HOST'].":443".$_SERVER['REQUEST_URI'];
+		header("Location: ".$ssl);
+	}
+
+	session_start();
+	if(!isset($func)) include("include/functions.php");
+	if(!isset($mysqlhost)) include("include/config.php");
+	mysql_connect($mysqlhost, $mysqluser, $mysqlpass);
 mysql_select_db($mysqldb);
 ?>
 
@@ -55,10 +60,10 @@ mysql_select_db($mysqldb);
         </div>
         <div class="menu">
             <div class="menuitemleft" onClick="window.location.href='index.php'">
-                <b>Forum</b>
+                <b><?php print $algforum ?></b>
             </div>
             <div class="menuitemleft" onClick="window.location.href='usercp/index.php'">
-                <b>Gebruikerspaneel</b>
+                <b><?php print $algusers ?></b>
             </div>
 			<?php
 			if(!empty($_SESSION['user_rank'])){
@@ -81,3 +86,17 @@ mysql_select_db($mysqldb);
 			
 			} ?>
         </div>
+
+		<?php
+			
+			$query = sprintf("SELECT * FROM bannedip WHERE profile_ip='%s'", $_SERVER['REMOTE_ADDR']);
+			$query = mysql_query($query);
+			if(mysql_num_rows($query) > 0)
+			{
+				echo('<div class="content">');
+				echo("Uw IP adres is verbannen van dit forum.");
+				echo('</div>');
+				include("include/footer.php");
+				die();
+			}
+		?>

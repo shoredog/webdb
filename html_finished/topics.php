@@ -41,19 +41,48 @@ if (isset($_POST['sendnewpost']) && !empty($_POST['bericht']))
 <script type="text/javascript"> 
 // <![CDATA[
 	var isOpen = false;
+	var xmlobj = null;
     function toggleQuickReaction()
 	{
 		if(isOpen)
 		{
-			document.getElementById('quickreact').innerHTML = '<center><input type="button" value="Snelle reactie posten" class="topic" onclick="toggleQuickReaction()" /></center>';
+			document.getElementById('quickreactbutton').value = 'Snelle reactie posten';
+			document.getElementById('quickreactcontent').style.display = 'none';
 			isOpen = false;
 		}
 		else
 		{
-			document.getElementById('quickreact').innerHTML = "<center><input type=\"button\" value=\"Snelle reactie verbergen\" class=\"topic\" onclick=\"toggleQuickReaction()\" /></center><form action=\"<?php echo $_SERVER['PHP_SELF'] ?>?id=<?php echo($topicid) ?>\" method=\"post\"><textarea name=\"bericht\" class=\"paneeltext\" style=\"margin-top:20px; width:100%; height:300px;\"></textarea><input type=\"hidden\" name=\"onderwerp\" value=\"RE: <?php echo $topictitle ?>\" /><input type=\"hidden\" name=\"topic_id\" value=\"<?php echo($topicid) ?>\" /><input type=\"hidden\" name=\"forum_id\" value=\"<?php echo($forumid) ?>\" /><div style=\"float:right;\"><input type=\"submit\" class=\"topic\" value=\"Verzenden maar!\" name=\"sendnewpost\" /></div></form>";
+			document.getElementById('quickreactbutton').value = 'Snelle reactie verbergen';
+			document.getElementById('quickreactcontent').style.display = 'block';
 			isOpen = true;
 			window.scrollTo(0,document.body.scrollHeight);
 		}
+	}
+	
+	function likePost(postid, userid)
+	{
+		xmlobj = new XMLHttpRequest();
+		var url = "like.php?uid="+userid+"&pid="+postid;
+		xmlobj.onreadystatechange = function(){
+			if(xmlobj.readyState == 4  && xmlobj.status == 200)
+			{
+				var antwoord = xmlobj.responseText;
+				if(parseInt(antwoord) == 0)
+				{
+					alert("U heeft deze post al geliked!");
+				}
+				else
+				{
+					var elementid = "likebtn" + postid;
+					document.getElementById(elementid).value = "Like (" + antwoord + ")";
+				}
+			}
+			
+		};
+		xmlobj.open("GET", url, true);
+		//xmlobj.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlobj.send(null);
+		
 	}
 // ]]> 
 </script>
@@ -85,22 +114,37 @@ function printFullPost($commentid, $depth, $output)
     <center><b><?php echo($output['comment_title']); ?></b></center><br />
 	<div class="catbalk2">
 	<center><a href="profiel.php?user=<?php echo($output['poster_id']) ?>"><img src="<?php echo(($useroutput['avatar'] != NULL)?$useroutput['avatar']:'images/defaultava.jpg') ?>" width="70px" height="70px" /></center><br />
-	<b><?php echo($useroutput['user_name']) ?></b></a><br />
-	<i>Rank: <?php echo($useroutput['rank']) ?></i>
+	<b><?php echo($useroutput['user_name']);?></b></a><br />
+    
+	Rank: <?php global $userranks; echo($userranks[$useroutput['rank']]); ?><br />
+    Posts:
+    <?php
+		$pid = $output['poster_id'];
+		echo(mysql_num_rows(mysql_query("SELECT * FROM comments WHERE poster_id = $pid")));
+	?>
 	</div>	
 	<div class="forumhok2">
 		<?php echo(BbToHtml($output['comment_content'])); ?>
 		<hr style="margin-top:20px" /><br />
 		<?php echo(BbToHtml($useroutput['signature'])) ?>
 	</div>
-	
 	<div style="float:right">
 		<form action="postcomment.php" method="get">
+        	<?php 
+			$comid = $output['comment_id'];
+			$likes = mysql_num_rows(mysql_query("SELECT * FROM likes WHERE comment_id = '$comid'")); ?>
 			<input type="hidden" name="topic_id" value='<?php print $output['comment_id']; ?>'/>
             <input type="button" value="Scroll naar boven" class="topic" onclick="window.scrollTo(0,0)" />
             <input type="button" value="Verkrijg URL" class="topic" onclick="prompt('De URL voor deze post is:','<?php echo($_SERVER["SERVER_NAME"].$_SERVER['PHP_SELF'].'?id='.$topicid.'&post='.$output['comment_id'].'#'.$output['comment_id']) ?>')" />
-            <input type="button" value="Like" class="topic" />
-            <input type="button" value="Reageren" class="topic" onclick="window.location.href='postcomment.php?topic_id=<?php echo($output['comment_id']); ?>'" />
+            <?php
+			if(isset($_SESSION['user_id']))
+			{
+				?>
+				<input type="button" value="Like (<?php echo $likes; ?>)" class="topic" id="likebtn<?php echo $output['comment_id']; ?>" onclick="likePost(<?php echo $output['comment_id']; ?>, <?php echo $_SESSION['user_id']; ?>)" />
+				<input type="button" value="Reageren" class="topic" onclick="window.location.href='postcomment.php?topic_id=<?php echo($output['comment_id']); ?>'" />
+				<?php
+			}
+			?>
 		</form>
 	</div></div>
 	<div class="eindfloat"></div>
@@ -176,7 +220,12 @@ function getAllChilds($commentid, $depth){
 		<div class="catbalk2">
 		<center><a href="profiel.php?user=<?php echo($output['poster_id']) ?>"><img src="<?php echo(($useroutput['avatar'] != NULL)?$useroutput['avatar']:'images/defaultava.jpg') ?>" width="70px" height="70px" /></center><br />
 		<b><?php echo($useroutput['user_name']) ?></b></a><br />
-		<i>Rank: <?php echo($useroutput['rank']) ?></i>
+		Rank: <?php global $userranks; echo($userranks[$useroutput['rank']]); ?><br />
+    Posts:
+    <?php
+		$pid = $output['poster_id'];
+		echo(mysql_num_rows(mysql_query("SELECT * FROM comments WHERE poster_id = $pid")));
+	?>
 		</div>	
 		<div class="forumhok2">
 			<?php echo(BbToHtml($output['comment_content'])) ?>
@@ -190,8 +239,17 @@ function getAllChilds($commentid, $depth){
             <input type="hidden" name="quote" value='<?php print $output['comment_content'] ?>' />
             <input type="hidden" name="topic_id" value='<?php print $output['comment_id']; ?>'/>
             <input type="button" value="Verkrijg URL" class="topic" onclick="prompt('De URL voor deze post is:','<?php echo($_SERVER["SERVER_NAME"].$_SERVER['PHP_SELF'].'?id='.$topicid) ?>')" />
-            <input type="button" value="Like" class="topic" />
-            <input type="button" value="Reageren" class="topic" onclick="window.location.href='postcomment.php?topic_id=<?php echo($topicid); ?>'" />
+            <?php
+			$comid = $output['comment_id'];
+			$likes = mysql_num_rows(mysql_query("SELECT * FROM likes WHERE comment_id = '$comid'"));
+			if(isset($_SESSION['user_id']))
+			{
+				?>
+				<input type="button" value="Like (<?php echo $likes; ?>)" class="topic" id="likebtn<?php echo $output['comment_id']; ?>" onclick="likePost(<?php echo $output['comment_id']; ?>, <?php echo $_SESSION['user_id']; ?>)" />
+				<input type="button" value="Reageren" class="topic" onclick="window.location.href='postcomment.php?topic_id=<?php echo($output['comment_id']); ?>'" />
+				<?php
+			}
+			?>
         </form>
     </div></div>
     <div class="eindfloat"></div>	
@@ -203,8 +261,18 @@ function getAllChilds($commentid, $depth){
 		if(isset($_SESSION['user_id']))
 		{
 	?>
-            <div class="quickreaction" name="quickreact" id="quickreact">
-            <center><input type="button" value="Snelle reactie posten" class="topic" onclick="toggleQuickReaction()" /></center>
+            <div class="quickreaction" name="quickreact">
+            	<center><input type="button" value="Snelle reactie posten" class="topic" onclick="toggleQuickReaction()" id="quickreactbutton" /></center>
+            <div id="quickreactcontent" style="display:none">
+                <form action="<?php echo $_SERVER['PHP_SELF'] ?>?id=<?php echo($topicid) ?>" method="post">
+                	<textarea name="bericht" class="paneeltext" style="margin-top:20px; width:100%; height:300px;"></textarea>
+                    <input type="hidden" name="onderwerp" value="RE: <?php echo $topictitle ?>" />
+                    <input type="hidden" name="topic_id" value="<?php echo($topicid) ?>" />
+                    <input type="hidden" name="forum_id" value="<?php echo($forumid) ?>" />
+                    <div style="float:right;">
+                    	<input type="submit" class="topic" value="Verzenden maar!" name="sendnewpost" />
+                   </div>
+               	</form></div>
             </div>
             <div class="eindfloat"><a name="bottom"></a></div>
           </div>

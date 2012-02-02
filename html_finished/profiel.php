@@ -91,6 +91,14 @@
                     </div>
                     <div class="paneelfooter"></div>
                 </div>
+                <div class="row">
+                    <div class="cellleft">Posts:</div>
+                    <div class="cellright"><?php
+                        print mysql_num_rows(mysql_query("SELECT * FROM comments WHERE poster_id=$userid"));
+                        ?>
+                    </div>
+                    <div class="paneelfooter"></div>
+                </div>
                 <?php
                 if(!empty($user['location']))
                 { ?>
@@ -153,7 +161,7 @@
                 <div class="catbalk">Profile comments</div>
                 <div class="forumhok">
                     <?php
-                        $result3 = mysql_query("SELECT * FROM profilereactions WHERE profile_id=$userid ORDER BY profile_reactions_id DESC LIMIT 10");
+                        $result3 = mysql_query("SELECT * FROM profilereactions WHERE profile_id=$userid ORDER BY profile_reactions_id DESC LIMIT 100");
                         while ($profileComments = mysql_fetch_array($result3))
                         {?>
                             <div class="profilecomment2">
